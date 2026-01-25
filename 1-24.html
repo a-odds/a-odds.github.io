@@ -14,14 +14,44 @@ body{
   padding:20px;
   margin:0;
 }
+
+/* Logo */
+.logo-wrap{
+  max-width:980px;
+  margin:0 auto 8px;
+  display:flex;
+  justify-content:center;
+}
+.logo-link{display:inline-flex; align-items:center; justify-content:center; text-decoration:none;}
+.logo-img{
+  max-width:200px;
+  width:100%;
+  height:auto;
+  max-height:64px;
+  object-fit:contain;
+}
+
+/* Page title (link to home) */
+.page-title{
+  margin:0 0 14px;
+}
+.page-title a{
+  color:#111;
+  text-decoration:none;
+}
+.page-title a:hover{
+  color:#5b7cfa;
+  text-decoration:underline;
+}
+
 .page-desc{
   font-size:16px;
   color:#555;
-  margin:10px auto 18px;
+  margin:0;
   max-width:980px;
 }
 
-/* NAV: บน/ล่าง */
+/* NAV top/bottom */
 .navbar{
   max-width:980px;
   margin:0 auto 18px;
@@ -29,6 +59,10 @@ body{
   align-items:center;
   justify-content:space-between;
   gap:10px;
+}
+.navcenter{
+  flex:1;
+  text-align:center;
 }
 .navlink{
   display:inline-block;
@@ -51,7 +85,7 @@ body{
   pointer-events:none;
 }
 
-/* หัวข้อใหญ่ + icon */
+/* Main title with icon */
 .main-title{
   display:flex;
   align-items:center;
@@ -60,7 +94,7 @@ body{
 }
 .main-icon{width:24px;height:24px;object-fit:contain;}
 
-/* 2 คอลัมน์สมดุล + มือถือแนวตั้ง */
+/* Sub grid */
 .subs{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -73,7 +107,7 @@ body{
   .subs{grid-template-columns:1fr;}
 }
 
-/* การ์ดหัวข้อรอง */
+/* Sub card */
 .subcard{
   width:100%;
   background:#ffffff;
@@ -87,7 +121,7 @@ body{
   gap:10px;
 }
 
-/* หัวข้อรอง: ข้อความ + ปุ่มดาวน์โหลด */
+/* Sub header: text + download */
 .sub-head{
   display:flex;
   align-items:center;
@@ -103,7 +137,6 @@ body{
   flex:1;
 }
 
-/* ปุ่มดาวน์โหลด */
 .dl-btn{
   display:inline-flex;
   align-items:center;
@@ -119,7 +152,7 @@ body{
 }
 .dl-btn:hover{color:#5b7cfa; transform:translateY(-1px);}
 
-/* ตาราง */
+/* Table */
 .sub-extra{
   width:100%;
   text-align:left;
@@ -154,6 +187,8 @@ body{
 .sub-extra tbody tr:nth-child(even) td{
   background:#fff3e6;
 }
+
+/* center cols 2,3,4,6 if exist */
 .sub-extra th:nth-child(2),
 .sub-extra th:nth-child(3),
 .sub-extra th:nth-child(4),
@@ -172,7 +207,7 @@ body{
 .sub-extra td:nth-child(3){ color:#4b5563; font-weight:700; }
 .sub-extra td:nth-child(4){ color:#e63b7a; font-weight:700; }
 
-/* Copyright */
+/* Footer */
 .footer{
   max-width:980px;
   margin:18px auto 0;
@@ -203,12 +238,23 @@ body{
 </head>
 <body>
 
-<h1>Major European Leagues</h1>
 
-<!-- NAV TOP: แถวเดียวกับข้อความใต้ title -->
+<div class="logo-wrap">
+  <a class="logo-link" href="https://a-odds.github.io/" aria-label="Home">
+    <img class="logo-img" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769328991/G/logo.png" alt="Logo">
+  </a>
+</div>
+
+<h1 class="page-title">
+  <a href="https://a-odds.github.io/">Major European Leagues</a>
+</h1>
+
+<!-- NAV TOP: same row as page desc -->
 <div class="navbar">
   <a class="navlink " href="#">« ก่อนหน้า</a>
-  <div class="page-desc">JAN 24, 2026</div>
+  <div class="navcenter">
+    <div class="page-desc">JAN 24, 2026</div>
+  </div>
   <a class="navlink " href="https://a-odds.github.io/1-25.html">ถัดไป »</a>
 </div>
 <div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
@@ -811,14 +857,13 @@ body{
 <!-- NAV BOTTOM -->
 <div class="navbar" style="margin-top:6px;">
   <a class="navlink " href="#">« ก่อนหน้า</a>
-  <div></div>
+  <div class="navcenter"></div>
   <a class="navlink " href="https://a-odds.github.io/1-25.html">ถัดไป »</a>
 </div>
 
 <div class="footer">© 2026 www.A-Odds.com</div>
 
 <button id="backToTop" aria-label="Back to top">
-  <!-- ลูกศรหนา ชี้ขึ้น -->
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path d="M12 21V7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
     <path d="M6 13l6-6 6 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -827,7 +872,7 @@ body{
 
 <script>
 (function(){
-  // font fit (Excel-ish)
+  // Font fit (Excel-ish)
   function fitCell(el, maxPx, minPx){
     el.style.fontSize = maxPx + "px";
     const maxIter = (maxPx - minPx) + 2;
