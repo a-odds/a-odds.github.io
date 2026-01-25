@@ -4,237 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Major European Leagues</title>
-<meta name="description" content="เว็บทำนายผลฟุตบอลยุโรป พร้อมอัตราต่อรองแบบเรียลไทม์ ครอบคลุม Premier League, La Liga, Serie A, Bundesliga และฟุตบอลถ้วยยุโรป วิเคราะห์แม่น อัพเดทเร็ว">  
+<meta name="description" content="เว็บทำนายผลฟุตบอลยุโรป พร้อมอัตราต่อรองแบบเรียลไทม์ ครอบคลุม Premier League, La Liga, Serie A, Bundesliga และฟุตบอลถ้วยยุโรป วิเคราะห์แม่น อัพเดทเร็ว">
 <link rel="icon" href="https://img.icons8.com/cotton/64/football-ball.png">
 
 <style>
-body{
-  font-family:Arial;
-  text-align:center;
-  background:#f4f6fb;
-  padding:20px;
-  margin:0;
-}
+body{font-family:Arial;text-align:center;background:#f4f6fb;padding:20px;margin:0;}
+.logo-wrap{max-width:980px;margin:0 auto 8px;display:flex;justify-content:center;}
+.logo-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;}
+.logo-img{max-width:200px;width:100%;height:auto;max-height:64px;object-fit:contain;}
 
-/* Logo */
-.logo-wrap{
-  max-width:980px;
-  margin:0 auto 8px;
-  display:flex;
-  justify-content:center;
-}
-.logo-link{display:inline-flex; align-items:center; justify-content:center; text-decoration:none;}
-.logo-img{
-  max-width:200px;
-  width:100%;
-  height:auto;
-  max-height:64px;
-  object-fit:contain;
-}
+.page-title{margin:0 0 14px;}
+.page-title a{color:#111;text-decoration:none;} /* no hover for title */
 
-/* Page title (link to home) */
-.page-title{
-  margin:0 0 14px;
-}
-.page-title a{
-  color:#111;
-  text-decoration:none;
-}
-.page-title a:hover{
-  color:#5b7cfa;
-  text-decoration:underline;
-}
+.page-desc{font-size:16px;color:#555;margin:0;max-width:980px;}
 
-.page-desc{
-  font-size:16px;
-  color:#555;
-  margin:0;
-  max-width:980px;
-}
-
-/* NAV top/bottom */
-.navbar{
-  max-width:980px;
-  margin:0 auto 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-.navcenter{
-  flex:1;
-  text-align:center;
-}
+.navbar{max-width:980px;margin:0 auto 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.navcenter{flex:1;text-align:center;}
 .navlink{
-  display:inline-block;
-  padding:10px 12px;
-  background:#eef2ff;
-  border:1px solid #d7ddff;
-  color:#2a3b8f;
-  text-decoration:none;
-  font-weight:700;
-  transition:.2s;
+  display:inline-block;padding:10px 12px;background:#eef2ff;border:1px solid #d7ddff;color:#2a3b8f;
+  text-decoration:none;font-weight:700;transition:.2s;
 }
-.navlink:hover{
-  background:#5b7cfa;
-  border-color:#5b7cfa;
-  color:#fff;
-  transform:translateY(-1px);
-}
-.navlink.disabled{
-  opacity:.35;
-  pointer-events:none;
-}
+.navlink:hover{background:#5b7cfa;border-color:#5b7cfa;color:#fff;transform:translateY(-1px);}
+.navlink.disabled{opacity:.35;pointer-events:none;}
 
-/* Main title with icon */
-.main-title{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
+.main-title{display:flex;align-items:center;justify-content:center;gap:8px;}
 .main-icon{width:24px;height:24px;object-fit:contain;}
 
-/* Sub grid */
-.subs{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:18px;
-  max-width:980px;
-  margin:15px auto 28px;
-  align-items:stretch;
-}
-@media(max-width:600px){
-  .subs{grid-template-columns:1fr;}
-}
+.subs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:980px;margin:15px auto 28px;align-items:stretch;}
+@media(max-width:600px){.subs{grid-template-columns:1fr;}}
 
-/* Sub card */
-.subcard{
-  width:100%;
-  background:#ffffff;
-  border:1px solid #e2e6f0;
-  border-radius:0;
-  box-shadow:none;
-  padding:12px;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+.subcard{width:100%;background:#fff;border:1px solid #e2e6f0;border-radius:0;box-shadow:none;padding:12px;text-align:center;display:flex;flex-direction:column;gap:10px;}
+.sub-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;background:#f4f6fb;}
+.sub-text{font-weight:700;color:#222;text-align:center;flex:1;}
 
-/* Sub header: text + download */
-.sub-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:12px;
-  background:#f4f6fb;
-}
-.sub-text{
-  font-weight:700;
-  color:#222;
-  text-align:center;
-  flex:1;
-}
+.dl-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:0;background:transparent;cursor:pointer;text-decoration:none;color:#222;transition:.2s;}
+.dl-btn:hover{color:#5b7cfa;transform:translateY(-1px);}
 
-.dl-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:38px;
-  height:38px;
-  border:0;
-  background:transparent;
-  cursor:pointer;
-  text-decoration:none;
-  color:#222;
-  transition:.2s;
-}
-.dl-btn:hover{color:#5b7cfa; transform:translateY(-1px);}
+.sub-extra{width:100%;text-align:left;}
+.sub-extra table{width:100%;margin:0 auto;border-collapse:collapse;table-layout:fixed;}
+.sub-extra th,.sub-extra td{white-space:nowrap;overflow:hidden;text-overflow:clip;}
+.sub-extra th{background:#ffe2c2;color:#2b2b2b;font-weight:700;text-align:center;padding:10px 8px;border:1px solid #f2c79e;line-height:1.15;}
+.sub-extra td{border:1px solid #f2c79e;padding:10px 8px;font-size:14px;line-height:1.15;}
+.sub-extra tbody tr:nth-child(even) td{background:#fff3e6;}
+.sub-extra th:nth-child(2),.sub-extra th:nth-child(3),.sub-extra th:nth-child(4),.sub-extra th:nth-child(6),
+.sub-extra td:nth-child(2),.sub-extra td:nth-child(3),.sub-extra td:nth-child(4),.sub-extra td:nth-child(6){text-align:center;}
+.sub-extra td:nth-child(1),.sub-extra td:nth-child(5){text-align:left;}
+.sub-extra td:nth-child(2){color:#6f3cc3;font-weight:700;}
+.sub-extra td:nth-child(3){color:#4b5563;font-weight:700;}
+.sub-extra td:nth-child(4){color:#e63b7a;font-weight:700;}
 
-/* Table */
-.sub-extra{
-  width:100%;
-  text-align:left;
-}
-.sub-extra table{
-  width:100%;
-  margin:0 auto;
-  border-collapse:collapse;
-  table-layout:fixed;
-}
-.sub-extra th,
-.sub-extra td{
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:clip;
-}
-.sub-extra th{
-  background:#ffe2c2;
-  color:#2b2b2b;
-  font-weight:700;
-  text-align:center;
-  padding:10px 8px;
-  border:1px solid #f2c79e;
-  line-height:1.15;
-}
-.sub-extra td{
-  border:1px solid #f2c79e;
-  padding:10px 8px;
-  font-size:14px;
-  line-height:1.15;
-}
-.sub-extra tbody tr:nth-child(even) td{
-  background:#fff3e6;
-}
+.footer{max-width:980px;margin:18px auto 0;color:#6b7280;font-size:13px;text-align:center;}
+.statwrap{max-width:980px;margin:10px auto 0;display:flex;justify-content:center;}
 
-/* center cols 2,3,4,6 if exist */
-.sub-extra th:nth-child(2),
-.sub-extra th:nth-child(3),
-.sub-extra th:nth-child(4),
-.sub-extra th:nth-child(6),
-.sub-extra td:nth-child(2),
-.sub-extra td:nth-child(3),
-.sub-extra td:nth-child(4),
-.sub-extra td:nth-child(6){
-  text-align:center;
-}
-.sub-extra td:nth-child(1),
-.sub-extra td:nth-child(5){
-  text-align:left;
-}
-.sub-extra td:nth-child(2){ color:#6f3cc3; font-weight:700; }
-.sub-extra td:nth-child(3){ color:#4b5563; font-weight:700; }
-.sub-extra td:nth-child(4){ color:#e63b7a; font-weight:700; }
-
-/* Footer */
-.footer{
-  max-width:980px;
-  margin:18px auto 0;
-  color:#6b7280;
-  font-size:13px;
-  text-align:center;
-}
-
-/* Back to top */
 #backToTop{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  width:44px;
-  height:44px;
-  border:0;
-  background:#5b7cfa;
-  color:#fff;
-  cursor:pointer;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 8px 18px rgba(0,0,0,.18);
-  transition:.2s;
+  position:fixed;right:18px;bottom:18px;width:44px;height:44px;border:0;background:#5b7cfa;color:#fff;cursor:pointer;
+  display:none;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,.18);transition:.2s;
 }
-#backToTop:hover{transform:translateY(-2px); background:#3f63ff;}
+#backToTop:hover{transform:translateY(-2px);background:#3f63ff;}
 </style>
 </head>
 <body>
@@ -246,11 +72,8 @@ body{
   </a>
 </div>
 
-<h1 class="page-title">
-  <a href="https://a-odds.github.io/">Major European Leagues</a>
-</h1>
+<h1 class="page-title"><a href="https://a-odds.github.io/">Major European Leagues</a></h1>
 
-<!-- NAV TOP: same row as page desc -->
 <div class="navbar">
   <a class="navlink " href="https://a-odds.github.io/1-24.html">« ก่อนหน้า</a>
   <div class="navcenter">
@@ -515,7 +338,6 @@ body{
             </a>
           </div>
         </div></div>
-<!-- NAV BOTTOM -->
 <div class="navbar" style="margin-top:6px;">
   <a class="navlink " href="https://a-odds.github.io/1-24.html">« ก่อนหน้า</a>
   <div class="navcenter"></div>
@@ -523,6 +345,9 @@ body{
 </div>
 
 <div class="footer">© 2026 www.A-Odds.com</div>
+
+<div class="statwrap"><script type="text/javascript" src="https://www.stat-counter.org/count/jbrf"></script><br>
+ <a href='http://www.counter-zaehler.de'>besucherzähler kostenlos</a> <script type='text/javascript' src='https://whomania.com/ctr?id=5dce8affbaefea253f6010a832788b570f441f9c'></script></div>
 
 <button id="backToTop" aria-label="Back to top">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -533,7 +358,6 @@ body{
 
 <script>
 (function(){
-  // Font fit (Excel-ish)
   function fitCell(el, maxPx, minPx){
     el.style.fontSize = maxPx + "px";
     const maxIter = (maxPx - minPx) + 2;
@@ -565,7 +389,6 @@ body{
     fitAll();
   });
 
-  // Back to top
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
     if (window.scrollY > 250) btn.style.display = "inline-flex";
