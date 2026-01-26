@@ -93,20 +93,43 @@ body{
   text-align:center;
 }
 
-/* Breadcrumb under desc, left aligned */
-.breadcrumb{
+/* Breadcrumb + Archives row under desc */
+.breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .breadcrumb a{
   color:#2a3b8f;
   text-decoration:none;
 }
 .breadcrumb a:hover{
+  text-decoration:underline;
+}
+.archives-link{
+  font-size:13px;
+  font-weight:700;
+  color:#2a3b8f;
+  text-decoration:none;
+  background:none;
+  border:none;
+  padding:8px 10px;
+  transition:.2s;
+  white-space:nowrap;
+}
+.archives-link:hover{
   text-decoration:underline;
 }
 
@@ -284,9 +307,12 @@ body{
   <div class="desc-box">JAN 29, 2026</div>
 </div>
 
-<!-- Breadcrumb: left aligned under desc -->
-<div class="breadcrumb">
-  <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; JAN 29, 2026
+<!-- Breadcrumb + Archives (same row) -->
+<div class="breadcrumb-row">
+  <div class="breadcrumb">
+    <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; JAN 29, 2026
+  </div>
+  <a class="archives-link" href="https://a-odds.github.io/archives.html" target="_blank" rel="noopener">ดูย้อนหลังทั้งหมด</a>
 </div>
 <div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
@@ -464,27 +490,27 @@ body{
               </svg>
             </a>
           </div>
-        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>$ ทีมเหย้า</th><th>$ เสมอ</th><th>$ ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Aston Villa</td><td>85.9%</td><td>9.0%</td><td>5.1%</td><td>Salzburg</td><td></td></tr>
-<tr><td>Celtic</td><td>55.5%</td><td>23.0%</td><td>21.6%</td><td>Utrecht</td><td></td></tr>
-<tr><td>Porto</td><td>70.0%</td><td>16.9%</td><td>13.1%</td><td>Rangers</td><td></td></tr>
-<tr><td>Basel</td><td>37.1%</td><td>26.3%</td><td>36.6%</td><td>Plzeň</td><td></td></tr>
-<tr><td>Midtjylland</td><td>55.3%</td><td>23.0%</td><td>21.6%</td><td>Dinamo Zagreb</td><td></td></tr>
-<tr><td>Crvena zvezda</td><td>33.6%</td><td>25.7%</td><td>40.7%</td><td>Celta</td><td></td></tr>
-<tr><td>FCSB</td><td>19.5%</td><td>20.8%</td><td>59.6%</td><td>Fenerbahçe</td><td></td></tr>
-<tr><td>Go Ahead</td><td>18.2%</td><td>20.1%</td><td>61.7%</td><td>Braga</td><td></td></tr>
-<tr><td>Genk</td><td>60.3%</td><td>20.8%</td><td>18.9%</td><td>Malmö</td><td></td></tr>
-<tr><td>Lille</td><td>45.9%</td><td>26.7%</td><td>27.4%</td><td>Freiburg</td><td></td></tr>
-<tr><td>Maccabi TA</td><td>20.6%</td><td>21.3%</td><td>58.1%</td><td>Bologna</td><td></td></tr>
-<tr><td>Nottm Forest</td><td>64.4%</td><td>19.0%</td><td>16.6%</td><td>Ferencváros</td><td></td></tr>
-<tr><td>Lyon</td><td>57.3%</td><td>22.1%</td><td>20.5%</td><td>PAOK</td><td></td></tr>
-<tr><td>Panathinaikos</td><td>20.2%</td><td>21.2%</td><td>58.6%</td><td>Roma</td><td></td></tr>
-<tr><td>Ludogorets</td><td>34.6%</td><td>25.9%</td><td>39.6%</td><td>Nice</td><td></td></tr>
-<tr><td>Betis</td><td>61.5%</td><td>20.3%</td><td>18.2%</td><td>Feyenoord</td><td></td></tr>
-<tr><td>Sturm</td><td>34.1%</td><td>25.8%</td><td>40.1%</td><td>Brann</td><td></td></tr>
-<tr><td>Stuttgart</td><td>75.4%</td><td>14.5%</td><td>10.1%</td><td>Young Boys</td><td></td></tr>
+<tr><td>Aston Villa</td><td>1.494</td><td>4.965</td><td>6.910</td><td>Salzburg</td><td></td></tr>
+<tr><td>Celtic</td><td>1.382</td><td>5.420</td><td>9.300</td><td>Utrecht</td><td></td></tr>
+<tr><td>Porto</td><td>1.319</td><td>5.940</td><td>11.200</td><td>Rangers</td><td></td></tr>
+<tr><td>Basel</td><td>1.966</td><td>4.075</td><td>3.825</td><td>Plzeň</td><td></td></tr>
+<tr><td>Midtjylland</td><td>1.884</td><td>3.970</td><td>4.300</td><td>Dinamo Zagreb</td><td></td></tr>
+<tr><td>Crvena zvezda</td><td>2.354</td><td>3.630</td><td>3.170</td><td>Celta</td><td></td></tr>
+<tr><td>FCSB</td><td>6.090</td><td>4.705</td><td>1.566</td><td>Fenerbahçe</td><td></td></tr>
+<tr><td>Go Ahead</td><td>4.655</td><td>4.030</td><td>1.811</td><td>Braga</td><td></td></tr>
+<tr><td>Genk</td><td>1.478</td><td>4.760</td><td>7.750</td><td>Malmö</td><td></td></tr>
+<tr><td>Lille</td><td>1.971</td><td>3.675</td><td>4.235</td><td>Freiburg</td><td></td></tr>
+<tr><td>Maccabi TA</td><td>6.190</td><td>4.400</td><td>1.596</td><td>Bologna</td><td></td></tr>
+<tr><td>Nottm Forest</td><td>1.699</td><td>4.095</td><td>5.470</td><td>Ferencváros</td><td></td></tr>
+<tr><td>Lyon</td><td>1.740</td><td>4.145</td><td>5.010</td><td>PAOK</td><td></td></tr>
+<tr><td>Panathinaikos</td><td>4.700</td><td>3.820</td><td>1.849</td><td>Roma</td><td></td></tr>
+<tr><td>Ludogorets</td><td>2.055</td><td>3.760</td><td>3.800</td><td>Nice</td><td></td></tr>
+<tr><td>Betis</td><td>1.646</td><td>4.445</td><td>5.470</td><td>Feyenoord</td><td></td></tr>
+<tr><td>Sturm</td><td>2.874</td><td>3.560</td><td>2.588</td><td>Brann</td><td></td></tr>
+<tr><td>Stuttgart</td><td>1.350</td><td>5.780</td><td>9.800</td><td>Young Boys</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" class="main-icon" alt=""><h2>Conference League</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
