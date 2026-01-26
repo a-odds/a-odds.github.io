@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Major European Leagues</title>
+<meta name="description" content="เว็บทำนายผลฟุตบอลยุโรป พร้อมอัตราต่อรองแบบเรียลไทม์ ครอบคลุม Premier League, La Liga, Serie A, Bundesliga และฟุตบอลถ้วยยุโรป วิเคราะห์แม่น อัพเดทเร็ว">
+<link rel="icon" href="https://img.icons8.com/cotton/64/football-ball.png">
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6fb;
+  padding:20px;
+  margin:0;
+}
+.logo-wrap{
+  max-width:980px;
+  margin:0 auto 8px;
+  display:flex;
+  justify-content:center;
+}
+.logo-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;}
+.logo-img{
+  max-width:200px;
+  width:100%;
+  height:auto;
+  max-height:64px;
+  object-fit:contain;
+}
+
+/* Page title: no hover */
+.page-title{margin:0 0 14px;}
+.page-title a{color:#111;text-decoration:none;}
+.page-title a:visited{color:#111;}
+.page-title a:hover{color:#111;text-decoration:none;}
+
+/* NAV */
+.navbar{
+  max-width:980px;
+  margin:0 auto 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.navcenter{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+.navlink{
+  display:inline-block;
+  padding:10px 12px;
+  background:#eef2ff;
+  border:1px solid #d7ddff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  transition:.2s;
+  min-width:92px;
+  text-align:center;
+}
+.navlink:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+  transform:translateY(-1px);
+}
+.navlink.disabled{opacity:.35;pointer-events:none;}
+
+/* "หน้าแรก" active ONLY when isHome, top nav only */
+.navhome-top.active{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+}
+
+/* DESC container: not full page, full area (within max-width) + bg like non-colored table row */
+.desc-container{
+  max-width:980px;
+  margin:0 auto 10px;
+  box-sizing:border-box;
+}
+.desc-box{
+  width:100%;
+  background:#ffffff;
+  border:1px solid #f2c79e;
+  font-weight:700;
+  padding:12px 10px;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+/* Breadcrumb under desc, left aligned */
+.breadcrumb{
+  max-width:980px;
+  margin:8px auto 18px;
+  text-align:left;
+  font-size:13px;
+  color:#4b5563;
+  font-weight:700;
+}
+.breadcrumb a{
+  color:#2a3b8f;
+  text-decoration:none;
+}
+.breadcrumb a:hover{
+  text-decoration:underline;
+}
+
+/* main title with icon */
+.main-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.main-icon{width:24px;height:24px;object-fit:contain;}
+
+/* 2 cols responsive */
+.subs{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:18px;
+  max-width:980px;
+  margin:15px auto 28px;
+  align-items:stretch;
+}
+@media(max-width:600px){
+  .subs{grid-template-columns:1fr;}
+}
+
+/* sub card */
+.subcard{
+  width:100%;
+  background:#ffffff;
+  border:1px solid #e2e6f0;
+  border-radius:0;
+  box-shadow:none;
+  padding:12px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.sub-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px;
+  background:#f4f6fb;
+}
+.sub-text{
+  font-weight:700;
+  color:#222;
+  text-align:center;
+  flex:1;
+}
+.dl-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  text-decoration:none;
+  color:#222;
+  transition:.2s;
+}
+.dl-btn:hover{color:#5b7cfa; transform:translateY(-1px);}
+
+/* table */
+.sub-extra{width:100%;text-align:left;}
+.sub-extra table{
+  width:100%;
+  margin:0 auto;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+.sub-extra th,
+.sub-extra td{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:clip;
+}
+.sub-extra th{
+  background:#ffe2c2;
+  color:#2b2b2b;
+  font-weight:700;
+  text-align:center;
+  padding:10px 8px;
+  border:1px solid #f2c79e;
+  line-height:1.15;
+}
+.sub-extra td{
+  border:1px solid #f2c79e;
+  padding:10px 8px;
+  font-size:14px;
+  line-height:1.15;
+}
+.sub-extra tbody tr:nth-child(even) td{
+  background:#fff3e6;
+}
+.sub-extra th:nth-child(2),
+.sub-extra th:nth-child(3),
+.sub-extra th:nth-child(4),
+.sub-extra th:nth-child(6),
+.sub-extra td:nth-child(2),
+.sub-extra td:nth-child(3),
+.sub-extra td:nth-child(4),
+.sub-extra td:nth-child(6){
+  text-align:center;
+}
+.sub-extra td:nth-child(1),
+.sub-extra td:nth-child(5){
+  text-align:left;
+}
+.sub-extra td:nth-child(2){ color:#6f3cc3; font-weight:700; }
+.sub-extra td:nth-child(3){ color:#4b5563; font-weight:700; }
+.sub-extra td:nth-child(4){ color:#e63b7a; font-weight:700; }
+
+/* footer + stat */
+.footer{
+  max-width:980px;
+  margin:18px auto 0;
+  color:#6b7280;
+  font-size:13px;
+  text-align:center;
+}
+.statwrap{
+  max-width:980px;
+  margin:10px auto 0;
+  display:flex;
+  justify-content:center;
+}
+
+/* back to top */
+#backToTop{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:44px;
+  height:44px;
+  border:0;
+  background:#5b7cfa;
+  color:#fff;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  transition:.2s;
+}
+#backToTop:hover{transform:translateY(-2px); background:#3f63ff;}
+</style>
+</head>
+<body>
+
+
+<div class="logo-wrap">
+  <a class="logo-link" href="https://a-odds.github.io/" aria-label="Home">
+    <img class="logo-img" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769328991/G/logo.png" alt="Logo">
+  </a>
+</div>
+
+<h1 class="page-title"><a href="https://a-odds.github.io/">Major European Leagues</a></h1>
+
+<!-- NAV TOP: order « ก่อนหน้า | หน้าแรก | ถัดไป -->
+<div class="navbar">
+  <a class="navlink " href="https://a-odds.github.io/1-24.html">« ก่อนหน้า</a>
+  <div class="navcenter">
+    <a class="navlink navhome-top " href="https://a-odds.github.io/">หน้าแรก</a>
+  </div>
+  <a class="navlink " href="https://a-odds.github.io/1-28.html">ถัดไป »</a>
+</div>
+
+<!-- DESC: within 980px area, bg like non-colored table row (white) -->
+<div class="desc-container">
+  <div class="desc-box">JAN 25, 2026</div>
+</div>
+
+<!-- Breadcrumb: left aligned under desc -->
+<div class="breadcrumb">
+  <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Major European Leagues
+</div>
+<div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769248454/files/EPL-Prediction.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>West Ham</td>
+        <td>39.3%</td>
+        <td>26.6%</td>
+        <td>34.1%</td>
+        <td>Sunderland</td>
+        <td>3 - 1</td>
+    </tr>
+    <tr>
+        <td>Burnley</td>
+        <td>28.6%</td>
+        <td>24.4%</td>
+        <td>46.9%</td>
+        <td>Spurs</td>
+        <td>2 - 2</td>
+    </tr>
+    <tr>
+        <td>Fulham</td>
+        <td>37.9%</td>
+        <td>26.4%</td>
+        <td>35.7%</td>
+        <td>Brighton</td>
+        <td>2 - 1</td>
+    </tr>
+    <tr>
+        <td>Man City</td>
+        <td>77.4%</td>
+        <td>13.6%</td>
+        <td>9.1%</td>
+        <td>Wolves</td>
+        <td>2 - 0</td>
+    </tr>
+    <tr>
+        <td>Bournemouth</td>
+        <td>29.0%</td>
+        <td>24.6%</td>
+        <td>46.4%</td>
+        <td>Liverpool</td>
+        <td>3 - 2</td>
+    </tr>
+</tbody></table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769250313/files/EPL-Odds.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>$ ทีมเหย้า</th><th>$ เสมอ</th><th>$ ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>West Ham</td>
+        <td>2.511</td>
+        <td>3.395</td>
+        <td>3.100</td>
+        <td>Sunderland</td>
+        <td>3 - 1</td>
+    </tr>
+    <tr>
+        <td>Burnley</td>
+        <td>3.800</td>
+        <td>3.575</td>
+        <td>2.115</td>
+        <td>Spurs</td>
+        <td>2 - 2</td>
+    </tr>
+    <tr>
+        <td>Fulham</td>
+        <td>2.671</td>
+        <td>3.535</td>
+        <td>2.793</td>
+        <td>Brighton</td>
+        <td>2 - 1</td>
+    </tr>
+    <tr>
+        <td>Man City</td>
+        <td>1.271</td>
+        <td>6.910</td>
+        <td>11.900</td>
+        <td>Wolves</td>
+        <td>2 - 0</td>
+    </tr>
+    <tr>
+        <td>Bournemouth</td>
+        <td>4.045</td>
+        <td>4.120</td>
+        <td>1.903</td>
+        <td>Liverpool</td>
+        <td>3 - 2</td>
+    </tr>
+</tbody></table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" class="main-icon" alt=""><h2>La Liga</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769248476/files/Laliga-Prediction.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>Levante</td>
+        <td>41.4%</td>
+        <td>27.2%</td>
+        <td>31.4%</td>
+        <td>Elche</td>
+        <td>3 - 2</td>
+    </tr>
+    <tr>
+        <td>Rayo</td>
+        <td>44.6%</td>
+        <td>28.5%</td>
+        <td>27.0%</td>
+        <td>Osasuna</td>
+        <td>1 - 3</td>
+    </tr>
+    <tr>
+        <td>Valencia</td>
+        <td>40.6%</td>
+        <td>27.5%</td>
+        <td>31.9%</td>
+        <td>Espanyol</td>
+        <td>3 - 2</td>
+    </tr>
+    <tr>
+        <td>Sevilla</td>
+        <td>33.3%</td>
+        <td>29.7%</td>
+        <td>37.0%</td>
+        <td>Athletic</td>
+        <td>2 - 1</td>
+    </tr>
+    <tr>
+        <td>Villarreal</td>
+        <td>28.3%</td>
+        <td>23.6%</td>
+        <td>48.1%</td>
+        <td>Real Madrid</td>
+        <td>0 - 2</td>
+    </tr>
+</tbody></table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769250293/files/Laliga-Odds.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>$ ทีมเหย้า</th><th>$ เสมอ</th><th>$ ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>Levante</td>
+        <td>2.429</td>
+        <td>3.355</td>
+        <td>3.270</td>
+        <td>Elche</td>
+        <td>3 - 2</td>
+    </tr>
+    <tr>
+        <td>Rayo</td>
+        <td>2.349</td>
+        <td>3.175</td>
+        <td>3.640</td>
+        <td>Osasuna</td>
+        <td>1 - 3</td>
+    </tr>
+    <tr>
+        <td>Valencia</td>
+        <td>2.510</td>
+        <td>3.270</td>
+        <td>3.210</td>
+        <td>Espanyol</td>
+        <td>3 - 2</td>
+    </tr>
+    <tr>
+        <td>Sevilla</td>
+        <td>3.035</td>
+        <td>3.125</td>
+        <td>2.731</td>
+        <td>Athletic</td>
+        <td>2 - 1</td>
+    </tr>
+    <tr>
+        <td>Villarreal</td>
+        <td>3.800</td>
+        <td>4.165</td>
+        <td>1.952</td>
+        <td>Real Madrid</td>
+        <td>0 - 2</td>
+    </tr>
+</tbody></table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" class="main-icon" alt=""><h2>Serea A</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769248518/files/Serie-A-Predict.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>Inter</td>
+        <td>75.9%</td>
+        <td>14.5%</td>
+        <td>9.6%</td>
+        <td>Pisa</td>
+        <td>6 - 2</td>
+    </tr>
+    <tr>
+        <td>Como</td>
+        <td>56.7%</td>
+        <td>23.7%</td>
+        <td>19.6%</td>
+        <td>Torino</td>
+        <td>6 - 0</td>
+    </tr>
+    <tr>
+        <td>Fiorentina</td>
+        <td>52.5%</td>
+        <td>25.6%</td>
+        <td>22.0%</td>
+        <td>Cagliari</td>
+        <td>1 - 2</td>
+    </tr>
+    <tr>
+        <td>Lecce</td>
+        <td>25.1%</td>
+        <td>29.4%</td>
+        <td>45.5%</td>
+        <td>Lazio</td>
+        <td>0 - 0</td>
+    </tr>
+</tbody></table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769250258/files/Serie-A-Odds.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>$ ทีมเหย้า</th><th>$ เสมอ</th><th>$ ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>Inter</td>
+        <td>1.202</td>
+        <td>7.950</td>
+        <td>17.000</td>
+        <td>Pisa</td>
+        <td>6 - 2</td>
+    </tr>
+    <tr>
+        <td>Como</td>
+        <td>1.667</td>
+        <td>4.025</td>
+        <td>5.980</td>
+        <td>Torino</td>
+        <td>6 - 0</td>
+    </tr>
+    <tr>
+        <td>Fiorentina</td>
+        <td>1.852</td>
+        <td>3.620</td>
+        <td>5.010</td>
+        <td>Cagliari</td>
+        <td>1 - 2</td>
+    </tr>
+    <tr>
+        <td>Lecce</td>
+        <td>4.465</td>
+        <td>3.145</td>
+        <td>2.111</td>
+        <td>Lazio</td>
+        <td>0 - 0</td>
+    </tr>
+</tbody></table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" class="main-icon" alt=""><h2>Bundesliga</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769248498/files/Bundes-Prediction.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>St. Pauli</td>
+        <td>33.8%</td>
+        <td>30.7%</td>
+        <td>35.5%</td>
+        <td>Hamburg</td>
+        <td>0 - 0</td>
+    </tr>
+    <tr>
+        <td>Bayern München</td>
+        <td>82.3%</td>
+        <td>10.4%</td>
+        <td>7.3%</td>
+        <td>Augsburg</td>
+        <td>1 - 2</td>
+    </tr>
+    <tr>
+        <td>Leverkusen</td>
+        <td>56.3%</td>
+        <td>21.7%</td>
+        <td>22.0%</td>
+        <td>Bremen</td>
+        <td>1 - 0</td>
+    </tr>
+    <tr>
+        <td>Frankfurt</td>
+        <td>35.1%</td>
+        <td>25.0%</td>
+        <td>39.8%</td>
+        <td>Hoffenheim</td>
+        <td>1 - 3</td>
+    </tr>
+    <tr>
+        <td>Mainz 05</td>
+        <td>41.0%</td>
+        <td>26.1%</td>
+        <td>32.9%</td>
+        <td>Wolfsburg</td>
+        <td>3 - 1</td>
+    </tr>
+    <tr>
+        <td>Heidenheim</td>
+        <td>21.1%</td>
+        <td>22.1%</td>
+        <td>56.8%</td>
+        <td>Leipzig</td>
+        <td>0 - 3</td>
+    </tr>
+    <tr>
+        <td>Union Berlin</td>
+        <td>3.555</td>
+        <td>3.435</td>
+        <td>2.257</td>
+        <td>Borussia Dortmund</td>
+        <td>0 - 3</td>
+    </tr>
+</tbody></table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769250276/files/Bundes-Odds.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>$ ทีมเหย้า</th><th>$ เสมอ</th><th>$ ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>St. Pauli</td>
+        <td>3.005</td>
+        <td>3.005</td>
+        <td>2.855</td>
+        <td>Hamburg</td>
+        <td>0 - 0</td>
+    </tr>
+    <tr>
+        <td>Bayern München</td>
+        <td>1.100</td>
+        <td>14.400</td>
+        <td>27.000</td>
+        <td>Augsburg</td>
+        <td>1 - 2</td>
+    </tr>
+    <tr>
+        <td>Leverkusen</td>
+        <td>1.606</td>
+        <td>4.675</td>
+        <td>5.590</td>
+        <td>Bremen</td>
+        <td>1 - 0</td>
+    </tr>
+    <tr>
+        <td>Frankfurt</td>
+        <td>3.150</td>
+        <td>3.780</td>
+        <td>2.307</td>
+        <td>Hoffenheim</td>
+        <td>1 - 3</td>
+    </tr>
+    <tr>
+        <td>Mainz 05</td>
+        <td>2.414</td>
+        <td>3.475</td>
+        <td>3.190</td>
+        <td>Wolfsburg</td>
+        <td>3 - 1</td>
+    </tr>
+    <tr>
+        <td>Heidenheim</td>
+        <td>5.070</td>
+        <td>4.515</td>
+        <td>1.675</td>
+        <td>Leipzig</td>
+        <td>0 - 3</td>
+    </tr>
+    <tr>
+        <td>Union Berlin</td>
+        <td>3.555</td>
+        <td>3.435</td>
+        <td>2.257</td>
+        <td>Borussia Dortmund</td>
+        <td>0 - 3</td>
+    </tr>
+</tbody></table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" class="main-icon" alt=""><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769248539/files/L1-Prediction.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>Auxerre</td>
+        <td>13.4%</td>
+        <td>18.2%</td>
+        <td>68.5%</td>
+        <td>Paris SG</td>
+        <td>0 - 1</td>
+    </tr>
+    <tr>
+        <td>Rennes</td>
+        <td>50.8%</td>
+        <td>24.1%</td>
+        <td>25.2%</td>
+        <td>Lorient</td>
+        <td>0 - 2</td>
+    </tr>
+    <tr>
+        <td>Le Havre</td>
+        <td>26.8%</td>
+        <td>23.8%</td>
+        <td>49.4%</td>
+        <td>Monaco</td>
+        <td>0 - 0</td>
+    </tr>
+    <tr>
+        <td>Marseille</td>
+        <td>48.1%</td>
+        <td>24.2%</td>
+        <td>27.6%</td>
+        <td>Lens</td>
+        <td>3 - 1</td>
+    </tr>
+</tbody></table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769250242/files/L1-Odds.xlsx" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>$ ทีมเหย้า</th><th>$ เสมอ</th><th>$ ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+    <tbody>
+    <tr>
+        <td>Auxerre</td>
+        <td>11.100</td>
+        <td>5.940</td>
+        <td>1.320</td>
+        <td>Paris SG</td>
+        <td>0 - 1</td>
+    </tr>
+    <tr>
+        <td>Rennes</td>
+        <td>1.789</td>
+        <td>4.015</td>
+        <td>4.825</td>
+        <td>Lorient</td>
+        <td>0 - 2</td>
+    </tr>
+    <tr>
+        <td>Le Havre</td>
+        <td>3.905</td>
+        <td>4.045</td>
+        <td>1.953</td>
+        <td>Monaco</td>
+        <td>0 - 0</td>
+    </tr>
+    <tr>
+        <td>Marseille</td>
+        <td>2.033</td>
+        <td>3.880</td>
+        <td>3.760</td>
+        <td>Lens</td>
+        <td>3 - 1</td>
+    </tr>
+</tbody></table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" class="main-icon" alt=""><h2>Champions League</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" class="main-icon" alt=""><h2>Europa League</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" class="main-icon" alt=""><h2>Conference League</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div></div>
+<!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
+<div class="navbar" style="margin-top:6px;">
+  <a class="navlink " href="https://a-odds.github.io/1-24.html">« ก่อนหน้า</a>
+  <div class="navcenter">
+    <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
+  </div>
+  <a class="navlink " href="https://a-odds.github.io/1-28.html">ถัดไป »</a>
+</div>
+
+<div class="footer">© 2026 www.A-Odds.com</div>
+
+<div class="statwrap"><script type="text/javascript" src="https://www.stat-counter.org/count/jbyh"></script><br>
+ <a href='https://www.versicherungen.at/private-krankenversicherung/'>Private Krankenversicherung</a> <script type='text/javascript' src='https://www.whomania.com/ctr?id=3a5d8d0c6b9cefe0c048d55920cbb25e8451c816'></script></div>
+
+<button id="backToTop" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 21V7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M6 13l6-6 6 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script>
+(function(){
+  function fitCell(el, maxPx, minPx){
+    el.style.fontSize = maxPx + "px";
+    const maxIter = (maxPx - minPx) + 2;
+    let i = 0;
+    while (
+      i < maxIter &&
+      (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight) &&
+      maxPx > minPx
+    ){
+      maxPx -= 1;
+      el.style.fontSize = maxPx + "px";
+      i++;
+    }
+  }
+  function fitAll(){
+    const cells = document.querySelectorAll(".sub-extra table th, .sub-extra table td");
+    cells.forEach(cell=>{
+      const isHeader = cell.tagName === "TH";
+      fitCell(cell, 14, isHeader ? 10 : 10);
+    });
+  }
+  window.addEventListener("load", ()=>{
+    fitAll();
+    setTimeout(fitAll, 60);
+  });
+  window.addEventListener("resize", ()=>{
+    const cells = document.querySelectorAll(".sub-extra table th, .sub-extra table td");
+    cells.forEach(c=>c.style.fontSize="");
+    fitAll();
+  });
+
+  const btn = document.getElementById("backToTop");
+  function toggleBtn(){
+    if (window.scrollY > 250) btn.style.display = "inline-flex";
+    else btn.style.display = "none";
+  }
+  window.addEventListener("scroll", toggleBtn, {passive:true});
+  toggleBtn();
+  btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
+})();
+</script>
+
+</body></html>
