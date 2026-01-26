@@ -93,20 +93,43 @@ body{
   text-align:center;
 }
 
-/* Breadcrumb under desc, left aligned */
-.breadcrumb{
+/* Breadcrumb + Archives row under desc */
+.breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .breadcrumb a{
   color:#2a3b8f;
   text-decoration:none;
 }
 .breadcrumb a:hover{
+  text-decoration:underline;
+}
+.archives-link{
+  font-size:13px;
+  font-weight:700;
+  color:#2a3b8f;
+  text-decoration:none;
+  background:none;
+  border:none;
+  padding:8px 10px;
+  transition:.2s;
+  white-space:nowrap;
+}
+.archives-link:hover{
   text-decoration:underline;
 }
 
@@ -284,9 +307,12 @@ body{
   <div class="desc-box">Feb 02, 2026</div>
 </div>
 
-<!-- Breadcrumb: left aligned under desc -->
-<div class="breadcrumb">
-  <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Feb 02, 2026
+<!-- Breadcrumb + Archives (same row) -->
+<div class="breadcrumb-row">
+  <div class="breadcrumb">
+    <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Feb 02, 2026
+  </div>
+  <a class="archives-link" href="https://a-odds.github.io/archives.html" target="_blank" rel="noopener">ดูย้อนหลังทั้งหมด</a>
 </div>
 <div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
