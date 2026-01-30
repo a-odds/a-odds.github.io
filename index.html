@@ -42,13 +42,19 @@ body{
   max-width:980px;
   margin:0 auto 12px;
   display:flex;
-  flex-wrap:wrap;
-  gap:8px;
+  flex-wrap:nowrap;
+  gap:6px;
   justify-content:center;
+  overflow:hidden;
 }
 .menu-bar a{
-  display:inline-block;
-  padding:8px 12px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 10px;
+  white-space:nowrap;
+  font-size:13px;
+  letter-spacing:-0.1px;
   background:#eef2ff;
   border:1px solid #d7ddff;
   color:#2a3b8f;
@@ -62,22 +68,105 @@ body{
   color:#fff;
   transform:translateY(-1px);
 }
+.menu-bar a.active{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+}
+.menu-icon{
+  width:16px;
+  height:16px;
+  object-fit:contain;
+  display:inline-block;
+}
+
+/* Mobile menu dropdown */
+.menu-mobile{
+  max-width:980px;
+  margin:0 auto 12px;
+  display:none;
+  justify-content:flex-end;
+  position:relative;
+}
+.menu-toggle{
+  width:44px;
+  height:44px;
+  border:1px solid #d7ddff;
+  background:#eef2ff;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s;
+}
+.menu-toggle:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+}
+.menu-toggle:hover .bar{background:#fff;}
+.menu-toggle .bars{
+  width:20px;
+  height:14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.menu-toggle .bar{
+  height:2px;
+  background:#2a3b8f;
+}
+.menu-dropdown{
+  position:absolute;
+  right:0;
+  top:52px;
+  min-width:240px;
+  background:#ffffff;
+  border:1px solid #d7ddff;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  display:none;
+  flex-direction:column;
+  padding:8px;
+  z-index:50;
+}
+.menu-dropdown a{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 10px;
+  border:1px solid #d7ddff;
+  background:#eef2ff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  margin:6px 0;
+}
+.menu-dropdown a:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+}
+.menu-dropdown a.active{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+}
+@media(max-width:600px){
+  .menu-bar{display:none;}
+  .menu-mobile{display:flex;}
+}
+
 /* NAV */
 .navbar{
   max-width:980px;
   margin:0 auto 12px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:10px;
-}
-.navcenter{
-  flex:1;
-  display:flex;
-  justify-content:center;
 }
 .navlink{
   display:inline-block;
+  justify-self:center;
   padding:10px 12px;
   background:#eef2ff;
   border:1px solid #d7ddff;
@@ -95,6 +184,9 @@ body{
   transform:translateY(-1px);
 }
 .navlink.disabled{opacity:.35;pointer-events:none;}
+
+.navbar .navlink:first-child{justify-self:start;}
+.navbar .navlink:last-child{justify-self:end;}
 
 /* "หน้าแรก" active ONLY when isHome, top nav only */
 .navhome-top.active{
@@ -321,16 +413,28 @@ body{
 
 
 
-<div class="menu-bar">
-  <a href="https://a-odds.github.io/">หน้าแรก</a><a href="#">Premier</a><a href="#">La Liga</a><a href="#">Serea A</a><a href="#">Bundesliga</a><a href="#">Ligue 1</a><a href="#">Championship</a><a href="#">UCL</a><a href="#">UEL</a><a href="#">UECL</a>
+<div class="menu-bar" id="menuBar">
+  <a href="https://a-odds.github.io/" class="active"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+</div>
+
+<div class="menu-mobile">
+  <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuDropdown">
+    <span class="bars" aria-hidden="true">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </span>
+  </button>
+
+  <div class="menu-dropdown" id="menuDropdown" role="menu">
+    <a href="https://a-odds.github.io/" class="active" role="menuitem"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+  </div>
 </div>
 
 <!-- NAV TOP: order « ก่อนหน้า | หน้าแรก | ถัดไป -->
 <div class="navbar">
   <a class="navlink " href="https://a-odds.github.io/1-29.html">« ก่อนหน้า</a>
-  <div class="navcenter">
-    <a class="navlink navhome-top active" href="https://a-odds.github.io/">หน้าแรก</a>
-  </div>
+  
   <a class="navlink " href="https://a-odds.github.io/2-1.html">ถัดไป »</a>
 </div>
 
@@ -586,9 +690,7 @@ body{
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="navbar" style="margin-top:6px;">
   <a class="navlink " href="https://a-odds.github.io/1-29.html">« ก่อนหน้า</a>
-  <div class="navcenter">
-    <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
-  </div>
+  <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
   <a class="navlink " href="https://a-odds.github.io/2-1.html">ถัดไป »</a>
 </div>
 
@@ -636,6 +738,71 @@ body{
     cells.forEach(c=>c.style.fontSize="");
     fitAll();
   });
+
+  // Fit menu into a single line by shrinking font size when needed
+  function fitMenu(){
+    const bar = document.getElementById("menuBar");
+    if (!bar) return;
+    const links = bar.querySelectorAll("a");
+    if (!links.length) return;
+
+    // reset
+    links.forEach(a => { a.style.fontSize = ""; a.style.letterSpacing = "-0.1px"; });
+
+    let size = 13;
+    const min = 10;
+    // shrink until it fits or hit min
+    while (bar.scrollWidth > bar.clientWidth && size > min){
+      size -= 1;
+      links.forEach(a => a.style.fontSize = size + "px");
+    }
+    // last resort: slightly tighter letter spacing
+    if (bar.scrollWidth > bar.clientWidth){
+      links.forEach(a => a.style.letterSpacing = "-0.4px");
+    }
+  }
+  window.addEventListener("load", fitMenu);
+  window.addEventListener("resize", fitMenu);
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const menuDropdown = document.getElementById("menuDropdown");
+  if (menuToggle && menuDropdown){
+    const closeMenu = () => {
+      menuDropdown.style.display = "none";
+      menuToggle.setAttribute("aria-expanded", "false");
+    };
+    const openMenu = () => {
+      menuDropdown.style.display = "flex";
+      menuToggle.setAttribute("aria-expanded", "true");
+    };
+
+    closeMenu();
+
+    menuToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = menuDropdown.style.display === "flex";
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    menuDropdown.addEventListener("click", (e) => {
+      const a = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (a) closeMenu();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menuDropdown.contains(e.target) && e.target !== menuToggle){
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
 
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
