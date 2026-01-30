@@ -36,6 +36,32 @@ body{
 .page-title a:visited{color:#111;}
 .page-title a:hover{color:#111;text-decoration:none;}
 
+
+/* MENU BAR (ใต้ Page Title) */
+.menu-bar{
+  max-width:980px;
+  margin:0 auto 12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+}
+.menu-bar a{
+  display:inline-block;
+  padding:8px 12px;
+  background:#eef2ff;
+  border:1px solid #d7ddff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  transition:.2s;
+}
+.menu-bar a:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+  transform:translateY(-1px);
+}
 /* NAV */
 .navbar{
   max-width:980px;
@@ -292,6 +318,12 @@ body{
 </div>
 
 <h1 class="page-title"><a href="https://a-odds.github.io/">Major European Leagues</a></h1>
+
+
+
+<div class="menu-bar">
+  <a href="https://a-odds.github.io/">หน้าแรก</a><a href="#">Premier</a><a href="#">La Liga</a><a href="#">Serea A</a><a href="#">Bundesliga</a><a href="#">Ligue 1</a><a href="#">Championship</a><a href="#">UCL</a><a href="#">UEL</a><a href="#">UECL</a>
+</div>
 
 <!-- NAV TOP: order « ก่อนหน้า | หน้าแรก | ถัดไป -->
 <div class="navbar">
