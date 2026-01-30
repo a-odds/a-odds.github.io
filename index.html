@@ -31,36 +31,42 @@ body{
 }
 
 /* Page title: no hover */
-.page-title{margin:0 0 14px;}
+.page-title{margin:0 0 10px;}
 .page-title a{color:#111;text-decoration:none;}
 .page-title a:visited{color:#111;}
 .page-title a:hover{color:#111;text-decoration:none;}
 
-
-/* MENU BAR (ใต้ Page Title) */
+/* MENU BAR (desktop) */
+.menu-bar-wrap{max-width:980px;margin:0 auto 12px;}
 .menu-bar{
-  max-width:980px;
-  margin:0 auto 12px;
   display:flex;
-  flex-wrap:nowrap;
-  gap:6px;
+  gap:8px;
+  align-items:center;
   justify-content:center;
-  overflow:hidden;
+  flex-wrap:nowrap;
+  max-width:980px;
+  margin:0 auto 18px;
+  padding:0 6px;
+}
+.menu-bar a{
+  flex:0 1 auto;
+  min-width:0;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
 }
 .menu-bar a{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  padding:7px 10px;
-  white-space:nowrap;
-  font-size:13px;
-  letter-spacing:-0.1px;
+  padding:10px 12px;
   background:#eef2ff;
   border:1px solid #d7ddff;
   color:#2a3b8f;
   text-decoration:none;
   font-weight:700;
-  transition:.2s;
+  white-space:nowrap;
 }
 .menu-bar a:hover{
   background:#5b7cfa;
@@ -73,100 +79,47 @@ body{
   border-color:#5b7cfa;
   color:#fff;
 }
-.menu-icon{
-  width:16px;
-  height:16px;
-  object-fit:contain;
-  display:inline-block;
-}
+.menu-icon{width:18px;height:18px;object-fit:contain;display:inline-block;}
 
-/* Mobile menu dropdown */
-.menu-mobile{
-  max-width:980px;
-  margin:0 auto 12px;
-  display:none;
-  justify-content:flex-end;
-  position:relative;
+/* MENU (mobile dropdown) */
+.menu-mobile{display:none;max-width:980px;margin:0 auto 12px;position:relative;}
+.hamburger{
+  width:44px;height:40px;border:1px solid #d7ddff;background:#eef2ff;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;
 }
-.menu-toggle{
-  width:44px;
-  height:44px;
-  border:1px solid #d7ddff;
-  background:#eef2ff;
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  transition:.2s;
-}
-.menu-toggle:hover{
-  background:#5b7cfa;
-  border-color:#5b7cfa;
-}
-.menu-toggle:hover .bar{background:#fff;}
-.menu-toggle .bars{
-  width:20px;
-  height:14px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.menu-toggle .bar{
-  height:2px;
-  background:#2a3b8f;
-}
+.hamburger span{display:block;width:22px;height:2px;background:#2a3b8f;}
 .menu-dropdown{
   position:absolute;
   right:0;
-  top:52px;
+  top:48px;
   min-width:240px;
   background:#ffffff;
   border:1px solid #d7ddff;
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
   display:none;
-  flex-direction:column;
-  padding:8px;
-  z-index:50;
+  z-index:999;
 }
 .menu-dropdown a{
   display:flex;
   align-items:center;
   gap:8px;
-  padding:10px 10px;
-  border:1px solid #d7ddff;
-  background:#eef2ff;
-  color:#2a3b8f;
+  padding:10px 12px;
   text-decoration:none;
+  color:#2a3b8f;
   font-weight:700;
-  margin:6px 0;
+  border-bottom:1px solid #eef2ff;
+  background:#ffffff;
 }
-.menu-dropdown a:hover{
-  background:#5b7cfa;
-  border-color:#5b7cfa;
-  color:#fff;
-}
-.menu-dropdown a.active{
-  background:#5b7cfa;
-  border-color:#5b7cfa;
-  color:#fff;
-}
+.menu-dropdown a:hover{background:#eef2ff;}
+.menu-dropdown a.active{background:#5b7cfa;color:#fff;}
 @media(max-width:600px){
-  .menu-bar{display:none;}
-  .menu-mobile{display:flex;}
+  .menu-bar-wrap{display:none;}
+  .menu-mobile{display:block;}
 }
 
-/* NAV */
-.navbar{
-  max-width:980px;
-  margin:0 auto 12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
+/* NAV links */
 .navlink{
   display:inline-block;
-  justify-self:center;
   padding:10px 12px;
   background:#eef2ff;
   border:1px solid #d7ddff;
@@ -185,71 +138,59 @@ body{
 }
 .navlink.disabled{opacity:.35;pointer-events:none;}
 
-.navbar .navlink:first-child{justify-self:start;}
-.navbar .navlink:last-child{justify-self:end;}
-
-/* "หน้าแรก" active ONLY when isHome, top nav only */
-.navhome-top.active{
-  background:#5b7cfa;
-  border-color:#5b7cfa;
-  color:#fff;
-}
-
-/* DESC container: not full page, full area (within max-width) + bg like non-colored table row */
-.desc-container{
-  max-width:980px;
-  margin:0 auto 10px;
-  box-sizing:border-box;
-}
+/* desc box */
 .desc-box{
   width:100%;
   background:#ffffff;
-  border:1px solid #d7ddff;
+  border:1px solid #2e26f0;
   font-weight:700;
   padding:12px 10px;
   box-sizing:border-box;
   text-align:center;
 }
 
-/* Breadcrumb + Archives row under desc */
+/* nav + inline desc (single row) */
+.nav-date-row{
+  max-width:980px;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.nav-date-row .navlink{white-space:nowrap;}
+.nav-date-row .desc-box.inline-desc{
+  flex:1;
+  margin:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Breadcrumb + archives row */
 .breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:12px;
 }
 .breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
-.breadcrumb a{
-  color:#2a3b8f;
-  text-decoration:none;
-}
-.breadcrumb a:hover{
-  text-decoration:underline;
-}
+.breadcrumb a{color:#2a3b8f;text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
 .archives-link{
   font-size:13px;
   font-weight:700;
   color:#2a3b8f;
   text-decoration:none;
-  background:none;
-  border:none;
-  padding:8px 10px;
-  transition:.2s;
-  white-space:nowrap;
 }
-.archives-link:hover{
-  text-decoration:underline;
-}
+.archives-link:hover{text-decoration:underline;}
 
 /* main title with icon */
 .main-title{
@@ -411,36 +352,25 @@ body{
 
 <h1 class="page-title"><a href="https://a-odds.github.io/">Major European Leagues</a></h1>
 
-
-
-<div class="menu-bar" id="menuBar">
-  <a href="https://a-odds.github.io/" class="active"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
-</div>
-
+<div class="menu-bar-wrap">
+         <div class="menu-bar" aria-label="Menu">
+           <a href="https://a-odds.github.io/" class="active"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
 <div class="menu-mobile">
-  <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuDropdown">
-    <span class="bars" aria-hidden="true">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </span>
-  </button>
+         <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menuDropdown">
+           <span></span><span></span><span></span>
+         </button>
+         <div class="menu-dropdown" id="menuDropdown" role="menu">
+           <a role="menuitem" href="https://a-odds.github.io/" class="active"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
 
-  <div class="menu-dropdown" id="menuDropdown" role="menu">
-    <a href="https://a-odds.github.io/" class="active" role="menuitem"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="#" role="menuitem"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
-  </div>
-</div>
-
-<!-- NAV TOP: order « ก่อนหน้า | หน้าแรก | ถัดไป -->
-<div class="navbar">
+<!-- NAV TOP: « ก่อนหน้า | (ข้อความใต้ Page Title) | ถัดไป -->
+<div class="nav-date-row">
   <a class="navlink " href="https://a-odds.github.io/1-29.html">« ก่อนหน้า</a>
-  
+  <div class="desc-box inline-desc">JAN 31, 2026</div>
   <a class="navlink " href="https://a-odds.github.io/2-1.html">ถัดไป »</a>
-</div>
-
-<!-- DESC: within 980px area, bg like non-colored table row (white) -->
-<div class="desc-container">
-  <div class="desc-box">JAN 31, 2026</div>
 </div>
 
 <!-- Breadcrumb + Archives (same row) -->
@@ -741,26 +671,67 @@ body{
 
   // Fit menu into a single line by shrinking font size when needed
   function fitMenu(){
-    const bar = document.getElementById("menuBar");
+  try{
+    const bar = document.getElementById("menuBar") || document.querySelector(".menu-bar");
     if (!bar) return;
-    const links = bar.querySelectorAll("a");
+
+    const links = Array.from(bar.querySelectorAll("a"));
     if (!links.length) return;
 
-    // reset
-    links.forEach(a => { a.style.fontSize = ""; a.style.letterSpacing = "-0.1px"; });
+    // Make sure the bar is single-line
+    bar.style.flexWrap = "nowrap";
+    bar.style.whiteSpace = "nowrap";
 
-    let size = 13;
-    const min = 10;
-    // shrink until it fits or hit min
-    while (bar.scrollWidth > bar.clientWidth && size > min){
-      size -= 1;
-      links.forEach(a => a.style.fontSize = size + "px");
+    // Reset link styles (avoid cumulative shrinking on resize)
+    links.forEach(a=>{
+      a.style.whiteSpace = "nowrap";
+      a.style.flex = "0 1 auto";
+      a.style.fontSize = "13px";
+      a.style.letterSpacing = "";
+      a.style.paddingLeft = "";
+      a.style.paddingRight = "";
+    });
+
+    const minFont = 10;
+
+    const getWidths = () => links.map(a => ({
+      a,
+      w: a.getBoundingClientRect().width,
+      fs: parseInt(getComputedStyle(a).fontSize, 10) || 13
+    }));
+
+    let guard = 0;
+    while (bar.scrollWidth > bar.clientWidth && guard < 250){
+      guard++;
+
+      // Shrink only the widest menu item first (some/หลายเมนูจะถูกบีบตามความจำเป็น)
+      const sorted = getWidths().sort((x,y)=>y.w - x.w);
+      const widest = sorted[0];
+      if (widest && widest.fs > minFont){
+        widest.a.style.fontSize = (widest.fs - 1) + "px";
+        continue;
+      }
+
+      // If fonts hit minimum, reduce padding gradually
+      const sample = links[0];
+      const padL = parseFloat(getComputedStyle(sample).paddingLeft) || 8;
+      const nextPad = Math.max(4, padL - 1);
+      if (nextPad < padL){
+        links.forEach(a=>{
+          a.style.paddingLeft = nextPad + "px";
+          a.style.paddingRight = nextPad + "px";
+        });
+        continue;
+      }
+
+      // Final fallback: slightly tighten letter spacing
+      links.forEach(a=>{ a.style.letterSpacing = "-0.3px"; });
+      break;
     }
-    // last resort: slightly tighter letter spacing
-    if (bar.scrollWidth > bar.clientWidth){
-      links.forEach(a => a.style.letterSpacing = "-0.4px");
-    }
+  }catch(e){
+    // never break the page
   }
+}
   window.addEventListener("load", fitMenu);
   window.addEventListener("resize", fitMenu);
 
