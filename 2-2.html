@@ -31,25 +31,94 @@ body{
 }
 
 /* Page title: no hover */
-.page-title{margin:0 0 14px;}
+.page-title{margin:0 0 10px;}
 .page-title a{color:#111;text-decoration:none;}
 .page-title a:visited{color:#111;}
 .page-title a:hover{color:#111;text-decoration:none;}
 
-/* NAV */
-.navbar{
+/* MENU BAR (desktop) */
+.menu-bar-wrap{max-width:980px;margin:0 auto 12px;}
+.menu-bar{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
   max-width:980px;
-  margin:0 auto 12px;
+  margin:0 auto 18px;
+  padding:0 6px;
+}
+.menu-bar a{
+  flex:0 1 auto;
+  min-width:0;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.menu-bar a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 12px;
+  background:#eef2ff;
+  border:1px solid #d7ddff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+}
+.menu-bar a:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+  transform:translateY(-1px);
+}
+.menu-bar a.active{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+}
+.menu-icon{width:18px;height:18px;object-fit:contain;display:inline-block;}
+
+/* MENU (mobile dropdown) */
+.menu-mobile{display:none;max-width:980px;margin:0 auto 12px;position:relative;}
+.hamburger{
+  width:44px;height:40px;border:1px solid #d7ddff;background:#eef2ff;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;
+}
+.hamburger span{display:block;width:22px;height:2px;background:#2a3b8f;}
+.menu-dropdown{
+  position:absolute;
+  right:0;
+  top:48px;
+  min-width:240px;
+  background:#ffffff;
+  border:1px solid #d7ddff;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  display:none;
+  flex-direction:column;
+  z-index:999;
+}
+.menu-dropdown a{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:10px;
+  gap:8px;
+  padding:10px 12px;
+  text-decoration:none;
+  color:#2a3b8f;
+  font-weight:700;
+  border-bottom:1px solid #eef2ff;
+  background:#ffffff;
 }
-.navcenter{
-  flex:1;
-  display:flex;
-  justify-content:center;
+.menu-dropdown a:hover{background:#eef2ff;}
+.menu-dropdown a.active{background:#5b7cfa;color:#fff;}
+@media(max-width:600px){
+  .menu-bar-wrap{display:none;}
+  .menu-mobile{display:block;}
 }
+
+/* NAV links */
 .navlink{
   display:inline-block;
   padding:10px 12px;
@@ -70,68 +139,59 @@ body{
 }
 .navlink.disabled{opacity:.35;pointer-events:none;}
 
-/* "หน้าแรก" active ONLY when isHome, top nav only */
-.navhome-top.active{
-  background:#5b7cfa;
-  border-color:#5b7cfa;
-  color:#fff;
-}
-
-/* DESC container: not full page, full area (within max-width) + bg like non-colored table row */
-.desc-container{
-  max-width:980px;
-  margin:0 auto 10px;
-  box-sizing:border-box;
-}
+/* desc box */
 .desc-box{
   width:100%;
   background:#ffffff;
-  border:1px solid #d7ddff;
+  border:1px solid #2e26f0;
   font-weight:700;
   padding:12px 10px;
   box-sizing:border-box;
   text-align:center;
 }
 
-/* Breadcrumb + Archives row under desc */
+/* nav + inline desc (single row) */
+.nav-date-row{
+  max-width:980px;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.nav-date-row .navlink{white-space:nowrap;}
+.nav-date-row .desc-box.inline-desc{
+  flex:1;
+  margin:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Breadcrumb + archives row */
 .breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:12px;
 }
 .breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
-.breadcrumb a{
-  color:#2a3b8f;
-  text-decoration:none;
-}
-.breadcrumb a:hover{
-  text-decoration:underline;
-}
+.breadcrumb a{color:#2a3b8f;text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
 .archives-link{
   font-size:13px;
   font-weight:700;
   color:#2a3b8f;
   text-decoration:none;
-  background:none;
-  border:none;
-  padding:8px 10px;
-  transition:.2s;
-  white-space:nowrap;
 }
-.archives-link:hover{
-  text-decoration:underline;
-}
+.archives-link:hover{text-decoration:underline;}
 
 /* main title with icon */
 .main-title{
@@ -293,18 +353,25 @@ body{
 
 <h1 class="page-title"><a href="https://a-odds.github.io/">Major European Leagues</a></h1>
 
-<!-- NAV TOP: order « ก่อนหน้า | หน้าแรก | ถัดไป -->
-<div class="navbar">
-  <a class="navlink " href="https://a-odds.github.io/2-1.html">« ก่อนหน้า</a>
-  <div class="navcenter">
-    <a class="navlink navhome-top " href="https://a-odds.github.io/">หน้าแรก</a>
-  </div>
-  <a class="navlink " href="#">ถัดไป »</a>
-</div>
+<div class="menu-bar-wrap">
+         <div class="menu-bar" aria-label="Menu">
+           <a href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
+<div class="menu-mobile">
+         <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menuDropdown">
+           <span></span><span></span><span></span>
+         </button>
+         <div class="menu-dropdown" id="menuDropdown" role="menu">
+           <a role="menuitem" href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serea A</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a role="menuitem" href="#"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
 
-<!-- DESC: within 980px area, bg like non-colored table row (white) -->
-<div class="desc-container">
-  <div class="desc-box">Feb 02, 2026</div>
+<!-- NAV TOP: « ก่อนหน้า | (ข้อความใต้ Page Title) | ถัดไป -->
+<div class="nav-date-row">
+  <a class="navlink " href="https://a-odds.github.io/2-1.html">« ก่อนหน้า</a>
+  <div class="desc-box inline-desc">Feb 02, 2026</div>
+  <a class="navlink " href="#">ถัดไป »</a>
 </div>
 
 <!-- Breadcrumb + Archives (same row) -->
@@ -317,7 +384,7 @@ body{
 <div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410167/1-25/EPL-Prediction.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -328,7 +395,7 @@ body{
         </div><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Odds</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410166/1-25/EPL-Odds.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -339,7 +406,7 @@ body{
         </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" class="main-icon" alt=""><h2>La Liga</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410473/1-25/Laliga-Prediction.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -356,7 +423,7 @@ body{
 </table></div></div><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Odds</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410473/1-25/Laliga-Odds.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -373,7 +440,7 @@ body{
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" class="main-icon" alt=""><h2>Serea A</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410504/1-25/Serie-A-Predict.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -390,7 +457,7 @@ body{
 </table></div></div><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Odds</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410501/1-25/Serie-A-Odds.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -407,7 +474,7 @@ body{
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" class="main-icon" alt=""><h2>Bundesliga</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410489/1-25/Bundes-Prediction.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -418,7 +485,7 @@ body{
         </div><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Odds</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410488/1-25/Bundes-Odds.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -429,7 +496,7 @@ body{
         </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" class="main-icon" alt=""><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410529/1-25/L1-Prediction.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -445,7 +512,7 @@ body{
 </table></div></div><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Odds</div>
-            <a class="dl-btn" href="https://res.cloudinary.com/da5kjg3zh/raw/upload/v1769410517/1-25/L1-Odds.xlsx" download aria-label="Download">
+            <a class="dl-btn" href="#" download aria-label="Download">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -462,9 +529,7 @@ body{
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="navbar" style="margin-top:6px;">
   <a class="navlink " href="https://a-odds.github.io/2-1.html">« ก่อนหน้า</a>
-  <div class="navcenter">
-    <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
-  </div>
+  <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
   <a class="navlink " href="#">ถัดไป »</a>
 </div>
 
@@ -512,6 +577,115 @@ body{
     cells.forEach(c=>c.style.fontSize="");
     fitAll();
   });
+
+  // Fit menu into a single line by shrinking font size when needed
+  function fitMenu(){
+  try{
+    const bar = document.getElementById("menuBar") || document.querySelector(".menu-bar");
+    if (!bar) return;
+
+    const links = Array.from(bar.querySelectorAll("a"));
+    if (!links.length) return;
+
+    // Make sure the bar is single-line
+    bar.style.flexWrap = "nowrap";
+    bar.style.whiteSpace = "nowrap";
+
+    // Reset link styles (avoid cumulative shrinking on resize)
+    links.forEach(a=>{
+      a.style.whiteSpace = "nowrap";
+      a.style.flex = "0 1 auto";
+      a.style.fontSize = "13px";
+      a.style.letterSpacing = "";
+      a.style.paddingLeft = "";
+      a.style.paddingRight = "";
+    });
+
+    const minFont = 10;
+
+    const getWidths = () => links.map(a => ({
+      a,
+      w: a.getBoundingClientRect().width,
+      fs: parseInt(getComputedStyle(a).fontSize, 10) || 13
+    }));
+
+    let guard = 0;
+    while (bar.scrollWidth > bar.clientWidth && guard < 250){
+      guard++;
+
+      // Shrink only the widest menu item first (some/หลายเมนูจะถูกบีบตามความจำเป็น)
+      const sorted = getWidths().sort((x,y)=>y.w - x.w);
+      const widest = sorted[0];
+      if (widest && widest.fs > minFont){
+        widest.a.style.fontSize = (widest.fs - 1) + "px";
+        continue;
+      }
+
+      // If fonts hit minimum, reduce padding gradually
+      const sample = links[0];
+      const padL = parseFloat(getComputedStyle(sample).paddingLeft) || 8;
+      const nextPad = Math.max(4, padL - 1);
+      if (nextPad < padL){
+        links.forEach(a=>{
+          a.style.paddingLeft = nextPad + "px";
+          a.style.paddingRight = nextPad + "px";
+        });
+        continue;
+      }
+
+      // Final fallback: slightly tighten letter spacing
+      links.forEach(a=>{ a.style.letterSpacing = "-0.3px"; });
+      break;
+    }
+  }catch(e){
+    // never break the page
+  }
+}
+  window.addEventListener("load", fitMenu);
+  window.addEventListener("resize", fitMenu);
+  // Mobile menu toggle
+  try{
+const menuToggle = document.getElementById("menuToggle");
+  const menuDropdown = document.getElementById("menuDropdown");
+  if (menuToggle && menuDropdown){
+    const closeMenu = () => {
+      menuDropdown.style.display = "none";
+      menuToggle.setAttribute("aria-expanded", "false");
+    };
+    const openMenu = () => {
+      menuDropdown.style.display = "flex";
+      menuDropdown.style.flexDirection = "column";
+      menuToggle.setAttribute("aria-expanded", "true");
+    };
+
+    closeMenu();
+
+    menuToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = menuDropdown.style.display === "flex";
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    menuDropdown.addEventListener("click", (e) => {
+      const a = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (a) closeMenu();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menuDropdown.contains(e.target) && e.target !== menuToggle){
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  }catch(e){}
+
 
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
