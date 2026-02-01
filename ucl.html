@@ -485,7 +485,6 @@ body{
 </div>
 
 <style>
-/* ซ่อน counter บนมือถือ */
 @media (max-width:600px){
   #stat-counter{ display:none; }
 }
@@ -496,44 +495,50 @@ body{
   /* =========================
      CONFIG
      ========================= */
-  const TITLE_TEXT  = "Visitors"; // เปลี่ยนข้อความได้
-  const START_TOTAL = 12500;      // ตั้งต้นได้เฉพาะ "ทั้งหมด"
+  const TITLE_TEXT  = "Visitors";               // เปลี่ยนได้
+  const START_TOTAL = 12500;                    // ตั้งต้นได้เฉพาะ "ทั้งหมด"
+
+  // ใส่ URL หลักที่ต้องการให้นับรวม (แก้ได้)
+  // ถ้าใช้โดเมนปัจจุบัน ปล่อยเป็น "" ได้
+  const BASE_URL = "https://a-odds.github.io";  // ← แก้ URL ตรงนี้ได้
   /* ========================= */
 
-  const storage = localStorage;
-  const todayKey = new Date().toISOString().slice(0,10);
+  try{
+    const base = (BASE_URL || (location.origin)).replace(/\/+$/,"");
+    const storageKey = "statCounter::" + base;
 
-  let data = JSON.parse(storage.getItem("statCounter") || "{}");
+    const storage = localStorage;
+    const todayKey = new Date().toISOString().slice(0,10);
 
-  // init ครั้งแรก
-  if(!data.date){
-    data = {
-      date: todayKey,
-      today: 0,
-      yesterday: 0,
-      total: START_TOTAL
-    };
+    let data = JSON.parse(storage.getItem(storageKey) || "{}");
+
+    // init ครั้งแรก
+    if(!data.date){
+      data = { date: todayKey, today: 0, yesterday: 0, total: START_TOTAL };
+    }
+
+    // เปลี่ยนวัน (วันนี้/เมื่อวานนับจริง)
+    if(data.date !== todayKey){
+      data.yesterday = data.today;
+      data.today = 0;
+      data.date = todayKey;
+    }
+
+    // นับรวมทุกหน้า (เพราะใช้ key เดียวกันทั้งโดเมน)
+    data.today += 1;
+    data.total += 1;
+
+    storage.setItem(storageKey, JSON.stringify(data));
+
+    const fmt = n => (Number(n)||0).toLocaleString("en-US");
+
+    document.getElementById("stat-title-text").textContent = TITLE_TEXT;
+    document.getElementById("stat-today").textContent = fmt(data.today);
+    document.getElementById("stat-yesterday").textContent = fmt(data.yesterday);
+    document.getElementById("stat-total").textContent = fmt(data.total);
+  }catch(e){
+    // ถ้า browser บล็อก localStorage ก็ไม่ให้หน้า error
   }
-
-  // เปลี่ยนวัน
-  if(data.date !== todayKey){
-    data.yesterday = data.today;
-    data.today = 0;
-    data.date = todayKey;
-  }
-
-  // นับจริง
-  data.today += 1;
-  data.total += 1;
-
-  storage.setItem("statCounter", JSON.stringify(data));
-
-  const fmt = n => n.toLocaleString("en-US");
-
-  document.getElementById("stat-title-text").textContent = TITLE_TEXT;
-  document.getElementById("stat-today").textContent = fmt(data.today);
-  document.getElementById("stat-yesterday").textContent = fmt(data.yesterday);
-  document.getElementById("stat-total").textContent = fmt(data.total);
 })();
 </script>
 </div>
