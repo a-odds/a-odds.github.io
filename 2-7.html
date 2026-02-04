@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Major European Leagues</title>
+<meta name="description" content="เว็บทำนายผลฟุตบอลยุโรป พร้อมอัตราต่อรองแบบเรียลไทม์ ครอบคลุม Premier League, La Liga, Serie A, Bundesliga และฟุตบอลถ้วยยุโรป วิเคราะห์แม่น อัพเดทเร็ว">
+<link rel="icon" href="https://img.icons8.com/cotton/64/football-ball.png">
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6fb;
+  padding:20px;
+  margin:0;
+}
+.logo-wrap{
+  max-width:980px;
+  margin:0 auto 8px;
+  display:flex;
+  justify-content:center;
+}
+.logo-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;}
+.logo-img{
+  max-width:200px;
+  width:100%;
+  height:auto;
+  max-height:64px;
+  object-fit:contain;
+}
+
+/* Page title: no hover */
+.page-title{margin:0 0 10px;}
+.page-title a{color:#111;text-decoration:none;}
+.page-title a:visited{color:#111;}
+.page-title a:hover{color:#111;text-decoration:none;}
+
+/* MENU BAR (desktop) */
+.menu-bar-wrap{max-width:980px;margin:0 auto 12px;}
+.menu-bar{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
+  max-width:980px;
+  margin:0 auto 18px;
+  padding:0 6px;
+}
+.menu-bar a{
+  flex:0 1 auto;
+  min-width:0;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.menu-bar a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 12px;
+  background:#eef2ff;
+  border:1px solid #d7ddff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+}
+.menu-bar a:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+  transform:translateY(-1px);
+}
+.menu-bar a.active{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+}
+.menu-icon{width:18px;height:18px;object-fit:contain;display:inline-block;}
+
+/* MENU (mobile dropdown) */
+.menu-mobile{display:none;max-width:980px;margin:0 auto 12px;position:relative;}
+.hamburger{
+  width:44px;height:40px;border:1px solid #d7ddff;background:#eef2ff;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;
+}
+.hamburger span{display:block;width:22px;height:2px;background:#2a3b8f;}
+.menu-dropdown{
+  position:absolute;
+  right:0;
+  top:48px;
+  min-width:240px;
+  background:#ffffff;
+  border:1px solid #d7ddff;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  display:none;
+  flex-direction:column;
+  z-index:999;
+}
+.menu-dropdown a{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  text-decoration:none;
+  color:#2a3b8f;
+  font-weight:700;
+  border-bottom:1px solid #eef2ff;
+  background:#ffffff;
+}
+.menu-dropdown a:hover{background:#eef2ff;}
+.menu-dropdown a.active{background:#5b7cfa;color:#fff;}
+@media(max-width:600px){
+  .menu-bar-wrap{display:none;}
+  .menu-mobile{display:block;}
+}
+
+/* NAV links */
+.navlink{
+  display:inline-block;
+  padding:10px 12px;
+  background:#eef2ff;
+  border:1px solid #d7ddff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  transition:.2s;
+  min-width:92px;
+  text-align:center;
+}
+.navlink:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+  transform:translateY(-1px);
+}
+.navlink.disabled{opacity:.35;pointer-events:none;}
+
+/* desc box */
+.desc-box{
+  width:100%;
+  background:#ffffff;
+  border:1px solid #d7ddff;
+  font-weight:700;
+  padding:12px 10px;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+/* nav + inline desc (single row) */
+.nav-date-row{
+  max-width:980px;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.nav-date-row .navlink{white-space:nowrap;}
+.nav-date-row .desc-box.inline-desc{
+  flex:1;
+  margin:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Breadcrumb + archives row */
+.breadcrumb-row{
+  max-width:980px;
+  margin:8px auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.breadcrumb{
+  text-align:left;
+  font-size:13px;
+  color:#4b5563;
+  font-weight:700;
+}
+.breadcrumb a{color:#2a3b8f;text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
+.archives-link{
+  font-size:13px;
+  font-weight:700;
+  color:#2a3b8f;
+  text-decoration:none;
+}
+.archives-link:hover{text-decoration:underline;}
+
+/* main title with icon */
+.main-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.main-icon{width:24px;height:24px;object-fit:contain;}
+
+/* 2 cols responsive */
+.subs{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:18px;
+  max-width:980px;
+  margin:15px auto 28px;
+  align-items:stretch;
+}
+@media(max-width:600px){
+  .subs{grid-template-columns:1fr;}
+}
+
+/* sub card */
+.subcard{
+  width:100%;
+  background:#ffffff;
+  border:1px solid #e2e6f0;
+  border-radius:0;
+  box-shadow:none;
+  padding:12px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.sub-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px;
+  background:#f4f6fb;
+}
+.sub-text{
+  font-weight:700;
+  color:#222;
+  text-align:center;
+  flex:1;
+}
+.dl-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  text-decoration:none;
+  color:#222;
+  transition:.2s;
+}
+.dl-btn:hover{color:#5b7cfa; transform:translateY(-1px);}
+
+/* table */
+.sub-extra{width:100%;text-align:left;}
+.sub-extra table{
+  width:100%;
+  margin:0 auto;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+.sub-extra th,
+.sub-extra td{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:clip;
+}
+.sub-extra th{
+  background:#ffe2c2;
+  color:#2b2b2b;
+  font-weight:700;
+  text-align:center;
+  padding:10px 8px;
+  border:1px solid #f2c79e;
+  line-height:1.15;
+}
+.sub-extra td{
+  border:1px solid #f2c79e;
+  padding:10px 8px;
+  font-size:14px;
+  line-height:1.15;
+}
+.sub-extra tbody tr:nth-child(even) td{
+  background:#fff3e6;
+}
+.sub-extra th:nth-child(2),
+.sub-extra th:nth-child(3),
+.sub-extra th:nth-child(4),
+.sub-extra th:nth-child(6),
+.sub-extra td:nth-child(2),
+.sub-extra td:nth-child(3),
+.sub-extra td:nth-child(4),
+.sub-extra td:nth-child(6){
+  text-align:center;
+}
+.sub-extra td:nth-child(1),
+.sub-extra td:nth-child(5){
+  text-align:left;
+}
+.sub-extra td:nth-child(2){ color:#6f3cc3; font-weight:700; }
+.sub-extra td:nth-child(3){ color:#4b5563; font-weight:700; }
+.sub-extra td:nth-child(4){ color:#e63b7a; font-weight:700; }
+
+/* footer + stat */
+.footer{
+  max-width:980px;
+  margin:18px auto 0;
+  color:#6b7280;
+  font-size:13px;
+  text-align:center;
+}
+.statwrap{
+  max-width:980px;
+  margin:10px auto 0;
+  display:flex;
+  justify-content:center;
+}
+
+/* back to top */
+#backToTop{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:44px;
+  height:44px;
+  border:0;
+  background:#5b7cfa;
+  color:#fff;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  transition:.2s;
+}
+#backToTop:hover{transform:translateY(-2px); background:#3f63ff;}
+</style>
+</head>
+<body>
+
+
+<div class="logo-wrap">
+  <a class="logo-link" href="https://a-odds.github.io/" aria-label="Home">
+    <img class="logo-img" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769328991/G/logo.png" alt="Logo">
+  </a>
+</div>
+
+<h1 class="page-title"><a href="https://a-odds.github.io/">Major European Leagues</a></h1>
+
+<div class="menu-bar-wrap">
+         <div class="menu-bar" aria-label="Menu">
+           <a href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="https://a-odds.github.io/epl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="https://a-odds.github.io/laliga"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="https://a-odds.github.io/serie-a.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a href="https://a-odds.github.io/bundesliga.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="https://a-odds.github.io/ligue-1.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="https://a-odds.github.io/efl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="https://a-odds.github.io/ucl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="https://a-odds.github.io/uel.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="https://a-odds.github.io/uecl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
+<div class="menu-mobile">
+         <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menuDropdown">
+           <span></span><span></span><span></span>
+         </button>
+         <div class="menu-dropdown" id="menuDropdown" role="menu">
+           <a role="menuitem" href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a role="menuitem" href="https://a-odds.github.io/epl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a role="menuitem" href="https://a-odds.github.io/laliga"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a role="menuitem" href="https://a-odds.github.io/serie-a.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a role="menuitem" href="https://a-odds.github.io/bundesliga.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a role="menuitem" href="https://a-odds.github.io/ligue-1.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a role="menuitem" href="https://a-odds.github.io/efl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a role="menuitem" href="https://a-odds.github.io/ucl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a role="menuitem" href="https://a-odds.github.io/uel.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a role="menuitem" href="https://a-odds.github.io/uecl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
+
+<!-- NAV TOP: « ก่อนหน้า | (ข้อความใต้ Page Title) | ถัดไป -->
+<div class="nav-date-row">
+  <a class="navlink " href="https://a-odds.github.io/2-2.html">« ก่อนหน้า</a>
+  <div class="desc-box inline-desc">Feb 07, 2026</div>
+  <a class="navlink " href="https://a-odds.github.io/2-8.html">ถัดไป »</a>
+</div>
+
+<!-- Breadcrumb + Archives (same row) -->
+<div class="breadcrumb-row">
+  <div class="breadcrumb">
+    <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Feb 07, 2026
+  </div>
+  <a class="archives-link" href="https://a-odds.github.io/archives.html" target="_blank" rel="noopener">ดูย้อนหลังทั้งหมด</a>
+</div>
+<div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+
+<tr><td>Leeds</td><td>41.4%</td><td>26.7%</td><td>32.0%</td><td>Nottm Forest</td><td></td></tr>
+<tr><td>Man Utd</td><td>50.0%</td><td>25.3%</td><td>24.8%</td><td>Spurs</td><td></td></tr>
+<tr><td>Bournemouth</td><td>32.3%</td><td>25.4%</td><td>42.3%</td><td>Aston Villa</td><td></td></tr>
+<tr><td>Arsenal</td><td>79.4%</td><td>12.5%</td><td>8.0%</td><td>Sunderland</td><td></td></tr>
+<tr><td>Burnley</td><td>39.6%</td><td>26.6%</td><td>33.8%</td><td>West Ham</td><td></td></tr>
+<tr><td>Fulham</td><td>45.3%</td><td>26.9%</td><td>27.8%</td><td>Everton</td><td></td></tr>
+<tr><td>Wolves</td><td>17.4%</td><td>19.6%</td><td>63.0%</td><td>Chelsea</td><td></td></tr>
+<tr><td>Newcastle</td><td>49.1%</td><td>25.6%</td><td>25.3%</td><td>Brentford</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <text x="3" y="16" font-size="12" font-weight="700" fill="currentColor">1X2</text>
+</svg>
+            </a>
+          </div>
+        </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" class="main-icon" alt=""><h2>La Liga</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+
+<tr><td>Celta</td><td>47.0%</td><td>27.4%</td><td>25.6%</td><td>Osasuna</td><td></td></tr>
+<tr><td>Rayo</td><td>50.3%</td><td>26.8%</td><td>22.9%</td><td>Oviedo</td><td></td></tr>
+<tr><td>Barcelona</td><td>76.9%</td><td>13.5%</td><td>9.5%</td><td>Mallorca</td><td></td></tr>
+<tr><td>Sevilla</td><td>45.6%</td><td>26.8%</td><td>27.6%</td><td>Girona</td><td></td></tr>
+<tr><td>Real Sociedad</td><td>56.3%</td><td>22.9%</td><td>20.9%</td><td>Elche</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <text x="3" y="16" font-size="12" font-weight="700" fill="currentColor">1X2</text>
+</svg>
+            </a>
+          </div>
+        </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" class="main-icon" alt=""><h2>Serie A</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+
+<tr><td>Verona</td><td>45.0%</td><td>28.8%</td><td>26.1%</td><td>Pisa</td><td></td></tr>
+<tr><td>Genoa</td><td>24.2%</td><td>28.4%</td><td>47.4%</td><td>Napoli</td><td></td></tr>
+<tr><td>Fiorentina</td><td>51.6%</td><td>24.9%</td><td>23.4%</td><td>Torino</td><td></td></tr>
+<tr><td>Bologna</td><td>58.5%</td><td>22.2%</td><td>19.4%</td><td>Parma</td><td></td></tr>
+<tr><td>Lecce</td><td>33.2%</td><td>31.1%</td><td>35.7%</td><td>Udinese</td><td></td></tr>
+<tr><td>Sassuolo</td><td>17.8%</td><td>21.7%</td><td>60.5%</td><td>Inter</td><td></td></tr>
+<tr><td>Juventus</td><td>62.4%</td><td>21.6%</td><td>16.0%</td><td>Lazio</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <text x="3" y="16" font-size="12" font-weight="700" fill="currentColor">1X2</text>
+</svg>
+            </a>
+          </div>
+        </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" class="main-icon" alt=""><h2>Bundesliga</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+
+<tr><td>Union Berlin</td><td>44.9%</td><td>25.7%</td><td>29.4%</td><td>Frankfurt</td><td></td></tr>
+<tr><td>Freiburg</td><td>50.2%</td><td>24.4%</td><td>25.4%</td><td>Bremen</td><td></td></tr>
+<tr><td>Mainz 05</td><td>45.6%</td><td>25.4%</td><td>29.0%</td><td>Augsburg</td><td></td></tr>
+<tr><td>Wolfsburg</td><td>25.0%</td><td>23.5%</td><td>51.6%</td><td>Dortmund</td><td></td></tr>
+<tr><td>St. Pauli</td><td>24.9%</td><td>25.1%</td><td>50.1%</td><td>Stuttgart</td><td></td></tr>
+<tr><td>Heidenheim</td><td>35.9%</td><td>26.4%</td><td>37.8%</td><td>Hamburg</td><td></td></tr>
+<tr><td>M'gladbach</td><td>30.2%</td><td>25.2%</td><td>44.6%</td><td>Leverkusen</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <text x="3" y="16" font-size="12" font-weight="700" fill="currentColor">1X2</text>
+</svg>
+            </a>
+          </div>
+        </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" class="main-icon" alt=""><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+
+<tr><td>Metz</td><td>23.9%</td><td>24.2%</td><td>51.9%</td><td>Lille</td><td></td></tr>
+<tr><td>Lens</td><td>51.5%</td><td>24.3%</td><td>24.1%</td><td>Rennes</td><td></td></tr>
+<tr><td>Brest</td><td>41.2%</td><td>29.1%</td><td>29.7%</td><td>Lorient</td><td></td></tr>
+<tr><td>Nantes</td><td>21.2%</td><td>24.1%</td><td>54.8%</td><td>Lyon</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <text x="3" y="16" font-size="12" font-weight="700" fill="currentColor">1X2</text>
+</svg>
+            </a>
+          </div>
+        </div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" class="main-icon" alt=""><h2>Championship</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Predictions</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+
+<tr><td>Charlton</td><td>41.3%</td><td>26.7%</td><td>32.0%</td><td>QPR</td><td></td></tr>
+<tr><td>Derby</td><td>36.2%</td><td>26.2%</td><td>37.6%</td><td>Ipswich</td><td></td></tr>
+<tr><td>Norwich</td><td>50.0%</td><td>25.3%</td><td>24.8%</td><td>Blackburn</td><td></td></tr>
+<tr><td>Southampton</td><td>51.0%</td><td>24.9%</td><td>24.1%</td><td>Watford</td><td></td></tr>
+<tr><td>Birmingham</td><td>47.7%</td><td>26.1%</td><td>26.2%</td><td>Leicester</td><td></td></tr>
+<tr><td>Coventry</td><td>66.4%</td><td>18.3%</td><td>15.3%</td><td>Oxford</td><td></td></tr>
+<tr><td>Hull</td><td>51.9%</td><td>24.5%</td><td>23.6%</td><td>Bristol City</td><td></td></tr>
+<tr><td>Preston</td><td>49.1%</td><td>25.6%</td><td>25.3%</td><td>Portsmouth</td><td></td></tr>
+<tr><td>West Bromwich</td><td>39.1%</td><td>26.5%</td><td>34.4%</td><td>Stoke</td><td></td></tr>
+<tr><td>Wrexham</td><td>45.0%</td><td>26.9%</td><td>28.1%</td><td>Millwall</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">Odds</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <text x="3" y="16" font-size="12" font-weight="700" fill="currentColor">1X2</text>
+</svg>
+            </a>
+          </div>
+        </div></div>
+<!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
+<div class="navbar" style="margin-top:6px;">
+  <a class="navlink " href="https://a-odds.github.io/2-2.html">« ก่อนหน้า</a>
+  <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
+  <a class="navlink " href="https://a-odds.github.io/2-8.html">ถัดไป »</a>
+</div>
+
+<div class="footer">© 2026 www.A-Odds.com</div>
+
+<div class="statwrap"><div id="stat-counter" style="
+  text-align:center;
+  font-size:14px;
+  color:#888;
+  margin:28px 0;
+">
+  <!-- TITLE -->
+  <div id="stat-title" style="
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+    color:#777;
+    margin-bottom:6px;
+  ">
+    <!-- Bar Chart Icon -->
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M6 17V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M12 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M18 17V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span id="stat-title-text">Visitors</span>
+  </div>
+
+  <!-- COUNTER : บรรทัดล่าง -->
+  <div id="stat-values">
+    วันนี้: <span id="stat-today">0</span> |
+    เมื่อวาน: <span id="stat-yesterday">0</span> |
+    ทั้งหมด: <span id="stat-total">0</span>
+  </div>
+</div>
+
+<style>
+@media (max-width:600px){
+  #stat-counter{ display:none; }
+}
+</style>
+
+<script>
+(function(){
+  /* =========================
+     CONFIG
+     ========================= */
+  const TITLE_TEXT  = "Visitors";               // เปลี่ยนได้
+  const START_TOTAL = 12500;                    // ตั้งต้นได้เฉพาะ "ทั้งหมด"
+
+  // ใส่ URL หลักที่ต้องการให้นับรวม (แก้ได้)
+  // ถ้าใช้โดเมนปัจจุบัน ปล่อยเป็น "" ได้
+  const BASE_URL = "https://a-odds.github.io";  // ← แก้ URL ตรงนี้ได้
+  /* ========================= */
+
+  try{
+    const base = (BASE_URL || (location.origin)).replace(/\/+$/,"");
+    const storageKey = "statCounter::" + base;
+
+    const storage = localStorage;
+    const todayKey = new Date().toISOString().slice(0,10);
+
+    let data = JSON.parse(storage.getItem(storageKey) || "{}");
+
+    // init ครั้งแรก
+    if(!data.date){
+      data = { date: todayKey, today: 0, yesterday: 0, total: START_TOTAL };
+    }
+
+    // เปลี่ยนวัน (วันนี้/เมื่อวานนับจริง)
+    if(data.date !== todayKey){
+      data.yesterday = data.today;
+      data.today = 0;
+      data.date = todayKey;
+    }
+
+    // นับรวมทุกหน้า (เพราะใช้ key เดียวกันทั้งโดเมน)
+    data.today += 1;
+    data.total += 1;
+
+    storage.setItem(storageKey, JSON.stringify(data));
+
+    const fmt = n => (Number(n)||0).toLocaleString("en-US");
+
+    document.getElementById("stat-title-text").textContent = TITLE_TEXT;
+    document.getElementById("stat-today").textContent = fmt(data.today);
+    document.getElementById("stat-yesterday").textContent = fmt(data.yesterday);
+    document.getElementById("stat-total").textContent = fmt(data.total);
+  }catch(e){
+    // ถ้า browser บล็อก localStorage ก็ไม่ให้หน้า error
+  }
+})();
+</script>
+</div>
+
+<button id="backToTop" title="Back To Top" aria-label="Back To Top">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M12 5l-6 6h4v8h4v-8h4l-6-6z" fill="currentColor"/>
+</svg>
+</button>
+
+<script>
+(function(){
+  function fitCell(el, maxPx, minPx){
+    el.style.fontSize = maxPx + "px";
+    const maxIter = (maxPx - minPx) + 2;
+    let i = 0;
+    while (
+      i < maxIter &&
+      (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight) &&
+      maxPx > minPx
+    ){
+      maxPx -= 1;
+      el.style.fontSize = maxPx + "px";
+      i++;
+    }
+  }
+  function fitAll(){
+    const cells = document.querySelectorAll(".sub-extra table th, .sub-extra table td");
+    cells.forEach(cell=>{
+      const isHeader = cell.tagName === "TH";
+      fitCell(cell, 14, isHeader ? 10 : 10);
+    });
+  }
+  window.addEventListener("load", ()=>{
+    fitAll();
+    setTimeout(fitAll, 60);
+  });
+  window.addEventListener("resize", ()=>{
+    const cells = document.querySelectorAll(".sub-extra table th, .sub-extra table td");
+    cells.forEach(c=>c.style.fontSize="");
+    fitAll();
+  });
+
+  // Fit menu into a single line by shrinking font size when needed
+  function fitMenu(){
+  try{
+    const bar = document.getElementById("menuBar") || document.querySelector(".menu-bar");
+    if (!bar) return;
+
+    const links = Array.from(bar.querySelectorAll("a"));
+    if (!links.length) return;
+
+    // Make sure the bar is single-line
+    bar.style.flexWrap = "nowrap";
+    bar.style.whiteSpace = "nowrap";
+
+    // Reset link styles (avoid cumulative shrinking on resize)
+    links.forEach(a=>{
+      a.style.whiteSpace = "nowrap";
+      a.style.flex = "0 1 auto";
+      a.style.fontSize = "13px";
+      a.style.letterSpacing = "";
+      a.style.paddingLeft = "";
+      a.style.paddingRight = "";
+    });
+
+    const minFont = 10;
+
+    const getWidths = () => links.map(a => ({
+      a,
+      w: a.getBoundingClientRect().width,
+      fs: parseInt(getComputedStyle(a).fontSize, 10) || 13
+    }));
+
+    let guard = 0;
+    while (bar.scrollWidth > bar.clientWidth && guard < 250){
+      guard++;
+
+      // Shrink only the widest menu item first (some/หลายเมนูจะถูกบีบตามความจำเป็น)
+      const sorted = getWidths().sort((x,y)=>y.w - x.w);
+      const widest = sorted[0];
+      if (widest && widest.fs > minFont){
+        widest.a.style.fontSize = (widest.fs - 1) + "px";
+        continue;
+      }
+
+      // If fonts hit minimum, reduce padding gradually
+      const sample = links[0];
+      const padL = parseFloat(getComputedStyle(sample).paddingLeft) || 8;
+      const nextPad = Math.max(4, padL - 1);
+      if (nextPad < padL){
+        links.forEach(a=>{
+          a.style.paddingLeft = nextPad + "px";
+          a.style.paddingRight = nextPad + "px";
+        });
+        continue;
+      }
+
+      // Final fallback: slightly tighten letter spacing
+      links.forEach(a=>{ a.style.letterSpacing = "-0.3px"; });
+      break;
+    }
+  }catch(e){
+    // never break the page
+  }
+}
+  window.addEventListener("load", fitMenu);
+  window.addEventListener("resize", fitMenu);
+  // Mobile menu toggle
+  try{
+const menuToggle = document.getElementById("menuToggle");
+  const menuDropdown = document.getElementById("menuDropdown");
+  if (menuToggle && menuDropdown){
+    const closeMenu = () => {
+      menuDropdown.style.display = "none";
+      menuToggle.setAttribute("aria-expanded", "false");
+    };
+    const openMenu = () => {
+      menuDropdown.style.display = "flex";
+      menuDropdown.style.flexDirection = "column";
+      menuToggle.setAttribute("aria-expanded", "true");
+    };
+
+    closeMenu();
+
+    menuToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = menuDropdown.style.display === "flex";
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    menuDropdown.addEventListener("click", (e) => {
+      const a = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (a) closeMenu();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menuDropdown.contains(e.target) && e.target !== menuToggle){
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  }catch(e){}
+
+
+  const btn = document.getElementById("backToTop");
+  function toggleBtn(){
+    if (window.scrollY > 250) btn.style.display = "inline-flex";
+    else btn.style.display = "none";
+  }
+  window.addEventListener("scroll", toggleBtn, {passive:true});
+  toggleBtn();
+  btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
+})();
+</script>
+
+</body></html>
