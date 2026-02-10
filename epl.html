@@ -322,8 +322,59 @@ body{
   justify-content:center;
 }
 
+/* image slots (avoid "ads" class names) */
+.slotwrap{
+  max-width:980px;
+  margin:10px auto 16px;
+}
+.slotwrap .slotlink{
+  display:block;
+  width:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.slotwrap .slotlink img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* side rails (desktop only) */
+.railbox{
+  position:fixed;
+  top:0;
+  bottom:86px; /* keep clear for Back To Top */
+  width:110px;
+  height:auto;
+  min-height:600px;
+  max-height:1000px;
+  display:none; /* show after scroll */
+  z-index:900;
+}
+.railbox.left{left:10px;}
+.railbox.right{right:10px;}
+.railbox .raillink{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.railbox .raillink img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* hide rails on tablet/mobile */
+@media(max-width:1024px){
+  .railbox{display:none !important;}
+}
+
 /* back to top */
 #backToTop{
+  z-index:1100;
   position:fixed;
   right:18px;
   bottom:18px;
@@ -375,6 +426,8 @@ body{
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Premier League</div>
 </div>
+<div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
+
 
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="date-sep"><div class="desc-box">Feb 15, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png"/><h2>Premier League</h2></div><div class="subs"><div class="subcard">
@@ -386,12 +439,12 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Aston Villa (3)</td><td>58.1%</td><td>21.8%</td><td>20.1%</td><td>Brighton (14)</td><td></td></tr>
-<tr><td>Crystal Palace (13)</td><td>64.7%</td><td>18.9%</td><td>16.4%</td><td>Burnley (19)</td><td></td></tr>
-<tr><td>Man City (2)</td><td>67.5%</td><td>17.9%</td><td>14.6%</td><td>Fulham (10)</td><td></td></tr>
-<tr><td>Nottm Forest (17)</td><td>60.2%</td><td>20.9%</td><td>18.9%</td><td>Wolves (20)</td><td></td></tr>
-<tr><td>Sunderland (9)</td><td>24.7%</td><td>23.0%</td><td>52.3%</td><td>Liverpool (6)</td><td></td></tr>
-<tr><td>Brentford (7)</td><td>22.3%</td><td>22.1%</td><td>55.6%</td><td>Arsenal (1)</td><td></td></tr>
+<tr><td title="Aston Villa (3)">Aston Villa (3)</td><td title="58.1%">58.1%</td><td title="21.8%">21.8%</td><td title="20.1%">20.1%</td><td title="Brighton (14)">Brighton (14)</td><td></td></tr>
+<tr><td title="Crystal Palace (13)">Crystal Palace (13)</td><td title="64.7%">64.7%</td><td title="18.9%">18.9%</td><td title="16.4%">16.4%</td><td title="Burnley (19)">Burnley (19)</td><td></td></tr>
+<tr><td title="Man City (2)">Man City (2)</td><td title="67.5%">67.5%</td><td title="17.9%">17.9%</td><td title="14.6%">14.6%</td><td title="Fulham (10)">Fulham (10)</td><td></td></tr>
+<tr><td title="Nottm Forest (17)">Nottm Forest (17)</td><td title="60.2%">60.2%</td><td title="20.9%">20.9%</td><td title="18.9%">18.9%</td><td title="Wolves (20)">Wolves (20)</td><td></td></tr>
+<tr><td title="Sunderland (9)">Sunderland (9)</td><td title="24.7%">24.7%</td><td title="23.0%">23.0%</td><td title="52.3%">52.3%</td><td title="Liverpool (6)">Liverpool (6)</td><td></td></tr>
+<tr><td title="Brentford (7)">Brentford (7)</td><td title="22.3%">22.3%</td><td title="22.1%">22.1%</td><td title="55.6%">55.6%</td><td title="Arsenal (1)">Arsenal (1)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -404,12 +457,12 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Aston Villa (3)</td><td>1.982</td><td>3.820</td><td>4.015</td><td>Brighton (14)</td><td></td></tr>
-<tr><td>Crystal Palace (13)</td><td>1.617</td><td>4.270</td><td>6.150</td><td>Burnley (19)</td><td></td></tr>
-<tr><td>Man City (2)</td><td>1.408</td><td>5.230</td><td>8.000</td><td>Fulham (10)</td><td></td></tr>
-<tr><td>Nottm Forest (17)</td><td>1.754</td><td>3.940</td><td>5.230</td><td>Wolves (20)</td><td></td></tr>
-<tr><td>Sunderland (9)</td><td>4.770</td><td>4.060</td><td>1.787</td><td>Liverpool (6)</td><td></td></tr>
-<tr><td>Brentford (7)</td><td>5.020</td><td>4.160</td><td>1.736</td><td>Arsenal (1)</td><td></td></tr>
+<tr><td title="Aston Villa (3)">Aston Villa (3)</td><td title="1.982">1.982</td><td title="3.820">3.820</td><td title="4.015">4.015</td><td title="Brighton (14)">Brighton (14)</td><td></td></tr>
+<tr><td title="Crystal Palace (13)">Crystal Palace (13)</td><td title="1.617">1.617</td><td title="4.270">4.270</td><td title="6.150">6.150</td><td title="Burnley (19)">Burnley (19)</td><td></td></tr>
+<tr><td title="Man City (2)">Man City (2)</td><td title="1.408">1.408</td><td title="5.230">5.230</td><td title="8.000">8.000</td><td title="Fulham (10)">Fulham (10)</td><td></td></tr>
+<tr><td title="Nottm Forest (17)">Nottm Forest (17)</td><td title="1.754">1.754</td><td title="3.940">3.940</td><td title="5.230">5.230</td><td title="Wolves (20)">Wolves (20)</td><td></td></tr>
+<tr><td title="Sunderland (9)">Sunderland (9)</td><td title="4.770">4.770</td><td title="4.060">4.060</td><td title="1.787">1.787</td><td title="Liverpool (6)">Liverpool (6)</td><td></td></tr>
+<tr><td title="Brentford (7)">Brentford (7)</td><td title="5.020">5.020</td><td title="4.160">4.160</td><td title="1.736">1.736</td><td title="Arsenal (1)">Arsenal (1)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 14, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png"/><h2>Premier League</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -420,10 +473,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Chelsea (5)</td><td>66.2%</td><td>18.4%</td><td>15.4%</td><td>Leeds (16)</td><td></td></tr>
-<tr><td>Everton (8)</td><td>43.3%</td><td>26.7%</td><td>30.0%</td><td>Bournemouth (11)</td><td></td></tr>
-<tr><td>Spurs (15)</td><td>40.7%</td><td>26.7%</td><td>32.6%</td><td>Newcastle (12)</td><td></td></tr>
-<tr><td>West Ham (18)</td><td>28.6%</td><td>24.4%</td><td>47.0%</td><td>Man Utd (4)</td><td></td></tr>
+<tr><td title="Chelsea (5)">Chelsea (5)</td><td title="66.2%">66.2%</td><td title="18.4%">18.4%</td><td title="15.4%">15.4%</td><td title="Leeds (16)">Leeds (16)</td><td></td></tr>
+<tr><td title="Everton (8)">Everton (8)</td><td title="43.3%">43.3%</td><td title="26.7%">26.7%</td><td title="30.0%">30.0%</td><td title="Bournemouth (11)">Bournemouth (11)</td><td></td></tr>
+<tr><td title="Spurs (15)">Spurs (15)</td><td title="40.7%">40.7%</td><td title="26.7%">26.7%</td><td title="32.6%">32.6%</td><td title="Newcastle (12)">Newcastle (12)</td><td></td></tr>
+<tr><td title="West Ham (18)">West Ham (18)</td><td title="28.6%">28.6%</td><td title="24.4%">24.4%</td><td title="47.0%">47.0%</td><td title="Man Utd (4)">Man Utd (4)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -436,10 +489,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Chelsea (5)</td><td>1.597</td><td>4.525</td><td>5.950</td><td>Leeds (16)</td><td></td></tr>
-<tr><td>Everton (8)</td><td>2.500</td><td>3.495</td><td>3.035</td><td>Bournemouth (11)</td><td></td></tr>
-<tr><td>Spurs (15)</td><td>2.960</td><td>3.640</td><td>2.482</td><td>Newcastle (12)</td><td></td></tr>
-<tr><td>West Ham (18)</td><td>4.370</td><td>4.520</td><td>1.769</td><td>Man Utd (4)</td><td></td></tr>
+<tr><td title="Chelsea (5)">Chelsea (5)</td><td title="1.597">1.597</td><td title="4.525">4.525</td><td title="5.950">5.950</td><td title="Leeds (16)">Leeds (16)</td><td></td></tr>
+<tr><td title="Everton (8)">Everton (8)</td><td title="2.500">2.500</td><td title="3.495">3.495</td><td title="3.035">3.035</td><td title="Bournemouth (11)">Bournemouth (11)</td><td></td></tr>
+<tr><td title="Spurs (15)">Spurs (15)</td><td title="2.960">2.960</td><td title="3.640">3.640</td><td title="2.482">2.482</td><td title="Newcastle (12)">Newcastle (12)</td><td></td></tr>
+<tr><td title="West Ham (18)">West Ham (18)</td><td title="4.370">4.370</td><td title="4.520">4.520</td><td title="1.769">1.769</td><td title="Man Utd (4)">Man Utd (4)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 08, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png"/><h2>Premier League</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -803,6 +856,8 @@ body{
 })();
 </script>
 </div>
+<div class="railbox left" id="railLeft"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
+<div class="railbox right" id="railRight"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
 <button aria-label="Back To Top" id="backToTop" title="Back To Top">
 <svg aria-hidden="true" fill="none" height="26" viewbox="0 0 24 24" width="26">
 <path d="M12 5l-6 6h4v8h4v-8h4l-6-6z" fill="currentColor"></path>
@@ -950,13 +1005,46 @@ const menuToggle = document.getElementById("menuToggle");
   }catch(e){}
 
 
+
+  // Show side rails after user scrolls a bit (desktop only)
+  const railLeft = document.getElementById("railLeft");
+  const railRight = document.getElementById("railRight");
+  const isDesktop = () => window.matchMedia && window.matchMedia("(min-width: 1025px)").matches;
+
+  function positionRails(){
+    if (railLeft){
+      railLeft.style.top = "0px";
+      railLeft.style.bottom = "110px";
+      railLeft.style.height = "auto";
+    }
+    if (railRight){
+      railRight.style.top = "0px";
+      railRight.style.bottom = "110px";
+      railRight.style.height = "auto";
+    }
+  }
+
+  function toggleRails(){
+    const margin = (window.innerWidth - 980) / 2; // 980 = content width
+    const minW = 110; // must fit at least this width
+    const gap = 14;
+    const hasSpace = margin > (minW + gap + 8);
+    const show = isDesktop() && hasSpace && window.scrollY > 520;
+    if (railLeft) railLeft.style.display = show ? "block" : "none";
+    if (railRight) railRight.style.display = show ? "block" : "none";
+  }
+
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
     if (window.scrollY > 250) btn.style.display = "inline-flex";
     else btn.style.display = "none";
   }
   window.addEventListener("scroll", toggleBtn, {passive:true});
+  window.addEventListener("scroll", toggleRails, {passive:true});
   toggleBtn();
+  positionRails();
+  toggleRails();
+  window.addEventListener("resize", ()=>{ positionRails(); toggleRails(); });
   btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
 })();
 </script>

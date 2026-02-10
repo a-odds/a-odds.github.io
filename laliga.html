@@ -322,8 +322,59 @@ body{
   justify-content:center;
 }
 
+/* image slots (avoid "ads" class names) */
+.slotwrap{
+  max-width:980px;
+  margin:10px auto 16px;
+}
+.slotwrap .slotlink{
+  display:block;
+  width:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.slotwrap .slotlink img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* side rails (desktop only) */
+.railbox{
+  position:fixed;
+  top:0;
+  bottom:86px; /* keep clear for Back To Top */
+  width:110px;
+  height:auto;
+  min-height:600px;
+  max-height:1000px;
+  display:none; /* show after scroll */
+  z-index:900;
+}
+.railbox.left{left:10px;}
+.railbox.right{right:10px;}
+.railbox .raillink{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.railbox .raillink img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* hide rails on tablet/mobile */
+@media(max-width:1024px){
+  .railbox{display:none !important;}
+}
+
 /* back to top */
 #backToTop{
+  z-index:1100;
   position:fixed;
   right:18px;
   bottom:18px;
@@ -375,6 +426,8 @@ body{
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; La Liga</div>
 </div>
+<div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
+
 
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="date-sep"><div class="desc-box">Feb 15, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png"/><h2>La Liga</h2></div><div class="subs"><div class="subcard">
@@ -386,10 +439,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Oviedo (20)</td><td>28.1%</td><td>24.2%</td><td>47.7%</td><td>Athletic (10)</td><td></td></tr>
-<tr><td>Rayo (18)</td><td>20.4%</td><td>21.2%</td><td>58.4%</td><td>Atlético (3)</td><td></td></tr>
-<tr><td>Levante (19)</td><td>40.2%</td><td>26.6%</td><td>33.1%</td><td>Valencia (17)</td><td></td></tr>
-<tr><td>Mallorca (16)</td><td>30.2%</td><td>24.9%</td><td>44.9%</td><td>Betis (5)</td><td></td></tr>
+<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="28.1%">28.1%</td><td title="24.2%">24.2%</td><td title="47.7%">47.7%</td><td title="Athletic (10)">Athletic (10)</td><td></td></tr>
+<tr><td title="Rayo (18)">Rayo (18)</td><td title="20.4%">20.4%</td><td title="21.2%">21.2%</td><td title="58.4%">58.4%</td><td title="Atlético (3)">Atlético (3)</td><td></td></tr>
+<tr><td title="Levante (19)">Levante (19)</td><td title="40.2%">40.2%</td><td title="26.6%">26.6%</td><td title="33.1%">33.1%</td><td title="Valencia (17)">Valencia (17)</td><td></td></tr>
+<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="30.2%">30.2%</td><td title="24.9%">24.9%</td><td title="44.9%">44.9%</td><td title="Betis (5)">Betis (5)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -402,10 +455,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Oviedo (20)</td><td>3.755</td><td>3.230</td><td>2.275</td><td>Athletic (10)</td><td></td></tr>
-<tr><td>Rayo (18)</td><td>4.670</td><td>3.840</td><td>1.849</td><td>Atlético (3)</td><td></td></tr>
-<tr><td>Levante (19)</td><td>2.874</td><td>3.555</td><td>2.590</td><td>Valencia (17)</td><td></td></tr>
-<tr><td>Mallorca (16)</td><td>3.150</td><td>3.270</td><td>2.550</td><td>Betis (5)</td><td></td></tr>
+<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="3.755">3.755</td><td title="3.230">3.230</td><td title="2.275">2.275</td><td title="Athletic (10)">Athletic (10)</td><td></td></tr>
+<tr><td title="Rayo (18)">Rayo (18)</td><td title="4.670">4.670</td><td title="3.840">3.840</td><td title="1.849">1.849</td><td title="Atlético (3)">Atlético (3)</td><td></td></tr>
+<tr><td title="Levante (19)">Levante (19)</td><td title="2.874">2.874</td><td title="3.555">3.555</td><td title="2.590">2.590</td><td title="Valencia (17)">Valencia (17)</td><td></td></tr>
+<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="3.150">3.150</td><td title="3.270">3.270</td><td title="2.550">2.550</td><td title="Betis (5)">Betis (5)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 14, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png"/><h2>La Liga</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -416,11 +469,11 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Elche (15)</td><td>34.2%</td><td>30.3%</td><td>35.5%</td><td>Osasuna (9)</td><td></td></tr>
-<tr><td>Espanyol (6)</td><td>41.8%</td><td>26.9%</td><td>31.3%</td><td>Celta (7)</td><td></td></tr>
-<tr><td>Getafe (11)</td><td>33.4%</td><td>28.8%</td><td>37.8%</td><td>Villarreal (4)</td><td></td></tr>
-<tr><td>Sevilla (13)</td><td>46.5%</td><td>27.1%</td><td>26.4%</td><td>Alavés (14)</td><td></td></tr>
-<tr><td>Real Madrid (2)</td><td>64.7%</td><td>18.2%</td><td>17.1%</td><td>Real Sociedad (8)</td><td></td></tr>
+<tr><td title="Elche (15)">Elche (15)</td><td title="34.2%">34.2%</td><td title="30.3%">30.3%</td><td title="35.5%">35.5%</td><td title="Osasuna (9)">Osasuna (9)</td><td></td></tr>
+<tr><td title="Espanyol (6)">Espanyol (6)</td><td title="41.8%">41.8%</td><td title="26.9%">26.9%</td><td title="31.3%">31.3%</td><td title="Celta (7)">Celta (7)</td><td></td></tr>
+<tr><td title="Getafe (11)">Getafe (11)</td><td title="33.4%">33.4%</td><td title="28.8%">28.8%</td><td title="37.8%">37.8%</td><td title="Villarreal (4)">Villarreal (4)</td><td></td></tr>
+<tr><td title="Sevilla (13)">Sevilla (13)</td><td title="46.5%">46.5%</td><td title="27.1%">27.1%</td><td title="26.4%">26.4%</td><td title="Alavés (14)">Alavés (14)</td><td></td></tr>
+<tr><td title="Real Madrid (2)">Real Madrid (2)</td><td title="64.7%">64.7%</td><td title="18.2%">18.2%</td><td title="17.1%">17.1%</td><td title="Real Sociedad (8)">Real Sociedad (8)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -433,11 +486,11 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Elche (15)</td><td>2.978</td><td>3.045</td><td>2.846</td><td>Osasuna (9)</td><td></td></tr>
-<tr><td>Espanyol (6)</td><td>2.531</td><td>3.395</td><td>3.070</td><td>Celta (7)</td><td></td></tr>
-<tr><td>Getafe (11)</td><td>3.355</td><td>3.230</td><td>2.451</td><td>Villarreal (4)</td><td></td></tr>
-<tr><td>Sevilla (13)</td><td>2.145</td><td>3.355</td><td>3.985</td><td>Alavés (14)</td><td></td></tr>
-<tr><td>Real Madrid (2)</td><td>1.433</td><td>5.530</td><td>7.310</td><td>Real Sociedad (8)</td><td></td></tr>
+<tr><td title="Elche (15)">Elche (15)</td><td title="2.978">2.978</td><td title="3.045">3.045</td><td title="2.846">2.846</td><td title="Osasuna (9)">Osasuna (9)</td><td></td></tr>
+<tr><td title="Espanyol (6)">Espanyol (6)</td><td title="2.531">2.531</td><td title="3.395">3.395</td><td title="3.070">3.070</td><td title="Celta (7)">Celta (7)</td><td></td></tr>
+<tr><td title="Getafe (11)">Getafe (11)</td><td title="3.355">3.355</td><td title="3.230">3.230</td><td title="2.451">2.451</td><td title="Villarreal (4)">Villarreal (4)</td><td></td></tr>
+<tr><td title="Sevilla (13)">Sevilla (13)</td><td title="2.145">2.145</td><td title="3.355">3.355</td><td title="3.985">3.985</td><td title="Alavés (14)">Alavés (14)</td><td></td></tr>
+<tr><td title="Real Madrid (2)">Real Madrid (2)</td><td title="1.433">1.433</td><td title="5.530">5.530</td><td title="7.310">7.310</td><td title="Real Sociedad (8)">Real Sociedad (8)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 08, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png"/><h2>La Liga</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -795,6 +848,8 @@ body{
 })();
 </script>
 </div>
+<div class="railbox left" id="railLeft"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
+<div class="railbox right" id="railRight"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
 <button aria-label="Back To Top" id="backToTop" title="Back To Top">
 <svg aria-hidden="true" fill="none" height="26" viewbox="0 0 24 24" width="26">
 <path d="M12 5l-6 6h4v8h4v-8h4l-6-6z" fill="currentColor"></path>
@@ -942,13 +997,46 @@ const menuToggle = document.getElementById("menuToggle");
   }catch(e){}
 
 
+
+  // Show side rails after user scrolls a bit (desktop only)
+  const railLeft = document.getElementById("railLeft");
+  const railRight = document.getElementById("railRight");
+  const isDesktop = () => window.matchMedia && window.matchMedia("(min-width: 1025px)").matches;
+
+  function positionRails(){
+    if (railLeft){
+      railLeft.style.top = "0px";
+      railLeft.style.bottom = "110px";
+      railLeft.style.height = "auto";
+    }
+    if (railRight){
+      railRight.style.top = "0px";
+      railRight.style.bottom = "110px";
+      railRight.style.height = "auto";
+    }
+  }
+
+  function toggleRails(){
+    const margin = (window.innerWidth - 980) / 2; // 980 = content width
+    const minW = 110; // must fit at least this width
+    const gap = 14;
+    const hasSpace = margin > (minW + gap + 8);
+    const show = isDesktop() && hasSpace && window.scrollY > 520;
+    if (railLeft) railLeft.style.display = show ? "block" : "none";
+    if (railRight) railRight.style.display = show ? "block" : "none";
+  }
+
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
     if (window.scrollY > 250) btn.style.display = "inline-flex";
     else btn.style.display = "none";
   }
   window.addEventListener("scroll", toggleBtn, {passive:true});
+  window.addEventListener("scroll", toggleRails, {passive:true});
   toggleBtn();
+  positionRails();
+  toggleRails();
+  window.addEventListener("resize", ()=>{ positionRails(); toggleRails(); });
   btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
 })();
 </script>

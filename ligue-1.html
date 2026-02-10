@@ -322,8 +322,59 @@ body{
   justify-content:center;
 }
 
+/* image slots (avoid "ads" class names) */
+.slotwrap{
+  max-width:980px;
+  margin:10px auto 16px;
+}
+.slotwrap .slotlink{
+  display:block;
+  width:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.slotwrap .slotlink img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* side rails (desktop only) */
+.railbox{
+  position:fixed;
+  top:0;
+  bottom:86px; /* keep clear for Back To Top */
+  width:110px;
+  height:auto;
+  min-height:600px;
+  max-height:1000px;
+  display:none; /* show after scroll */
+  z-index:900;
+}
+.railbox.left{left:10px;}
+.railbox.right{right:10px;}
+.railbox .raillink{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.railbox .raillink img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* hide rails on tablet/mobile */
+@media(max-width:1024px){
+  .railbox{display:none !important;}
+}
+
 /* back to top */
 #backToTop{
+  z-index:1100;
   position:fixed;
   right:18px;
   bottom:18px;
@@ -375,6 +426,8 @@ body{
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Ligue 1</div>
 </div>
+<div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
+
 
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="date-sep"><div class="desc-box">Feb 15, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png"/><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
@@ -386,10 +439,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Le Havre (13)</td><td>32.9%</td><td>25.6%</td><td>41.5%</td><td>Toulouse (8)</td><td></td></tr>
-<tr><td>Metz (18)</td><td>38.3%</td><td>26.5%</td><td>35.3%</td><td>Auxerre (16)</td><td></td></tr>
-<tr><td>Lorient (11)</td><td>48.4%</td><td>25.8%</td><td>25.8%</td><td>Angers (9)</td><td></td></tr>
-<tr><td>Lyon (3)</td><td>69.6%</td><td>17.1%</td><td>13.3%</td><td>Nice (14)</td><td></td></tr>
+<tr><td title="Le Havre (13)">Le Havre (13)</td><td title="32.9%">32.9%</td><td title="25.6%">25.6%</td><td title="41.5%">41.5%</td><td title="Toulouse (8)">Toulouse (8)</td><td></td></tr>
+<tr><td title="Metz (18)">Metz (18)</td><td title="38.3%">38.3%</td><td title="26.5%">26.5%</td><td title="35.3%">35.3%</td><td title="Auxerre (16)">Auxerre (16)</td><td></td></tr>
+<tr><td title="Lorient (11)">Lorient (11)</td><td title="48.4%">48.4%</td><td title="25.8%">25.8%</td><td title="25.8%">25.8%</td><td title="Angers (9)">Angers (9)</td><td></td></tr>
+<tr><td title="Lyon (3)">Lyon (3)</td><td title="69.6%">69.6%</td><td title="17.1%">17.1%</td><td title="13.3%">13.3%</td><td title="Nice (14)">Nice (14)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -402,10 +455,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Le Havre (13)</td><td>3.605</td><td>3.300</td><td>2.297</td><td>Toulouse (8)</td><td></td></tr>
-<tr><td>Metz (18)</td><td>3.010</td><td>2.928</td><td>2.928</td><td>Auxerre (16)</td><td></td></tr>
-<tr><td>Lorient (11)</td><td>2.064</td><td>3.090</td><td>4.825</td><td>Angers (9)</td><td></td></tr>
-<tr><td>Lyon (3)</td><td>1.617</td><td>4.370</td><td>5.940</td><td>Nice (14)</td><td></td></tr>
+<tr><td title="Le Havre (13)">Le Havre (13)</td><td title="3.605">3.605</td><td title="3.300">3.300</td><td title="2.297">2.297</td><td title="Toulouse (8)">Toulouse (8)</td><td></td></tr>
+<tr><td title="Metz (18)">Metz (18)</td><td title="3.010">3.010</td><td title="2.928">2.928</td><td title="2.928">2.928</td><td title="Auxerre (16)">Auxerre (16)</td><td></td></tr>
+<tr><td title="Lorient (11)">Lorient (11)</td><td title="2.064">2.064</td><td title="3.090">3.090</td><td title="4.825">4.825</td><td title="Angers (9)">Angers (9)</td><td></td></tr>
+<tr><td title="Lyon (3)">Lyon (3)</td><td title="1.617">1.617</td><td title="4.370">4.370</td><td title="5.940">5.940</td><td title="Nice (14)">Nice (14)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 14, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png"/><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -416,11 +469,11 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Rennes (6)</td><td>17.6%</td><td>20.4%</td><td>61.9%</td><td>Paris SG (1)</td><td></td></tr>
-<tr><td>Monaco (10)</td><td>62.7%</td><td>19.5%</td><td>17.9%</td><td>Nantes (17)</td><td></td></tr>
-<tr><td>Marseille (4)</td><td>55.4%</td><td>22.0%</td><td>22.5%</td><td>Strasbourg (7)</td><td></td></tr>
-<tr><td>Lille (5)</td><td>52.5%</td><td>23.4%</td><td>24.1%</td><td>Brest (12)</td><td></td></tr>
-<tr><td>Paris FC (15)</td><td>26.4%</td><td>25.1%</td><td>48.5%</td><td>Lens (2)</td><td></td></tr>
+<tr><td title="Rennes (6)">Rennes (6)</td><td title="17.6%">17.6%</td><td title="20.4%">20.4%</td><td title="61.9%">61.9%</td><td title="Paris SG (1)">Paris SG (1)</td><td></td></tr>
+<tr><td title="Monaco (10)">Monaco (10)</td><td title="62.7%">62.7%</td><td title="19.5%">19.5%</td><td title="17.9%">17.9%</td><td title="Nantes (17)">Nantes (17)</td><td></td></tr>
+<tr><td title="Marseille (4)">Marseille (4)</td><td title="55.4%">55.4%</td><td title="22.0%">22.0%</td><td title="22.5%">22.5%</td><td title="Strasbourg (7)">Strasbourg (7)</td><td></td></tr>
+<tr><td title="Lille (5)">Lille (5)</td><td title="52.5%">52.5%</td><td title="23.4%">23.4%</td><td title="24.1%">24.1%</td><td title="Brest (12)">Brest (12)</td><td></td></tr>
+<tr><td title="Paris FC (15)">Paris FC (15)</td><td title="26.4%">26.4%</td><td title="25.1%">25.1%</td><td title="48.5%">48.5%</td><td title="Lens (2)">Lens (2)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -433,11 +486,11 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Rennes (6)</td><td>6.500</td><td>5.080</td><td>1.504</td><td>Paris SG (1)</td><td></td></tr>
-<tr><td>Monaco (10)</td><td>1.484</td><td>5.030</td><td>7.010</td><td>Nantes (17)</td><td></td></tr>
-<tr><td>Marseille (4)</td><td>1.705</td><td>4.310</td><td>5.070</td><td>Strasbourg (7)</td><td></td></tr>
-<tr><td>Lille (5)</td><td>1.798</td><td>4.000</td><td>4.775</td><td>Brest (12)</td><td></td></tr>
-<tr><td>Paris FC (15)</td><td>4.165</td><td>3.800</td><td>1.952</td><td>Lens (2)</td><td></td></tr>
+<tr><td title="Rennes (6)">Rennes (6)</td><td title="6.500">6.500</td><td title="5.080">5.080</td><td title="1.504">1.504</td><td title="Paris SG (1)">Paris SG (1)</td><td></td></tr>
+<tr><td title="Monaco (10)">Monaco (10)</td><td title="1.484">1.484</td><td title="5.030">5.030</td><td title="7.010">7.010</td><td title="Nantes (17)">Nantes (17)</td><td></td></tr>
+<tr><td title="Marseille (4)">Marseille (4)</td><td title="1.705">1.705</td><td title="4.310">4.310</td><td title="5.070">5.070</td><td title="Strasbourg (7)">Strasbourg (7)</td><td></td></tr>
+<tr><td title="Lille (5)">Lille (5)</td><td title="1.798">1.798</td><td title="4.000">4.000</td><td title="4.775">4.775</td><td title="Brest (12)">Brest (12)</td><td></td></tr>
+<tr><td title="Paris FC (15)">Paris FC (15)</td><td title="4.165">4.165</td><td title="3.800">3.800</td><td title="1.952">1.952</td><td title="Lens (2)">Lens (2)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 08, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png"/><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -783,6 +836,8 @@ body{
 })();
 </script>
 </div>
+<div class="railbox left" id="railLeft"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
+<div class="railbox right" id="railRight"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
 <button aria-label="Back To Top" id="backToTop" title="Back To Top">
 <svg aria-hidden="true" fill="none" height="26" viewbox="0 0 24 24" width="26">
 <path d="M12 5l-6 6h4v8h4v-8h4l-6-6z" fill="currentColor"></path>
@@ -930,13 +985,46 @@ const menuToggle = document.getElementById("menuToggle");
   }catch(e){}
 
 
+
+  // Show side rails after user scrolls a bit (desktop only)
+  const railLeft = document.getElementById("railLeft");
+  const railRight = document.getElementById("railRight");
+  const isDesktop = () => window.matchMedia && window.matchMedia("(min-width: 1025px)").matches;
+
+  function positionRails(){
+    if (railLeft){
+      railLeft.style.top = "0px";
+      railLeft.style.bottom = "110px";
+      railLeft.style.height = "auto";
+    }
+    if (railRight){
+      railRight.style.top = "0px";
+      railRight.style.bottom = "110px";
+      railRight.style.height = "auto";
+    }
+  }
+
+  function toggleRails(){
+    const margin = (window.innerWidth - 980) / 2; // 980 = content width
+    const minW = 110; // must fit at least this width
+    const gap = 14;
+    const hasSpace = margin > (minW + gap + 8);
+    const show = isDesktop() && hasSpace && window.scrollY > 520;
+    if (railLeft) railLeft.style.display = show ? "block" : "none";
+    if (railRight) railRight.style.display = show ? "block" : "none";
+  }
+
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
     if (window.scrollY > 250) btn.style.display = "inline-flex";
     else btn.style.display = "none";
   }
   window.addEventListener("scroll", toggleBtn, {passive:true});
+  window.addEventListener("scroll", toggleRails, {passive:true});
   toggleBtn();
+  positionRails();
+  toggleRails();
+  window.addEventListener("resize", ()=>{ positionRails(); toggleRails(); });
   btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
 })();
 </script>

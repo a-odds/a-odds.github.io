@@ -322,8 +322,59 @@ body{
   justify-content:center;
 }
 
+/* image slots (avoid "ads" class names) */
+.slotwrap{
+  max-width:980px;
+  margin:10px auto 16px;
+}
+.slotwrap .slotlink{
+  display:block;
+  width:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.slotwrap .slotlink img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* side rails (desktop only) */
+.railbox{
+  position:fixed;
+  top:0;
+  bottom:86px; /* keep clear for Back To Top */
+  width:110px;
+  height:auto;
+  min-height:600px;
+  max-height:1000px;
+  display:none; /* show after scroll */
+  z-index:900;
+}
+.railbox.left{left:10px;}
+.railbox.right{right:10px;}
+.railbox .raillink{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.railbox .raillink img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* hide rails on tablet/mobile */
+@media(max-width:1024px){
+  .railbox{display:none !important;}
+}
+
 /* back to top */
 #backToTop{
+  z-index:1100;
   position:fixed;
   right:18px;
   bottom:18px;
@@ -375,6 +426,8 @@ body{
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Serie A</div>
 </div>
+<div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
+
 
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="date-sep"><div class="desc-box">Feb 15, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png"/><h2>Serie A</h2></div><div class="subs"><div class="subcard">
@@ -386,11 +439,11 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Udinese (9)</td><td>46.6%</td><td>26.5%</td><td>26.9%</td><td>Sassuolo (11)</td><td></td></tr>
-<tr><td>Cremonese (15)</td><td>42.0%</td><td>26.7%</td><td>31.3%</td><td>Genoa (16)</td><td></td></tr>
-<tr><td>Parma (14)</td><td>54.9%</td><td>23.2%</td><td>21.9%</td><td>Verona (20)</td><td></td></tr>
-<tr><td>Torino (13)</td><td>38.2%</td><td>26.5%</td><td>35.4%</td><td>Bologna (10)</td><td></td></tr>
-<tr><td>Napoli (3)</td><td>47.7%</td><td>26.1%</td><td>26.2%</td><td>Roma (5)</td><td></td></tr>
+<tr><td title="Udinese (9)">Udinese (9)</td><td title="46.6%">46.6%</td><td title="26.5%">26.5%</td><td title="26.9%">26.9%</td><td title="Sassuolo (11)">Sassuolo (11)</td><td></td></tr>
+<tr><td title="Cremonese (15)">Cremonese (15)</td><td title="42.0%">42.0%</td><td title="26.7%">26.7%</td><td title="31.3%">31.3%</td><td title="Genoa (16)">Genoa (16)</td><td></td></tr>
+<tr><td title="Parma (14)">Parma (14)</td><td title="54.9%">54.9%</td><td title="23.2%">23.2%</td><td title="21.9%">21.9%</td><td title="Verona (20)">Verona (20)</td><td></td></tr>
+<tr><td title="Torino (13)">Torino (13)</td><td title="38.2%">38.2%</td><td title="26.5%">26.5%</td><td title="35.4%">35.4%</td><td title="Bologna (10)">Bologna (10)</td><td></td></tr>
+<tr><td title="Napoli (3)">Napoli (3)</td><td title="47.7%">47.7%</td><td title="26.1%">26.1%</td><td title="26.2%">26.2%</td><td title="Roma (5)">Roma (5)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -403,11 +456,11 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Udinese (9)</td><td>2.517</td><td>2.967</td><td>3.560</td><td>Sassuolo (11)</td><td></td></tr>
-<tr><td>Cremonese (15)</td><td>3.195</td><td>3.105</td><td>2.628</td><td>Genoa (16)</td><td></td></tr>
-<tr><td>Parma (14)</td><td>2.476</td><td>2.916</td><td>3.725</td><td>Verona (20)</td><td></td></tr>
-<tr><td>Torino (13)</td><td>3.315</td><td>3.395</td><td>2.385</td><td>Bologna (10)</td><td></td></tr>
-<tr><td>Napoli (3)</td><td>2.322</td><td>3.210</td><td>3.660</td><td>Roma (5)</td><td></td></tr>
+<tr><td title="Udinese (9)">Udinese (9)</td><td title="2.517">2.517</td><td title="2.967">2.967</td><td title="3.560">3.560</td><td title="Sassuolo (11)">Sassuolo (11)</td><td></td></tr>
+<tr><td title="Cremonese (15)">Cremonese (15)</td><td title="3.195">3.195</td><td title="3.105">3.105</td><td title="2.628">2.628</td><td title="Genoa (16)">Genoa (16)</td><td></td></tr>
+<tr><td title="Parma (14)">Parma (14)</td><td title="2.476">2.476</td><td title="2.916">2.916</td><td title="3.725">3.725</td><td title="Verona (20)">Verona (20)</td><td></td></tr>
+<tr><td title="Torino (13)">Torino (13)</td><td title="3.315">3.315</td><td title="3.395">3.395</td><td title="2.385">2.385</td><td title="Bologna (10)">Bologna (10)</td><td></td></tr>
+<tr><td title="Napoli (3)">Napoli (3)</td><td title="2.322">2.322</td><td title="3.210">3.210</td><td title="3.660">3.660</td><td title="Roma (5)">Roma (5)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 14, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png"/><h2>Serie A</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -418,12 +471,12 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Atalanta (7)</td><td>67.1%</td><td>18.2%</td><td>14.7%</td><td>Cremonese (15)</td><td></td></tr>
-<tr><td>Roma (5)</td><td>61.4%</td><td>22.2%</td><td>16.5%</td><td>Cagliari (12)</td><td></td></tr>
-<tr><td>Pisa (19)</td><td>18.5%</td><td>22.6%</td><td>58.9%</td><td>Milan (2)</td><td></td></tr>
-<tr><td>Como (6)</td><td>54.5%</td><td>23.0%</td><td>22.5%</td><td>Fiorentina (18)</td><td></td></tr>
-<tr><td>Lazio (8)</td><td>30.2%</td><td>27.6%</td><td>42.2%</td><td>Atalanta (7)</td><td></td></tr>
-<tr><td>Inter (1)</td><td>46.3%</td><td>26.0%</td><td>27.6%</td><td>Juventus (4)</td><td></td></tr>
+<tr><td title="Atalanta (7)">Atalanta (7)</td><td title="67.1%">67.1%</td><td title="18.2%">18.2%</td><td title="14.7%">14.7%</td><td title="Cremonese (15)">Cremonese (15)</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Roma (5)">Roma (5)</td><td title="61.4%">61.4%</td><td title="22.2%">22.2%</td><td title="16.5%">16.5%</td><td title="Cagliari (12)">Cagliari (12)</td><td title="2 - 0">2 - 0</td></tr>
+<tr><td title="Pisa (19)">Pisa (19)</td><td title="18.5%">18.5%</td><td title="22.6%">22.6%</td><td title="58.9%">58.9%</td><td title="Milan (2)">Milan (2)</td><td></td></tr>
+<tr><td title="Como (6)">Como (6)</td><td title="54.5%">54.5%</td><td title="23.0%">23.0%</td><td title="22.5%">22.5%</td><td title="Fiorentina (18)">Fiorentina (18)</td><td></td></tr>
+<tr><td title="Lazio (8)">Lazio (8)</td><td title="30.2%">30.2%</td><td title="27.6%">27.6%</td><td title="42.2%">42.2%</td><td title="Atalanta (7)">Atalanta (7)</td><td></td></tr>
+<tr><td title="Inter (1)">Inter (1)</td><td title="46.3%">46.3%</td><td title="26.0%">26.0%</td><td title="27.6%">27.6%</td><td title="Juventus (4)">Juventus (4)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -436,12 +489,12 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Atalanta (7)</td><td>1.392</td><td>5.210</td><td>9.500</td><td>Cremonese (15)</td><td></td></tr>
-<tr><td>Roma (5)</td><td>1.545</td><td>4.215</td><td>7.600</td><td>Cagliari (12)</td><td></td></tr>
-<tr><td>Pisa (19)</td><td>6.550</td><td>4.435</td><td>1.569</td><td>Milan (2)</td><td></td></tr>
-<tr><td>Como (6)</td><td>1.798</td><td>3.985</td><td>4.800</td><td>Fiorentina (18)</td><td></td></tr>
-<tr><td>Lazio (8)</td><td>3.440</td><td>3.395</td><td>2.324</td><td>Atalanta (7)</td><td></td></tr>
-<tr><td>Inter (1)</td><td>2.128</td><td>3.520</td><td>3.825</td><td>Juventus (4)</td><td></td></tr>
+<tr><td title="Atalanta (7)">Atalanta (7)</td><td title="1.392">1.392</td><td title="5.210">5.210</td><td title="9.500">9.500</td><td title="Cremonese (15)">Cremonese (15)</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Roma (5)">Roma (5)</td><td title="1.545">1.545</td><td title="4.215">4.215</td><td title="7.600">7.600</td><td title="Cagliari (12)">Cagliari (12)</td><td title="2 - 0">2 - 0</td></tr>
+<tr><td title="Pisa (19)">Pisa (19)</td><td title="6.550">6.550</td><td title="4.435">4.435</td><td title="1.569">1.569</td><td title="Milan (2)">Milan (2)</td><td></td></tr>
+<tr><td title="Como (6)">Como (6)</td><td title="1.798">1.798</td><td title="3.985">3.985</td><td title="4.800">4.800</td><td title="Fiorentina (18)">Fiorentina (18)</td><td></td></tr>
+<tr><td title="Lazio (8)">Lazio (8)</td><td title="3.440">3.440</td><td title="3.395">3.395</td><td title="2.324">2.324</td><td title="Atalanta (7)">Atalanta (7)</td><td></td></tr>
+<tr><td title="Inter (1)">Inter (1)</td><td title="2.128">2.128</td><td title="3.520">3.520</td><td title="3.825">3.825</td><td title="Juventus (4)">Juventus (4)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 08, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png"/><h2>Serie A</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -773,6 +826,8 @@ body{
 })();
 </script>
 </div>
+<div class="railbox left" id="railLeft"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
+<div class="railbox right" id="railRight"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
 <button aria-label="Back To Top" id="backToTop" title="Back To Top">
 <svg aria-hidden="true" fill="none" height="26" viewbox="0 0 24 24" width="26">
 <path d="M12 5l-6 6h4v8h4v-8h4l-6-6z" fill="currentColor"></path>
@@ -920,13 +975,46 @@ const menuToggle = document.getElementById("menuToggle");
   }catch(e){}
 
 
+
+  // Show side rails after user scrolls a bit (desktop only)
+  const railLeft = document.getElementById("railLeft");
+  const railRight = document.getElementById("railRight");
+  const isDesktop = () => window.matchMedia && window.matchMedia("(min-width: 1025px)").matches;
+
+  function positionRails(){
+    if (railLeft){
+      railLeft.style.top = "0px";
+      railLeft.style.bottom = "110px";
+      railLeft.style.height = "auto";
+    }
+    if (railRight){
+      railRight.style.top = "0px";
+      railRight.style.bottom = "110px";
+      railRight.style.height = "auto";
+    }
+  }
+
+  function toggleRails(){
+    const margin = (window.innerWidth - 980) / 2; // 980 = content width
+    const minW = 110; // must fit at least this width
+    const gap = 14;
+    const hasSpace = margin > (minW + gap + 8);
+    const show = isDesktop() && hasSpace && window.scrollY > 520;
+    if (railLeft) railLeft.style.display = show ? "block" : "none";
+    if (railRight) railRight.style.display = show ? "block" : "none";
+  }
+
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
     if (window.scrollY > 250) btn.style.display = "inline-flex";
     else btn.style.display = "none";
   }
   window.addEventListener("scroll", toggleBtn, {passive:true});
+  window.addEventListener("scroll", toggleRails, {passive:true});
   toggleBtn();
+  positionRails();
+  toggleRails();
+  window.addEventListener("resize", ()=>{ positionRails(); toggleRails(); });
   btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
 })();
 </script>

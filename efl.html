@@ -322,8 +322,59 @@ body{
   justify-content:center;
 }
 
+/* image slots (avoid "ads" class names) */
+.slotwrap{
+  max-width:980px;
+  margin:10px auto 16px;
+}
+.slotwrap .slotlink{
+  display:block;
+  width:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.slotwrap .slotlink img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* side rails (desktop only) */
+.railbox{
+  position:fixed;
+  top:0;
+  bottom:86px; /* keep clear for Back To Top */
+  width:110px;
+  height:auto;
+  min-height:600px;
+  max-height:1000px;
+  display:none; /* show after scroll */
+  z-index:900;
+}
+.railbox.left{left:10px;}
+.railbox.right{right:10px;}
+.railbox .raillink{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.railbox .raillink img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* hide rails on tablet/mobile */
+@media(max-width:1024px){
+  .railbox{display:none !important;}
+}
+
 /* back to top */
 #backToTop{
+  z-index:1100;
   position:fixed;
   right:18px;
   bottom:18px;
@@ -375,6 +426,8 @@ body{
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Championship</div>
 </div>
+<div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
+
 
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="date-sep"><div class="desc-box">Feb 15, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png"/><h2>Championship</h2></div><div class="subs"><div class="subcard">
@@ -386,16 +439,16 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Sheff Utd (16)</td><td>40.8%</td><td>26.7%</td><td>32.5%</td><td>Middlesbrough (2)</td><td></td></tr>
-<tr><td>Leicester (21)</td><td>39.4%</td><td>26.6%</td><td>34.0%</td><td>Southampton (14)</td><td></td></tr>
-<tr><td>Oxford (23)</td><td>36.7%</td><td>26.3%</td><td>37.1%</td><td>Norwich (17)</td><td></td></tr>
-<tr><td>Birmingham (10)</td><td>55.1%</td><td>23.1%</td><td>21.8%</td><td>West Bromwich (20)</td><td></td></tr>
-<tr><td>Charlton (18)</td><td>41.5%</td><td>26.7%</td><td>31.9%</td><td>Stoke (13)</td><td></td></tr>
-<tr><td>Derby (9)</td><td>47.0%</td><td>26.3%</td><td>26.7%</td><td>Swansea (15)</td><td></td></tr>
-<tr><td>Portsmouth (19)</td><td>34.9%</td><td>25.9%</td><td>39.2%</td><td>Sheff Utd (16)</td><td></td></tr>
-<tr><td>Preston (7)</td><td>47.8%</td><td>26.0%</td><td>26.1%</td><td>Watford (11)</td><td></td></tr>
-<tr><td>QPR (12)</td><td>52.6%</td><td>24.2%</td><td>23.2%</td><td>Blackburn (22)</td><td></td></tr>
-<tr><td>Sheff Wed (24)</td><td>20.7%</td><td>21.4%</td><td>57.9%</td><td>Millwall (5)</td><td></td></tr>
+<tr><td title="Sheff Utd (16)">Sheff Utd (16)</td><td title="40.8%">40.8%</td><td title="26.7%">26.7%</td><td title="32.5%">32.5%</td><td title="Middlesbrough (2)">Middlesbrough (2)</td><td></td></tr>
+<tr><td title="Leicester (21)">Leicester (21)</td><td title="39.4%">39.4%</td><td title="26.6%">26.6%</td><td title="34.0%">34.0%</td><td title="Southampton (14)">Southampton (14)</td><td></td></tr>
+<tr><td title="Oxford (23)">Oxford (23)</td><td title="36.7%">36.7%</td><td title="26.3%">26.3%</td><td title="37.1%">37.1%</td><td title="Norwich (17)">Norwich (17)</td><td></td></tr>
+<tr><td title="Birmingham (10)">Birmingham (10)</td><td title="55.1%">55.1%</td><td title="23.1%">23.1%</td><td title="21.8%">21.8%</td><td title="West Bromwich (20)">West Bromwich (20)</td><td></td></tr>
+<tr><td title="Charlton (18)">Charlton (18)</td><td title="41.5%">41.5%</td><td title="26.7%">26.7%</td><td title="31.9%">31.9%</td><td title="Stoke (13)">Stoke (13)</td><td></td></tr>
+<tr><td title="Derby (9)">Derby (9)</td><td title="47.0%">47.0%</td><td title="26.3%">26.3%</td><td title="26.7%">26.7%</td><td title="Swansea (15)">Swansea (15)</td><td></td></tr>
+<tr><td title="Portsmouth (19)">Portsmouth (19)</td><td title="34.9%">34.9%</td><td title="25.9%">25.9%</td><td title="39.2%">39.2%</td><td title="Sheff Utd (16)">Sheff Utd (16)</td><td></td></tr>
+<tr><td title="Preston (7)">Preston (7)</td><td title="47.8%">47.8%</td><td title="26.0%">26.0%</td><td title="26.1%">26.1%</td><td title="Watford (11)">Watford (11)</td><td></td></tr>
+<tr><td title="QPR (12)">QPR (12)</td><td title="52.6%">52.6%</td><td title="24.2%">24.2%</td><td title="23.2%">23.2%</td><td title="Blackburn (22)">Blackburn (22)</td><td></td></tr>
+<tr><td title="Sheff Wed (24)">Sheff Wed (24)</td><td title="20.7%">20.7%</td><td title="21.4%">21.4%</td><td title="57.9%">57.9%</td><td title="Millwall (5)">Millwall (5)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -408,16 +461,16 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Sheff Utd (16)</td><td>2.250</td><td>3.400</td><td>3.045</td><td>Middlesbrough (2)</td><td></td></tr>
-<tr><td>Leicester (21)</td><td>2.886</td><td>3.360</td><td>2.360</td><td>Southampton (14)</td><td></td></tr>
-<tr><td>Oxford (23)</td><td>2.886</td><td>3.300</td><td>2.395</td><td>Norwich (17)</td><td></td></tr>
-<tr><td>Birmingham (10)</td><td>1.900</td><td>3.340</td><td>4.135</td><td>West Bromwich (20)</td><td></td></tr>
-<tr><td>Charlton (18)</td><td>2.760</td><td>3.060</td><td>2.610</td><td>Stoke (13)</td><td></td></tr>
-<tr><td>Derby (9)</td><td>2.170</td><td>3.125</td><td>3.485</td><td>Swansea (15)</td><td></td></tr>
-<tr><td>Portsmouth (19)</td><td>3.580</td><td>3.380</td><td>2.030</td><td>Sheff Utd (16)</td><td></td></tr>
-<tr><td>Preston (7)</td><td>2.893</td><td>3.140</td><td>2.480</td><td>Watford (11)</td><td></td></tr>
-<tr><td>QPR (12)</td><td>2.260</td><td>3.220</td><td>3.185</td><td>Blackburn (22)</td><td></td></tr>
-<tr><td>Sheff Wed (24)</td><td>7.750</td><td>4.450</td><td>1.400</td><td>Millwall (5)</td><td></td></tr>
+<tr><td title="Sheff Utd (16)">Sheff Utd (16)</td><td title="2.250">2.250</td><td title="3.400">3.400</td><td title="3.045">3.045</td><td title="Middlesbrough (2)">Middlesbrough (2)</td><td></td></tr>
+<tr><td title="Leicester (21)">Leicester (21)</td><td title="2.886">2.886</td><td title="3.360">3.360</td><td title="2.360">2.360</td><td title="Southampton (14)">Southampton (14)</td><td></td></tr>
+<tr><td title="Oxford (23)">Oxford (23)</td><td title="2.886">2.886</td><td title="3.300">3.300</td><td title="2.395">2.395</td><td title="Norwich (17)">Norwich (17)</td><td></td></tr>
+<tr><td title="Birmingham (10)">Birmingham (10)</td><td title="1.900">1.900</td><td title="3.340">3.340</td><td title="4.135">4.135</td><td title="West Bromwich (20)">West Bromwich (20)</td><td></td></tr>
+<tr><td title="Charlton (18)">Charlton (18)</td><td title="2.760">2.760</td><td title="3.060">3.060</td><td title="2.610">2.610</td><td title="Stoke (13)">Stoke (13)</td><td></td></tr>
+<tr><td title="Derby (9)">Derby (9)</td><td title="2.170">2.170</td><td title="3.125">3.125</td><td title="3.485">3.485</td><td title="Swansea (15)">Swansea (15)</td><td></td></tr>
+<tr><td title="Portsmouth (19)">Portsmouth (19)</td><td title="3.580">3.580</td><td title="3.380">3.380</td><td title="2.030">2.030</td><td title="Sheff Utd (16)">Sheff Utd (16)</td><td></td></tr>
+<tr><td title="Preston (7)">Preston (7)</td><td title="2.893">2.893</td><td title="3.140">3.140</td><td title="2.480">2.480</td><td title="Watford (11)">Watford (11)</td><td></td></tr>
+<tr><td title="QPR (12)">QPR (12)</td><td title="2.260">2.260</td><td title="3.220">3.220</td><td title="3.185">3.185</td><td title="Blackburn (22)">Blackburn (22)</td><td></td></tr>
+<tr><td title="Sheff Wed (24)">Sheff Wed (24)</td><td title="7.750">7.750</td><td title="4.450">4.450</td><td title="1.400">1.400</td><td title="Millwall (5)">Millwall (5)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 14, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png"/><h2>Championship</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -428,16 +481,16 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Sheff Utd (16)</td><td>40.8%</td><td>26.7%</td><td>32.5%</td><td>Middlesbrough (2)</td><td></td></tr>
-<tr><td>Leicester (21)</td><td>39.4%</td><td>26.6%</td><td>34.0%</td><td>Southampton (14)</td><td></td></tr>
-<tr><td>Oxford (23)</td><td>36.7%</td><td>26.3%</td><td>37.1%</td><td>Norwich (17)</td><td></td></tr>
-<tr><td>Birmingham (10)</td><td>55.1%</td><td>23.1%</td><td>21.8%</td><td>West Bromwich (20)</td><td></td></tr>
-<tr><td>Charlton (18)</td><td>41.5%</td><td>26.7%</td><td>31.9%</td><td>Stoke (13)</td><td></td></tr>
-<tr><td>Derby (9)</td><td>47.0%</td><td>26.3%</td><td>26.7%</td><td>Swansea (15)</td><td></td></tr>
-<tr><td>Portsmouth (19)</td><td>34.9%</td><td>25.9%</td><td>39.2%</td><td>Sheff Utd (16)</td><td></td></tr>
-<tr><td>Preston (7)</td><td>47.8%</td><td>26.0%</td><td>26.1%</td><td>Watford (11)</td><td></td></tr>
-<tr><td>QPR (12)</td><td>52.6%</td><td>24.2%</td><td>23.2%</td><td>Blackburn (22)</td><td></td></tr>
-<tr><td>Sheff Wed (24)</td><td>20.7%</td><td>21.4%</td><td>57.9%</td><td>Millwall (5)</td><td></td></tr>
+<tr><td title="Sheff Utd (16)">Sheff Utd (16)</td><td title="40.8%">40.8%</td><td title="26.7%">26.7%</td><td title="32.5%">32.5%</td><td title="Middlesbrough (2)">Middlesbrough (2)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Leicester (21)">Leicester (21)</td><td title="39.4%">39.4%</td><td title="26.6%">26.6%</td><td title="34.0%">34.0%</td><td title="Southampton (14)">Southampton (14)</td><td></td></tr>
+<tr><td title="Oxford (23)">Oxford (23)</td><td title="36.7%">36.7%</td><td title="26.3%">26.3%</td><td title="37.1%">37.1%</td><td title="Norwich (17)">Norwich (17)</td><td></td></tr>
+<tr><td title="Birmingham (10)">Birmingham (10)</td><td title="55.1%">55.1%</td><td title="23.1%">23.1%</td><td title="21.8%">21.8%</td><td title="West Bromwich (20)">West Bromwich (20)</td><td></td></tr>
+<tr><td title="Charlton (18)">Charlton (18)</td><td title="41.5%">41.5%</td><td title="26.7%">26.7%</td><td title="31.9%">31.9%</td><td title="Stoke (13)">Stoke (13)</td><td></td></tr>
+<tr><td title="Derby (9)">Derby (9)</td><td title="47.0%">47.0%</td><td title="26.3%">26.3%</td><td title="26.7%">26.7%</td><td title="Swansea (15)">Swansea (15)</td><td></td></tr>
+<tr><td title="Portsmouth (19)">Portsmouth (19)</td><td title="34.9%">34.9%</td><td title="25.9%">25.9%</td><td title="39.2%">39.2%</td><td title="Sheff Utd (16)">Sheff Utd (16)</td><td></td></tr>
+<tr><td title="Preston (7)">Preston (7)</td><td title="47.8%">47.8%</td><td title="26.0%">26.0%</td><td title="26.1%">26.1%</td><td title="Watford (11)">Watford (11)</td><td></td></tr>
+<tr><td title="QPR (12)">QPR (12)</td><td title="52.6%">52.6%</td><td title="24.2%">24.2%</td><td title="23.2%">23.2%</td><td title="Blackburn (22)">Blackburn (22)</td><td></td></tr>
+<tr><td title="Sheff Wed (24)">Sheff Wed (24)</td><td title="20.7%">20.7%</td><td title="21.4%">21.4%</td><td title="57.9%">57.9%</td><td title="Millwall (5)">Millwall (5)</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -450,16 +503,16 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td>Sheff Utd (16)</td><td>2.250</td><td>3.400</td><td>3.045</td><td>Middlesbrough (2)</td><td></td></tr>
-<tr><td>Leicester (21)</td><td>2.886</td><td>3.360</td><td>2.360</td><td>Southampton (14)</td><td></td></tr>
-<tr><td>Oxford (23)</td><td>2.886</td><td>3.300</td><td>2.395</td><td>Norwich (17)</td><td></td></tr>
-<tr><td>Birmingham (10)</td><td>1.900</td><td>3.340</td><td>4.135</td><td>West Bromwich (20)</td><td></td></tr>
-<tr><td>Charlton (18)</td><td>2.760</td><td>3.060</td><td>2.610</td><td>Stoke (13)</td><td></td></tr>
-<tr><td>Derby (9)</td><td>2.170</td><td>3.125</td><td>3.485</td><td>Swansea (15)</td><td></td></tr>
-<tr><td>Portsmouth (19)</td><td>3.580</td><td>3.380</td><td>2.030</td><td>Sheff Utd (16)</td><td></td></tr>
-<tr><td>Preston (7)</td><td>2.893</td><td>3.140</td><td>2.480</td><td>Watford (11)</td><td></td></tr>
-<tr><td>QPR (12)</td><td>2.260</td><td>3.220</td><td>3.185</td><td>Blackburn (22)</td><td></td></tr>
-<tr><td>Sheff Wed (24)</td><td>7.750</td><td>4.450</td><td>1.400</td><td>Millwall (5)</td><td></td></tr>
+<tr><td title="Sheff Utd (16)">Sheff Utd (16)</td><td title="2.250">2.250</td><td title="3.400">3.400</td><td title="3.045">3.045</td><td title="Middlesbrough (2)">Middlesbrough (2)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Leicester (21)">Leicester (21)</td><td title="2.886">2.886</td><td title="3.360">3.360</td><td title="2.360">2.360</td><td title="Southampton (14)">Southampton (14)</td><td></td></tr>
+<tr><td title="Oxford (23)">Oxford (23)</td><td title="2.886">2.886</td><td title="3.300">3.300</td><td title="2.395">2.395</td><td title="Norwich (17)">Norwich (17)</td><td></td></tr>
+<tr><td title="Birmingham (10)">Birmingham (10)</td><td title="1.900">1.900</td><td title="3.340">3.340</td><td title="4.135">4.135</td><td title="West Bromwich (20)">West Bromwich (20)</td><td></td></tr>
+<tr><td title="Charlton (18)">Charlton (18)</td><td title="2.760">2.760</td><td title="3.060">3.060</td><td title="2.610">2.610</td><td title="Stoke (13)">Stoke (13)</td><td></td></tr>
+<tr><td title="Derby (9)">Derby (9)</td><td title="2.170">2.170</td><td title="3.125">3.125</td><td title="3.485">3.485</td><td title="Swansea (15)">Swansea (15)</td><td></td></tr>
+<tr><td title="Portsmouth (19)">Portsmouth (19)</td><td title="3.580">3.580</td><td title="3.380">3.380</td><td title="2.030">2.030</td><td title="Sheff Utd (16)">Sheff Utd (16)</td><td></td></tr>
+<tr><td title="Preston (7)">Preston (7)</td><td title="2.893">2.893</td><td title="3.140">3.140</td><td title="2.480">2.480</td><td title="Watford (11)">Watford (11)</td><td></td></tr>
+<tr><td title="QPR (12)">QPR (12)</td><td title="2.260">2.260</td><td title="3.220">3.220</td><td title="3.185">3.185</td><td title="Blackburn (22)">Blackburn (22)</td><td></td></tr>
+<tr><td title="Sheff Wed (24)">Sheff Wed (24)</td><td title="7.750">7.750</td><td title="4.450">4.450</td><td title="1.400">1.400</td><td title="Millwall (5)">Millwall (5)</td><td></td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">Feb 08, 2026</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png"/><h2>Championship</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -675,6 +728,8 @@ body{
 })();
 </script>
 </div>
+<div class="railbox left" id="railLeft"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
+<div class="railbox right" id="railRight"><a class="raillink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif"/></a></div>
 <button aria-label="Back To Top" id="backToTop" title="Back To Top">
 <svg aria-hidden="true" fill="none" height="26" viewbox="0 0 24 24" width="26">
 <path d="M12 5l-6 6h4v8h4v-8h4l-6-6z" fill="currentColor"></path>
@@ -822,13 +877,46 @@ const menuToggle = document.getElementById("menuToggle");
   }catch(e){}
 
 
+
+  // Show side rails after user scrolls a bit (desktop only)
+  const railLeft = document.getElementById("railLeft");
+  const railRight = document.getElementById("railRight");
+  const isDesktop = () => window.matchMedia && window.matchMedia("(min-width: 1025px)").matches;
+
+  function positionRails(){
+    if (railLeft){
+      railLeft.style.top = "0px";
+      railLeft.style.bottom = "110px";
+      railLeft.style.height = "auto";
+    }
+    if (railRight){
+      railRight.style.top = "0px";
+      railRight.style.bottom = "110px";
+      railRight.style.height = "auto";
+    }
+  }
+
+  function toggleRails(){
+    const margin = (window.innerWidth - 980) / 2; // 980 = content width
+    const minW = 110; // must fit at least this width
+    const gap = 14;
+    const hasSpace = margin > (minW + gap + 8);
+    const show = isDesktop() && hasSpace && window.scrollY > 520;
+    if (railLeft) railLeft.style.display = show ? "block" : "none";
+    if (railRight) railRight.style.display = show ? "block" : "none";
+  }
+
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
     if (window.scrollY > 250) btn.style.display = "inline-flex";
     else btn.style.display = "none";
   }
   window.addEventListener("scroll", toggleBtn, {passive:true});
+  window.addEventListener("scroll", toggleRails, {passive:true});
   toggleBtn();
+  positionRails();
+  toggleRails();
+  window.addEventListener("resize", ()=>{ positionRails(); toggleRails(); });
   btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
 })();
 </script>
