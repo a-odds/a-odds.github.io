@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทีเด็ดบอล 15 กุมภาพันธ์ 2569 | A-Odds</title>
+<meta name="description" content="ทีเด็ดบอลวันนี้ 15 กุมภาพันธ์ 2569 คัด 4 คู่น่าเชียร์จาก 4 ลีกชั้นนำขอยุโรป นำโดย แอตเลติโก มาดริด บุกชน ราโย บาเยกาโน และ นาโปลี เปิดบ้านต้อนรับ โรมา">
+<link rel="icon" href="https://img.icons8.com/cotton/64/football-ball.png">
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6fb;
+  padding:20px;
+  margin:0;
+}
+.logo-wrap{
+  max-width:980px;
+  margin:0 auto 8px;
+  display:flex;
+  justify-content:center;
+}
+.logo-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;}
+.logo-img{
+  max-width:200px;
+  width:100%;
+  height:auto;
+  max-height:150px;
+  object-fit:contain;
+}
+
+/* Page title: no hover */
+.page-title{margin:0 0 10px;}
+.page-title a{color:#111;text-decoration:none;}
+.page-title a:visited{color:#111;}
+.page-title a:hover{color:#111;text-decoration:none;}
+
+/* MENU BAR (desktop) */
+.menu-bar-wrap{max-width:980px;margin:0 auto 12px;}
+.menu-bar{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
+  max-width:980px;
+  margin:0 auto 18px;
+  padding:0 6px;
+}
+.menu-bar a{
+  flex:0 1 auto;
+  min-width:0;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.menu-bar a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 12px;
+  background:#eef2ff;
+  border:1px solid #d7ddff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+}
+.menu-bar a:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+  transform:translateY(-1px);
+}
+.menu-bar a.active{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+}
+.menu-icon{width:18px;height:18px;object-fit:contain;display:inline-block;}
+
+/* MENU (mobile dropdown) */
+.menu-mobile{display:none;max-width:980px;margin:0 auto 12px;position:relative;}
+.hamburger{
+  width:44px;height:40px;border:1px solid #d7ddff;background:#eef2ff;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;
+}
+.hamburger span{display:block;width:22px;height:2px;background:#2a3b8f;}
+.menu-dropdown{
+  position:absolute;
+  right:0;
+  top:48px;
+  min-width:240px;
+  background:#ffffff;
+  border:1px solid #d7ddff;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  display:none;
+  flex-direction:column;
+  z-index:999;
+}
+.menu-dropdown a{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  text-decoration:none;
+  color:#2a3b8f;
+  font-weight:700;
+  border-bottom:1px solid #eef2ff;
+  background:#ffffff;
+}
+.menu-dropdown a:hover{background:#eef2ff;}
+.menu-dropdown a.active{background:#5b7cfa;color:#fff;}
+@media(max-width:600px){
+  .menu-bar-wrap{display:none;}
+  .menu-mobile{display:block;}
+}
+
+/* NAV links */
+.navlink{
+  display:inline-block;
+  padding:10px 12px;
+  background:#eef2ff;
+  border:1px solid #d7ddff;
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  transition:.2s;
+  min-width:92px;
+  text-align:center;
+}
+.navlink:hover{
+  background:#5b7cfa;
+  border-color:#5b7cfa;
+  color:#fff;
+  transform:translateY(-1px);
+}
+.navlink.disabled{opacity:.35;pointer-events:none;}
+
+/* desc box */
+.desc-box{
+  width:100%;
+  background:#ffffff;
+  border:1px solid #d7ddff;
+  font-weight:700;
+  padding:12px 10px;
+  box-sizing:border-box;
+  text-align:center;
+}
+
+/* nav + inline desc (single row) */
+.nav-date-row{
+  max-width:980px;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.nav-date-row .navlink{white-space:nowrap;}
+.nav-date-row .desc-box.inline-desc{
+  flex:1;
+  margin:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Breadcrumb + archives row */
+.breadcrumb-row{
+  max-width:980px;
+  margin:8px auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.breadcrumb{
+  text-align:left;
+  font-size:13px;
+  color:#4b5563;
+  font-weight:700;
+}
+.breadcrumb a{color:#2a3b8f;text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
+.archives-link{
+  font-size:18px;
+  font-weight:700;
+  color:#cc0000;
+  text-decoration:underline;
+}
+.archives-link:hover{text-decoration:none;}
+
+/* main title with icon */
+.main-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.main-icon{width:24px;height:24px;object-fit:contain;}
+
+/* subs: 1 col (full width) */
+.subs{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  max-width:980px;
+  margin:15px auto 28px;
+  align-items:stretch;
+}
+
+
+/* sub card */
+.subcard{
+  width:100%;
+  background:#ffffff;
+  border:1px solid #e2e6f0;
+  border-radius:0;
+  box-shadow:none;
+  padding:12px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.sub-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px;
+  background:#f4f6fb;
+}
+.sub-text{
+  font-weight:700;
+  color:#222;
+  text-align:center;
+  flex:1;
+}
+.dl-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  text-decoration:none;
+  color:#222;
+  transition:.2s;
+}
+.dl-btn:hover{color:#5b7cfa; transform:translateY(-1px);}
+
+/* table */
+.sub-extra{width:100%;text-align:left;}
+.sub-extra table{
+  width:100%;
+  margin:0 auto;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+.sub-extra th,
+.sub-extra td{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:clip;
+}
+.sub-extra th{
+  background:#ffe2c2;
+  color:#2b2b2b;
+  font-weight:700;
+  text-align:center;
+  padding:10px 8px;
+  border:1px solid #f2c79e;
+  line-height:1.15;
+}
+.sub-extra td{
+  border:1px solid #f2c79e;
+  padding:10px 8px;
+  font-size:14px;
+  line-height:1.15;
+}
+.sub-extra tbody tr:nth-child(even) td{
+  background:#fff3e6;
+}
+.sub-extra th:nth-child(2),
+.sub-extra th:nth-child(3),
+.sub-extra th:nth-child(4),
+.sub-extra th:nth-child(6),
+.sub-extra td:nth-child(2),
+.sub-extra td:nth-child(3),
+.sub-extra td:nth-child(4),
+.sub-extra td:nth-child(6){
+  text-align:center;
+}
+.sub-extra td:nth-child(1),
+.sub-extra td:nth-child(5){
+  text-align:left;
+}
+.sub-extra td:nth-child(2){ color:#6f3cc3; font-weight:700; }
+.sub-extra td:nth-child(3){ color:#4b5563; font-weight:700; }
+.sub-extra td:nth-child(4){ color:#e63b7a; font-weight:700; }
+
+/* footer + stat */
+.footer{
+  max-width:980px;
+  margin:18px auto 0;
+  color:#6b7280;
+  font-size:13px;
+  text-align:center;
+}
+.statwrap{
+  max-width:980px;
+  margin:10px auto 0;
+  display:flex;
+  justify-content:center;
+}
+
+/* image slots (avoid "ads" class names) */
+.slotwrap{
+  max-width:980px;
+  margin:10px auto 16px;
+}
+.slotwrap .slotlink{
+  display:block;
+  width:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.slotwrap .slotlink img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* side rails (desktop only) */
+.railbox{
+  position:fixed;
+  top:0;
+  bottom:86px; /* keep clear for Back To Top */
+  width:110px;
+  height:auto;
+  min-height:600px;
+  max-height:1000px;
+  display:none; /* show after scroll */
+  z-index:900;
+}
+.railbox.left{left:10px;}
+.railbox.right{right:10px;}
+.railbox .raillink{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.railbox .raillink img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* hide rails on tablet/mobile */
+@media(max-width:1024px){
+  .railbox{display:none !important;}
+}
+
+/* back to top */
+#backToTop{
+  z-index:1100;
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:44px;
+  height:44px;
+  border:0;
+  background:#5b7cfa;
+  color:#fff;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  transition:.2s;
+}
+#backToTop:hover{transform:translateY(-2px); background:#3f63ff;}
+</style>
+</head>
+<body>
+
+
+<div class="logo-wrap">
+  <a class="logo-link" href="https://a-odds.github.io/" aria-label="Home">
+    <img class="logo-img" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1771075760/G/logo-new.png" alt="Logo">
+  </a>
+</div>
+
+<h1 class="page-title"><a href="https://a-odds.github.io/">วิเคราะห์ คาดการณ์ผลฟุตบอล</a></h1>
+
+<div class="menu-bar-wrap">
+         <div class="menu-bar" aria-label="Menu">
+           <a href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="https://a-odds.github.io/epl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="https://a-odds.github.io/laliga"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="https://a-odds.github.io/serie-a.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a href="https://a-odds.github.io/bundesliga.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="https://a-odds.github.io/ligue-1.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="https://a-odds.github.io/efl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="https://a-odds.github.io/ucl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="https://a-odds.github.io/uel.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="https://a-odds.github.io/uecl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
+<div class="menu-mobile">
+         <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menuDropdown">
+           <span></span><span></span><span></span>
+         </button>
+         <div class="menu-dropdown" id="menuDropdown" role="menu">
+           <a role="menuitem" href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a role="menuitem" href="https://a-odds.github.io/epl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a role="menuitem" href="https://a-odds.github.io/laliga"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a role="menuitem" href="https://a-odds.github.io/serie-a.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a role="menuitem" href="https://a-odds.github.io/bundesliga.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a role="menuitem" href="https://a-odds.github.io/ligue-1.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a role="menuitem" href="https://a-odds.github.io/efl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a role="menuitem" href="https://a-odds.github.io/ucl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a role="menuitem" href="https://a-odds.github.io/uel.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a role="menuitem" href="https://a-odds.github.io/uecl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+         </div>
+       </div>
+
+<!-- NAV TOP: « ก่อนหน้า | (ข้อความใต้ Page Title) | ถัดไป -->
+<div class="nav-date-row">
+  <a class="navlink " href="#">« ก่อนหน้า</a>
+  <div class="desc-box inline-desc">ทีเด็ดบอล 15 กุมภาพันธ์ 2569</div>
+  <a class="navlink " href="#">ถัดไป »</a>
+</div>
+
+<!-- Breadcrumb + Archives (same row) -->
+<div class="breadcrumb-row">
+  <div class="breadcrumb">
+    <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; ทีเด็ดบอล 15 กุมภาพันธ์ 2569
+  </div>
+  
+</div>
+<div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" target="_blank" rel="noopener nofollow"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp" alt=""></a></div>
+<div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" class="main-icon" alt=""><h2>ราโย บาเยกาโน V แอต.มาดริด	</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">วิเคราะห์ก่อนเกม</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><p>ราโย บาเยกาโน จะพยายามหลีกเลี่ยงความพ่ายแพ้ในลาลีกาเป็นนัดที่สี่ติดต่อกัน และยุติฟอร์มที่ย่ำแย่ในการพบกับแอตเลติโก มาดริด ที่สนามเอสตาดิโอ เด บาเยกัส ในวันอาทิตย์นี้</p>
+<p>แอตเลติโก มาดริด พ่ายแพ้ให้กับเรอัล เบติส 1-0 ที่สนามริยาด แอร์ เมโทรโปลิตาโน ในนัดลาลีกาที่ผ่านมา ทำให้สถิติไม่แพ้ใคร 6 นัดติดต่อกันต้องหยุดลง ส่งผลให้พวกเขารั้งอันดับสามด้วยคะแนน 45 แต้ม โดยเหลืออีก 15 นัดให้เล่น แอตเลติโกตามหลังบาร์เซโลนาจ่าฝูงอยู่ 13 แต้ม และนำหน้าเรอัล เบติส ทีมอันดับห้าอยู่ 7 แต้ม ในการแย่งชิงโควต้าไปเล่นแชมเปี้ยนส์ลีก</p>
+<p>ราโย บาเยกาโน อยู่ในอันดับที่ 18 ด้วยคะแนน 22 แต้ม ตามหลังโซนปลอดภัยอยู่ 1 แต้ม โดยเหลืออีก 15 นัด ราโยแพ้ให้กับเรอัล มาดริด 2-1 ในนัดลาลีกาที่ผ่านมาที่สนามเอสตาดิโอ เบร์นาเบว ทำให้แพ้ติดต่อกันเป็นนัดที่สาม</p>
+<p>การแข่งขันลาลีกาครั้งก่อนระหว่างทั้งสองทีม แอตเลติโก มาดริด เอาชนะ ราโย บาเยกาโน 3-2 ที่สนามแอร์ เมโทรโปลิตาโน เมื่อเดือนกันยายน โดย จูเลียน อัลวาเรซ ทำประตูให้แอตเลติโก มาดริด 3 ประตู ในนาทีที่ 15, 80 และ 88 ส่วน เป๊ป ชาบาร์เรีย และ อัลวาโร การ์เซีย ทำประตูให้ราโย บาเยกาโน</p>
+<p>แอตเลติโก มาดริด มีสถิติที่ดีกว่าราโย บาเยกาโน ในช่วงหลัง โดยไม่แพ้ใครใน 17 นัดหลังสุดในลาลีกา ราโย บาเยกาโน กำลังมองหาชัยชนะในลีกนัดแรกนับตั้งแต่เดือนกุมภาพันธ์ 2013 ซึ่งในช่วงเวลานั้น แอตเลติโก มาดริด ทำประตูได้มากกว่าราโย บาเยกาโน 39 ประตู และเสียเพียง 9 ประตู</p>
+<p>แอตเลติโก มาดริด ได้รับความช่วยเหลือจาก อเล็กซานเดอร์ ซอร์ลอธ, อัลวาเรซ และ อองตวน กรีซมันน์ ที่ทำประตูได้ 7, 7 และ 6 ประตูตามลำดับ</p>
+<p>ส่วนราโย บาเยกาโน นำทีมโดย ฮอร์เก เด ฟรูโตส เขาเป็นผู้ทำประตูสูงสุดของทีมด้วย 7 ประตู โดย 4 ประตูนั้นเป็นประตูสำคัญในช่วงต้นเกม</p>
+<p>เจ้าบ้าน ราโย่ มีสถิติชนะ 2 เสมอ 6 และแพ้ 2 ในการแข่งขันลาลีกา 10 นัดในบ้านฤดูกาลนี้ ส่วนแอตเลติโก มาดริด มีสถิติชนะ 3 เสมอ 5 และแพ้ 3 ในเกมเยือนฤดูกาลนี้ แอตเลติโก มาดริด กำลังมองหาการต่อยอดสถิติไม่แพ้ใครในเกมเยือน 3 นัดติดต่อกัน พวกเขาไม่แพ้ในเกมเยือนลาลีกามาตั้งแต่เดือนธันวาคม 2025 ในเกมกับแอธเลติก บิลบาโอ</p>
+<p>ใน 6 นัดหลังสุดในลีก ราโย่ ชนะ 1 เสมอ 1 และแพ้ 4 ขณะที่แอตเลติโก มาดริด มีสถิติชนะ 3 เสมอ 2 และแพ้ 1 ใน 6 นัดหลังสุด</p>
+
+<p><strong>ทรรศนะ: แอตเลติโก มาดริด จะบุกชนะ ราโย บาเยกาโน</strong></p></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1771072961/G/serie-a.svg" class="main-icon" alt=""><h2>นาโปลี V โรม่า</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">วิเคราะห์ก่อนเกม</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><p>นาโปลีจะเปิดบ้านต้อนรับโรม่าที่สนามสตาดิโอ ดิเอโก อาร์มันโด มาราโดนา ในวันอาทิตย์นี้ ในการแข่งขันระหว่างสองทีมที่กำลังแย่งชิงตำแหน่งในอันดับต้นๆ ของตารางเซเรีย อา</p>
+<p>นาโปลีอยู่อันดับสาม มี 49 คะแนน ตามหลังอินเตอร์ มิลาน ทีมอันดับหนึ่งอยู่ 9 คะแนน ส่วนโรม่า ทีมอันดับห้า ซึ่งเป็นทีมแรกที่อยู่นอกโซนได้ไปเล่นแชมเปี้ยนส์ลีก มีคะแนนตามหลังนาโปลีอยู่ 3 คะแนน โดยเหลืออีก 14 นัดให้เล่น โรม่าได้สิทธิ์ไปเล่นยูโรปา ลีกแทน โดยมีคะแนนนำโคโม ทีมอันดับหกอยู่ 5 คะแนน</p>
+<p>นาโปลีชนะเจนัว 3-2 ที่สนามสตาดิโอ โคมูนาเล ลุยจิ เฟอร์ราริส ส่วนโรม่าชนะกาญารี 2-0 ในบ้าน ในนัดเซเรีย อา นัดล่าสุด</p>
+<p>เมื่อเดือนพฤศจิกายนที่ผ่านมา นาโปลีเป็นฝ่ายชนะ 1-0 ที่สนามสตาดิโอ โอลิมปิโก โดยดาวิด เนเรส ยิงประตูเดียวของนาโปลีในนาทีที่ 36</p>
+<p>นาโปลีมีผลงานที่ดีกว่าโรม่าในช่วงหลัง โดยไม่แพ้ใครใน 4 นัดหลังสุดในเซเรียอา โรม่ากำลังมองหาชัยชนะนัดแรกในลีกนับตั้งแต่เดือนธันวาคม 2023 ในช่วงเวลานั้น นาโปลีทำประตูได้มากกว่าโรม่า โดยยิงได้ 5 ประตูและเสีย 3 ประตู</p>
+<p>ฟอร์มของราสมุส ฮอยลุนด์ และสกอตต์ แม็คโทมิเนย์นั้นหาใครมาแทนไม่ได้สำหรับนาโปลีในฤดูกาลนี้ ฮอยลุนด์เป็นดาวซัลโวสูงสุดของทีมด้วย 8 ประตู ซึ่งเป็นอันดับสองร่วมในลีกฤดูกาล 2025/2026 โดยสองประตูนั้นเป็นประตูสำคัญในช่วงต้นเกม แม็คโทมิเนย์ก็ทำผลงานได้น่าประทับใจไม่แพ้กัน โดยทำไป 6 ประตู</p>
+<p>ส่วนทีมเยือนโรม่า นำโดยมาติอัส ซูเล่ ที่ทำไป 6 ประตู รวมถึง 3 ประตูที่เป็นประตูแรกของเกม</p>
+<p>นาโปลีเจ้าบ้านไม่แพ้ใครในบ้านในเกมเซเรียอาฤดูกาลนี้ โดยชนะ 8 นัดและเสมอ 3 นัด จาก 11 นัดที่สนามสตาดิโอ ดิเอโก อาร์มันโด มาราโดนา นาโปลีมีสถิติไม่แพ้ใครในบ้านในเซเรียอา 22 นัดติดต่อกัน นับตั้งแต่เดือนธันวาคม 2024 ที่พบกับเวนิเซีย ส่วนในเกมเยือนที่สนามสตาดิโอ โอลิมปิโก ฤดูกาลนี้ โรม่าชนะ 7 นัดและแพ้ 5 นัด</p>
+<p>ใน 6 นัดหลังสุด นาโปลีชนะ 3 เสมอ 2 และแพ้ 1 ขณะที่โรม่าชนะ 4 เสมอ 1 และแพ้ 1 ใน 6 นัดหลังสุดเช่นกัน</p>
+<p><strong>ทรรศนะ: นาโปลี จะชนะ โรม่า</strong></p></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" class="main-icon" alt=""><h2>ไลป์ซิก V โวล์ฟสบวร์ก</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">วิเคราะห์ก่อนเกม</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><p>ทีมโวล์ฟสบวร์กที่ไร้ชัยชนะในบุนเดสลีกา 4 นัดติดต่อกัน จะพยายามยุติสถิติย่ำแย่ของพวกเขาในการพบกับแอร์เบ ไลป์ซิก ที่สนามเรดบูล อารีน่า ในวันอาทิตย์นี้</p>
+<p>แอร์เบ ไลป์ซิก อยู่ในอันดับที่ 4 มี 39 คะแนน ตามหลังบาเยิร์น มิวนิค ทีมอันดับหนึ่ง 15 คะแนน ส่วนสตุทการ์ท ทีมอันดับ 5 ซึ่งเป็นทีมแรกที่อยู่นอกโซนโควต้าแชมเปี้ยนส์ลีก มีคะแนนเท่ากับไลป์ซิก โดยไลป์ซิกชนะโคโลญจน์ในนัดบุนเดสลีกาครั้งล่าสุดด้วยสกอร์ 2-1 ที่สนามไรน์เอเนอร์จีสเตเดียม</p>
+<p>ส่วนโวล์ฟสบวร์ก แพ้โบรุสเซีย ดอร์ทมุนด์ 2-1 ที่สนามโฟล์คสวาเกน อารีน่า ในนัดบุนเดสลีกาครั้งล่าสุด ทำให้ไร้ชัยชนะติดต่อกันเป็นนัดที่ 4 และอยู่ในอันดับที่ 15 มี 19 คะแนน ได วูล์ฟส์บวร์ก มีคะแนนเท่ากับแวร์เดอร์ เบรเมน ทีมอันดับ 16 แต่ยังอยู่เหนือโซนตกชั้น</p>
+<p>การแข่งขันบุนเดสลีกาครั้งก่อนระหว่างทั้งสองทีม ไลป์ซิกเป็นฝ่ายชนะ 1-0 ที่สนามโฟล์คสวาเกน อารีน่า ในเดือนกันยายน โดยโยฮัน บากาโยโก้ ยิงประตูเดียวของไลป์ซิกในนาทีที่ 8</p>
+<p>สองผู้เล่นที่โดดเด่นของไลป์ซิกในฤดูกาลนี้คือ ยาน ดิโอมองเด และ โรโมโล ดิโอมองเดเป็นดาวซัลโวสูงสุดของทีมด้วย 7 ประตู โดย 3 ประตูนั้นเป็นประตูแรกของเกม โรโมโลก็ทำผลงานได้น่าประทับใจไม่แพ้กันด้วย 6 ประตู</p>
+<p>โมฮัมเหม็ด อามูรา และ ดเซนัน เปจซิโนวิช เป็นดาวซัลโวสูงสุดของโวล์ฟสบวร์ก โดยทำได้ 7 และ 5 ประตูตามลำดับ</p>
+<p>ที่สนามเรดบูล อารีน่า ในฤดูกาลนี้ ไลป์ซิกชนะ 7 ครั้งและแพ้ 3 ครั้งจาก 10 นัดในบุนเดสลีกา ส่วนโวล์ฟสบวร์กชนะ 3 ครั้ง เสมอ 1 ครั้ง และแพ้ 6 ครั้งในเกมเยือนฤดูกาลนี้ ได วูล์ฟสบวร์กกำลังมองหาการพลิกสถานการณ์หลังจากแพ้ติดต่อกัน 3 นัดในเกมเยือน พวกเขาไม่เคยพ่ายแพ้ในเกมเยือนบุนเดสลีกาเลยนับตั้งแต่เดือนธันวาคม 2025 ในเกมกับโบรุสเซีย มึนเช่นกลัดบัค</p>
+<p>ใน 6 นัดหลังสุดในลีก ไลป์ซิกชนะ 3 เสมอ 1 และแพ้ 2 ขณะที่โวล์ฟสบวร์กชนะ 1 เสมอ 1 และแพ้ 4 ใน 6 นัดหลังสุด</p>
+<p><strong>ทรรศนะ: ไลป์ซิก จะชนะ โวล์ฟสบวร์ก</strong></p></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" class="main-icon" alt=""><h2>ลียง V นีซ</h2></div><div class="subs"><div class="subcard">
+          <div class="sub-head">
+            <div class="sub-text">วิเคราะห์ก่อนเกม</div>
+            <a class="dl-btn" href="#" download aria-label="Download">
+              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+            </a>
+          </div>
+        <div class="sub-extra"><p>โอลิมปิก ลียง และ นีซ จะพบกันที่สนามกรุปามา สเตเดียม ในวันอาทิตย์ โดยทั้งสองสโมสรต่างหวังที่จะต่อยอดความสำเร็จในลีกเอิง โดยเจ้าบ้านกำลังมองหาชัยชนะนัดที่ 7 ติดต่อกัน ขณะที่ทีมเยือนไม่แพ้ใครมาแล้ว 3 นัดติดต่อกัน</p>
+<p>โอลิมปิก ลียง อยู่ในอันดับที่ 3 มี 42 คะแนน ตามหลังปารีส แซงต์-แชร์แมง ทีมอันดับหนึ่งอยู่ 9 คะแนน ส่วนโอลิมปิก มาร์เซย์ ทีมอันดับ 4 ซึ่งเป็นทีมแรกที่อยู่นอกโซนแชมเปี้ยนส์ลีก มีคะแนนตามหลังลียงอยู่ 3 คะแนน ลียงชนะน็องต์ในนัดลีกเอิงนัดล่าสุด 1-0 ที่สนามสตาด เดอ ลา โบฌัวร์ - หลุยส์ ฟงเตอโน เป็นชัยชนะนัดที่ 6 ติดต่อกัน</p>
+<p>ส่วนนีซ นัดลีกนัดล่าสุดจบลงด้วยผลเสมอ 0-0 กับโมนาโก ที่สนามอัลลิอันซ์ ริเวียรา ทำให้พวกเขายังคงไม่แพ้ใครติดต่อกันเป็นนัดที่ 3 และอยู่ในอันดับที่ 14 มี 23 คะแนน ลียงทำประตูได้ 27 ประตูและเสียไป 38 ประตูจาก 21 นัด ทำให้พวกเขามีคะแนนตามหลังแรนส์ ทีมอันดับ 6 อยู่ 8 คะแนน ในการแย่งชิงตำแหน่งในรอบคัดเลือกคอนเฟอเรนซ์ลีก</p>
+<p>เมื่อทั้งสองทีมพบกันครั้งล่าสุดในลีกเอิง นีซเป็นฝ่ายชนะ 3-2 ที่สนามอัลลิอันซ์ ริเวียร่า ในเดือนตุลาคม เมลวิน บาร์ด เปิดสกอร์ให้ลียงในนาทีที่ 5 โซฟิยาน ดิออป และฮิชาม บูดาอุย ก็ทำประตูได้เช่นกัน ส่วนพาเวล ซุลช์ นำลียงทำสองประตูในนาทีที่ 29 และ 95</p>
+<p>ฟอร์มการเล่นของซุลช์มีความสำคัญต่อลียงในฤดูกาลนี้ กองหน้าคนนี้นำดาวซัลโวของสโมสรด้วย 9 ประตู ซึ่งเป็นอันดับ 4 ในบรรดาดาวซัลโวสูงสุดของลีกในฤดูกาล 2025/2026 โดย 4 ประตูนั้นเป็นประตูสำคัญในช่วงต้นเกม</p>
+<p>ทีมเยือนนีซเป็นภัยคุกคามต่อทีมคู่แข่งด้วยฝีมือของดิออป ผู้ทำประตูไปแล้ว 7 ครั้ง รวมถึง 4 ประตูที่เป็นประตูแรกของเกม</p>
+<p>เจ้าบ้านลียงทำผลงานได้อย่างยอดเยี่ยมในบ้านที่สนามกรุมามา สเตเดียมในฤดูกาลนี้ โดยชนะ 8 นัดและแพ้เพียง 2 นัดจาก 10 นัดในลีกเอิง ลียงกำลังอยู่ในช่วงชนะในบ้าน 4 นัดติดต่อกันในลีกเอิง นับตั้งแต่เดือนพฤศจิกายน 2025 ที่พบกับน็องต์ นีซจะพยายามแก้ไขผลงานที่ย่ำแย่ในการเล่นนอกบ้านในฤดูกาลนี้ โดยเสมอ 1 นัด แพ้ 7 นัด และชนะเพียง 2 นัดในเกมเยือนลีก</p>
+<p>ลียงชนะ 6 นัดรวดในลีกฤดูกาลนี้ ขณะที่นีซชนะ 1 เสมอ 3 และแพ้ 2 ใน 6 นัดหลังสุด</p>
+<p><strong>ทรรศนะ: ลียง จะชนะ นีซ</strong></p></div></div></div>
+<div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" target="_blank" rel="noopener nofollow"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp" alt=""></a></div>
+
+<!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
+<div class="navbar" style="margin-top:6px;">
+  <a class="navlink " href="#">« ก่อนหน้า</a>
+  <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
+  <a class="navlink " href="#">ถัดไป »</a>
+</div>
+
+<div class="footer">© 2026 www.A-Odds.com</div>
+
+<div class="statwrap"><div id="stat-counter" style="
+  text-align:center;
+  font-size:14px;
+  color:#888;
+  margin:28px 0;
+">
+  <!-- TITLE -->
+  <div id="stat-title" style="
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+    color:#777;
+    margin-bottom:6px;
+  ">
+    <!-- Bar Chart Icon -->
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M6 17V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M12 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M18 17V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span id="stat-title-text">Visitors</span>
+  </div>
+
+  <!-- COUNTER : บรรทัดล่าง -->
+  <div id="stat-values">
+    วันนี้: <span id="stat-today">0</span> |
+    เมื่อวาน: <span id="stat-yesterday">0</span> |
+    ทั้งหมด: <span id="stat-total">0</span>
+  </div>
+</div>
+
+<style>
+@media (max-width:600px){
+  #stat-counter{ display:none; }
+}
+</style>
+
+<script>
+(function(){
+  /* =========================
+     CONFIG
+     ========================= */
+  const TITLE_TEXT  = "Visitors";               // เปลี่ยนได้
+  const START_TOTAL = 12500;                    // ตั้งต้นได้เฉพาะ "ทั้งหมด"
+
+  // ใส่ URL หลักที่ต้องการให้นับรวม (แก้ได้)
+  // ถ้าใช้โดเมนปัจจุบัน ปล่อยเป็น "" ได้
+  const BASE_URL = "https://a-odds.github.io";  // ← แก้ URL ตรงนี้ได้
+  /* ========================= */
+
+  try{
+    const base = (BASE_URL || (location.origin)).replace(/\/+$/,"");
+    const storageKey = "statCounter::" + base;
+
+    const storage = localStorage;
+    const todayKey = new Date().toISOString().slice(0,10);
+
+    let data = JSON.parse(storage.getItem(storageKey) || "{}");
+
+    // init ครั้งแรก
+    if(!data.date){
+      data = { date: todayKey, today: 0, yesterday: 0, total: START_TOTAL };
+    }
+
+    // เปลี่ยนวัน (วันนี้/เมื่อวานนับจริง)
+    if(data.date !== todayKey){
+      data.yesterday = data.today;
+      data.today = 0;
+      data.date = todayKey;
+    }
+
+    // นับรวมทุกหน้า (เพราะใช้ key เดียวกันทั้งโดเมน)
+    data.today += 1;
+    data.total += 1;
+
+    storage.setItem(storageKey, JSON.stringify(data));
+
+    const fmt = n => (Number(n)||0).toLocaleString("en-US");
+
+    document.getElementById("stat-title-text").textContent = TITLE_TEXT;
+    document.getElementById("stat-today").textContent = fmt(data.today);
+    document.getElementById("stat-yesterday").textContent = fmt(data.yesterday);
+    document.getElementById("stat-total").textContent = fmt(data.total);
+  }catch(e){
+    // ถ้า browser บล็อก localStorage ก็ไม่ให้หน้า error
+  }
+})();
+</script>
+</div>
+
+<div class="railbox left" id="railLeft"><a class="raillink" href="https://a-odds.github.io/go/1x33" target="_blank" rel="noopener nofollow"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif" alt=""></a></div>
+<div class="railbox right" id="railRight"><a class="raillink" href="https://a-odds.github.io/go/1x33" target="_blank" rel="noopener nofollow"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704959/A/ac-1.gif" alt=""></a></div>
+
+<button id="backToTop" title="Back To Top" aria-label="Back To Top">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M12 5l-6 6h4v8h4v-8h4l-6-6z" fill="currentColor"/>
+</svg>
+</button>
+
+<script>
+(function(){
+  function fitCell(el, maxPx, minPx){
+    el.style.fontSize = maxPx + "px";
+    const maxIter = (maxPx - minPx) + 2;
+    let i = 0;
+    while (
+      i < maxIter &&
+      (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight) &&
+      maxPx > minPx
+    ){
+      maxPx -= 1;
+      el.style.fontSize = maxPx + "px";
+      i++;
+    }
+  }
+  function fitAll(){
+    const cells = document.querySelectorAll(".sub-extra table th, .sub-extra table td");
+    cells.forEach(cell=>{
+      const isHeader = cell.tagName === "TH";
+      fitCell(cell, 14, isHeader ? 10 : 10);
+    });
+  }
+  window.addEventListener("load", ()=>{
+    fitAll();
+    setTimeout(fitAll, 60);
+  });
+  window.addEventListener("resize", ()=>{
+    const cells = document.querySelectorAll(".sub-extra table th, .sub-extra table td");
+    cells.forEach(c=>c.style.fontSize="");
+    fitAll();
+  });
+
+  // Fit menu into a single line by shrinking font size when needed
+  function fitMenu(){
+  try{
+    const bar = document.getElementById("menuBar") || document.querySelector(".menu-bar");
+    if (!bar) return;
+
+    const links = Array.from(bar.querySelectorAll("a"));
+    if (!links.length) return;
+
+    // Make sure the bar is single-line
+    bar.style.flexWrap = "nowrap";
+    bar.style.whiteSpace = "nowrap";
+
+    // Reset link styles (avoid cumulative shrinking on resize)
+    links.forEach(a=>{
+      a.style.whiteSpace = "nowrap";
+      a.style.flex = "0 1 auto";
+      a.style.fontSize = "13px";
+      a.style.letterSpacing = "";
+      a.style.paddingLeft = "";
+      a.style.paddingRight = "";
+    });
+
+    const minFont = 10;
+
+    const getWidths = () => links.map(a => ({
+      a,
+      w: a.getBoundingClientRect().width,
+      fs: parseInt(getComputedStyle(a).fontSize, 10) || 13
+    }));
+
+    let guard = 0;
+    while (bar.scrollWidth > bar.clientWidth && guard < 250){
+      guard++;
+
+      // Shrink only the widest menu item first (some/หลายเมนูจะถูกบีบตามความจำเป็น)
+      const sorted = getWidths().sort((x,y)=>y.w - x.w);
+      const widest = sorted[0];
+      if (widest && widest.fs > minFont){
+        widest.a.style.fontSize = (widest.fs - 1) + "px";
+        continue;
+      }
+
+      // If fonts hit minimum, reduce padding gradually
+      const sample = links[0];
+      const padL = parseFloat(getComputedStyle(sample).paddingLeft) || 8;
+      const nextPad = Math.max(4, padL - 1);
+      if (nextPad < padL){
+        links.forEach(a=>{
+          a.style.paddingLeft = nextPad + "px";
+          a.style.paddingRight = nextPad + "px";
+        });
+        continue;
+      }
+
+      // Final fallback: slightly tighten letter spacing
+      links.forEach(a=>{ a.style.letterSpacing = "-0.3px"; });
+      break;
+    }
+  }catch(e){
+    // never break the page
+  }
+}
+  window.addEventListener("load", fitMenu);
+  window.addEventListener("resize", fitMenu);
+  // Mobile menu toggle
+  try{
+const menuToggle = document.getElementById("menuToggle");
+  const menuDropdown = document.getElementById("menuDropdown");
+  if (menuToggle && menuDropdown){
+    const closeMenu = () => {
+      menuDropdown.style.display = "none";
+      menuToggle.setAttribute("aria-expanded", "false");
+    };
+    const openMenu = () => {
+      menuDropdown.style.display = "flex";
+      menuDropdown.style.flexDirection = "column";
+      menuToggle.setAttribute("aria-expanded", "true");
+    };
+
+    closeMenu();
+
+    menuToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = menuDropdown.style.display === "flex";
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    menuDropdown.addEventListener("click", (e) => {
+      const a = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (a) closeMenu();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menuDropdown.contains(e.target) && e.target !== menuToggle){
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  }catch(e){}
+
+
+
+  // Show side rails after user scrolls a bit (desktop only)
+  const railLeft = document.getElementById("railLeft");
+  const railRight = document.getElementById("railRight");
+  const isDesktop = () => window.matchMedia && window.matchMedia("(min-width: 1025px)").matches;
+
+  function positionRails(){
+    if (railLeft){
+      railLeft.style.top = "0px";
+      railLeft.style.bottom = "110px";
+      railLeft.style.height = "auto";
+    }
+    if (railRight){
+      railRight.style.top = "0px";
+      railRight.style.bottom = "110px";
+      railRight.style.height = "auto";
+    }
+  }
+
+  function toggleRails(){
+    const margin = (window.innerWidth - 980) / 2; // 980 = content width
+    const minW = 110; // must fit at least this width
+    const gap = 14;
+    const hasSpace = margin > (minW + gap + 8);
+    const show = isDesktop() && hasSpace && window.scrollY > 520;
+    if (railLeft) railLeft.style.display = show ? "block" : "none";
+    if (railRight) railRight.style.display = show ? "block" : "none";
+  }
+
+  const btn = document.getElementById("backToTop");
+  function toggleBtn(){
+    if (window.scrollY > 250) btn.style.display = "inline-flex";
+    else btn.style.display = "none";
+  }
+  window.addEventListener("scroll", toggleBtn, {passive:true});
+  window.addEventListener("scroll", toggleRails, {passive:true});
+  toggleBtn();
+  positionRails();
+  toggleRails();
+  window.addEventListener("resize", ()=>{ positionRails(); toggleRails(); });
+  btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Program | A-Odds</title>
+  <meta name="robots" content="noindex,follow" />
+</head>
+<body>
+<p>กำลังพาไปหน้าโปรแกรมล่าสุด...</p>
+<p><a id="fallbackLink" href="/">กลับหน้าแรก</a></p>
+
+<script>
+/** ====== CONFIG (แก้ครั้งเดียว) ====== */
+const OWNER = "a-odds";            // ← เปลี่ยนเป็น GitHub username/org ของคุณ
+const REPO  = "a-odds.github.io";  // ← เปลี่ยนเป็นชื่อ repo ของเว็บคุณ
+const FOLDER = "program";          // ห้ามแก้
+const FALLBACK_URL = "/";          // ถ้า API ล่ม จะกลับหน้าแรก
+/** =================================== */
+
+async function redirectToLatest() {
+  try {
+    const api = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}`;
+    const res = await fetch(api, { headers: { "Accept": "application/vnd.github+json" } });
+    if (!res.ok) throw new Error("GitHub API error: " + res.status);
+
+    const items = await res.json();
+    // เอาเฉพาะไฟล์ .html ที่ไม่ใช่ index.html
+    const pages = items
+      .filter(x => x.type === "file" && /\.html$/i.test(x.name) && x.name.toLowerCase() !== "index.html")
+      .map(x => x.name);
+
+    // เลือกชื่อที่มากที่สุด (YYYY-MM-DD.html จะได้ล่าสุด)
+    const latest = pages.sort().pop();
+    if (!latest) throw new Error("No daily html found in /program");
+
+    const target = `/${FOLDER}/${latest}`;
+    document.getElementById("fallbackLink").href = target;
+    window.location.replace(target);
+  } catch (e) {
+    document.getElementById("fallbackLink").href = FALLBACK_URL;
+    window.location.replace(FALLBACK_URL);
+  }
+}
+
+redirectToLatest();
+</script>
+</body>
+</html>
