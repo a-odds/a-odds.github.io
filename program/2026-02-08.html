@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Major European Leagues</title>
-<meta name="description" content="เว็บทำนายผลฟุตบอลยุโรป พร้อมอัตราต่อรองแบบเรียลไทม์ ครอบคลุม Premier League, La Liga, Serie A, Bundesliga และฟุตบอลถ้วยยุโรป วิเคราะห์แม่น อัพเดทเร็ว">
-<link rel="icon" href="https://img.icons8.com/cotton/64/football-ball.png">
+<title>โปรแกรมฟุตบอล 08 กุมภันธ์ 2569 | A-Odds</title>
+<meta name="description" content="วิเคราะห์ คาดการณ์ผลฟุตบอลยุโรป พร้อมอัตราต่อรองแบบเรียลไทม์ ครอบคลุม Premier League, La Liga, Serie A, Bundesliga และฟุตบอลถ้วยยุโรป วิเคราะห์แม่น อัพเดทเร็ว">
+<link rel="icon nofollow" href="https://img.icons8.com/cotton/64/football-ball.png">
 
 <style>
 body{
@@ -26,7 +26,7 @@ body{
   max-width:200px;
   width:100%;
   height:auto;
-  max-height:64px;
+  max-height:150px;
   object-fit:contain;
 }
 
@@ -186,12 +186,12 @@ body{
 .breadcrumb a{color:#2a3b8f;text-decoration:none;}
 .breadcrumb a:hover{text-decoration:underline;}
 .archives-link{
-  font-size:13px;
+  font-size:18px;
   font-weight:700;
-  color:#2a3b8f;
-  text-decoration:none;
+  color:#cc0000;
+  text-decoration:underline;
 }
-.archives-link:hover{text-decoration:underline;}
+.archives-link:hover{text-decoration:none;}
 
 /* main title with icon */
 .main-title{
@@ -273,13 +273,17 @@ body{
 }
 .sub-extra th{
   background:#ffe2c2;
-  color:#2b2b2b;
   font-weight:700;
   text-align:center;
   padding:10px 8px;
   border:1px solid #f2c79e;
   line-height:1.15;
 }
+
+/* Make header text color follow body column colors */
+.sub-extra th:nth-child(2){ color:#6f3cc3; }
+.sub-extra th:nth-child(3){ color:#4b5563; }
+.sub-extra th:nth-child(4){ color:#e63b7a; }
 .sub-extra td{
   border:1px solid #f2c79e;
   padding:10px 8px;
@@ -322,8 +326,59 @@ body{
   justify-content:center;
 }
 
+/* image slots (avoid "ads" class names) */
+.slotwrap{
+  max-width:980px;
+  margin:10px auto 16px;
+}
+.slotwrap .slotlink{
+  display:block;
+  width:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.slotwrap .slotlink img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* side rails (desktop only) */
+.railbox{
+  position:fixed;
+  top:0;
+  bottom:86px; /* keep clear for Back To Top */
+  width:110px;
+  height:auto;
+  min-height:600px;
+  max-height:1000px;
+  display:none; /* show after scroll */
+  z-index:900;
+}
+.railbox.left{left:10px;}
+.railbox.right{right:10px;}
+.railbox .raillink{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid #e2e6f0;
+  background:#fff;
+}
+.railbox .raillink img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* hide rails on tablet/mobile */
+@media(max-width:1024px){
+  .railbox{display:none !important;}
+}
+
 /* back to top */
 #backToTop{
+  z-index:1100;
   position:fixed;
   right:18px;
   bottom:18px;
@@ -346,16 +401,16 @@ body{
 
 
 <div class="logo-wrap">
-  <a class="logo-link" href="https://a-odds.github.io/" aria-label="Home">
-    <img class="logo-img" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769328991/G/logo.png" alt="Logo">
+  <a class="logo-link" href="https://a-odds.github.io/" rel="nofollow noopener noreferrer" aria-label="Home">
+    <img class="logo-img" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1771077589/G/logo-final.png" alt="Logo">
   </a>
 </div>
 
-<h1 class="page-title"><a href="https://a-odds.github.io/">Major European Leagues</a></h1>
+<h1 class="page-title"><a href="https://a-odds.github.io/">วิเคราะห์ คาดการณ์ผลฟุตบอล</a></h1>
 
 <div class="menu-bar-wrap">
          <div class="menu-bar" aria-label="Menu">
-           <a href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="https://a-odds.github.io/epl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="https://a-odds.github.io/laliga"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="https://a-odds.github.io/serie-a.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a href="https://a-odds.github.io/bundesliga.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="https://a-odds.github.io/ligue-1.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="https://a-odds.github.io/efl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="https://a-odds.github.io/ucl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="https://a-odds.github.io/uel.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="https://a-odds.github.io/uecl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+           <a href="https://a-odds.github.io/" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a href="https://a-odds.github.io/archive/epl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a href="https://a-odds.github.io/archive/laliga" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a href="https://a-odds.github.io/archive/serie-a.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a href="https://a-odds.github.io/archive/bundesliga.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a href="https://a-odds.github.io/archive/ligue-1.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a href="https://a-odds.github.io/archive/efl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a href="https://a-odds.github.io/archive/ucl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a href="https://a-odds.github.io/archive/uel.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a href="https://a-odds.github.io/archive/uecl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
          </div>
        </div>
 <div class="menu-mobile">
@@ -363,36 +418,37 @@ body{
            <span></span><span></span><span></span>
          </button>
          <div class="menu-dropdown" id="menuDropdown" role="menu">
-           <a role="menuitem" href="https://a-odds.github.io/"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a role="menuitem" href="https://a-odds.github.io/epl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a role="menuitem" href="https://a-odds.github.io/laliga"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a role="menuitem" href="https://a-odds.github.io/serie-a.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a role="menuitem" href="https://a-odds.github.io/bundesliga.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a role="menuitem" href="https://a-odds.github.io/ligue-1.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a role="menuitem" href="https://a-odds.github.io/efl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a role="menuitem" href="https://a-odds.github.io/ucl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a role="menuitem" href="https://a-odds.github.io/uel.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a role="menuitem" href="https://a-odds.github.io/uecl.html"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
+           <a role="menuitem" href="https://a-odds.github.io/" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://img.icons8.com/material-outlined/24/home--v2.png" alt="">หน้าแรก</a><a role="menuitem" href="https://a-odds.github.io/archive/epl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" alt="">Premier</a><a role="menuitem" href="https://a-odds.github.io/archive/laliga" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" alt="">La Liga</a><a role="menuitem" href="https://a-odds.github.io/archive/serie-a.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" alt="">Serie A</a><a role="menuitem" href="https://a-odds.github.io/archive/bundesliga.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" alt="">Bundesliga</a><a role="menuitem" href="https://a-odds.github.io/archive/ligue-1.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" alt="">Ligue 1</a><a role="menuitem" href="https://a-odds.github.io/archive/efl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" alt="">Championship</a><a role="menuitem" href="https://a-odds.github.io/archive/ucl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png" alt="">UCL</a><a role="menuitem" href="https://a-odds.github.io/archive/uel.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177721/G/uefa-europa-league.png" alt="">UEL</a><a role="menuitem" href="https://a-odds.github.io/archive/uecl.html" rel="nofollow noopener noreferrer"><img class="menu-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177719/G/uefa-conference-league.png" alt="">UECL</a>
          </div>
        </div>
 
 <!-- NAV TOP: « ก่อนหน้า | (ข้อความใต้ Page Title) | ถัดไป -->
 <div class="nav-date-row">
-  <a class="navlink " href="https://a-odds.github.io/2-7.html">« ก่อนหน้า</a>
-  <div class="desc-box inline-desc">Feb 08, 2026</div>
-  <a class="navlink " href="https://a-odds.github.io/2-14.html">ถัดไป »</a>
+  <a class="navlink " href="https://a-odds.github.io/program/2026-02-07.html">« ก่อนหน้า</a>
+  <div class="desc-box inline-desc">โปรแกรมฟุตบอล 08 กุมภาพันธ์ 2569</div>
+  <a class="navlink " href="https://a-odds.github.io/program/2026-02-14.html">ถัดไป »</a>
 </div>
 
 <!-- Breadcrumb + Archives (same row) -->
 <div class="breadcrumb-row">
   <div class="breadcrumb">
-    <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Feb 08, 2026
+    <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; โปรแกรมฟุตบอล 08 กุมภาพันธ์ 2569
   </div>
   
 </div>
+
 <div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
             <a class="dl-btn" href="#" download aria-label="Download">
-              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+              <img src="https://img.icons8.com/material-sharp/24/graph.png" alt="Graph" width="22" height="22" style="display:block;">
             </a>
           </div>
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Brighton</td><td>51.5%</td><td>24.7%</td><td>23.8%</td><td>Crystal Palace</td><td>0 - 1</td></tr>
-<tr><td>Liverpool</td><td>43.0%</td><td>26.7%</td><td>30.3%</td><td>Man City</td><td>1 - 2</td></tr>
+<tr><td title="Brighton">Brighton</td><td title="51.5%">51.5%</td><td title="24.7%">24.7%</td><td title="23.8%">23.8%</td><td title="Crystal Palace">Crystal Palace</td><td title="0 - 1">0 - 1</td></tr>
+<tr><td title="Liverpool">Liverpool</td><td title="43.0%">43.0%</td><td title="26.7%">26.7%</td><td title="30.3%">30.3%</td><td title="Man City">Man City</td><td title="1 - 2">1 - 2</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -406,23 +462,23 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Brighton</td><td>2.012</td><td>3.740</td><td>3.980</td><td>Crystal Palace</td><td>0 - 1</td></tr>
-<tr><td>Liverpool</td><td>2.430</td><td>3.860</td><td>2.898</td><td>Man City</td><td>1 - 2</td></tr>
+<tr><td title="Brighton">Brighton</td><td title="2.012">2.012</td><td title="3.740">3.740</td><td title="3.980">3.980</td><td title="Crystal Palace">Crystal Palace</td><td title="0 - 1">0 - 1</td></tr>
+<tr><td title="Liverpool">Liverpool</td><td title="2.430">2.430</td><td title="3.860">3.860</td><td title="2.898">2.898</td><td title="Man City">Man City</td><td title="1 - 2">1 - 2</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png" class="main-icon" alt=""><h2>La Liga</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
             <a class="dl-btn" href="#" download aria-label="Download">
-              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+              <img src="https://img.icons8.com/material-sharp/24/graph.png" alt="Graph" width="22" height="22" style="display:block;">
             </a>
           </div>
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Alavés</td><td>44.20%</td><td>30.00%</td><td>25.80%</td><td>Getafe</td><td>0 - 2</td></tr>
-<tr><td>Athletic</td><td>55.80%</td><td>23.80%</td><td>20.50%</td><td>Levante</td><td>4 - 2</td></tr>
-<tr><td>Atlético</td><td>59.20%</td><td>21.00%</td><td>19.80%</td><td>Betis</td><td>0 - 1</td></tr>
-<tr><td>Valencia</td><td>19.60%</td><td>22.00%</td><td>58.40%</td><td>Real Madrid</td><td>0 - 2</td></tr>
+<tr><td title="Alavés">Alavés</td><td title="44.20%">44.20%</td><td title="30.00%">30.00%</td><td title="25.80%">25.80%</td><td title="Getafe">Getafe</td><td title="0 - 2">0 - 2</td></tr>
+<tr><td title="Athletic">Athletic</td><td title="55.80%">55.80%</td><td title="23.80%">23.80%</td><td title="20.50%">20.50%</td><td title="Levante">Levante</td><td title="4 - 2">4 - 2</td></tr>
+<tr><td title="Atlético">Atlético</td><td title="59.20%">59.20%</td><td title="21.00%">21.00%</td><td title="19.80%">19.80%</td><td title="Betis">Betis</td><td title="0 - 1">0 - 1</td></tr>
+<tr><td title="Valencia">Valencia</td><td title="19.60%">19.60%</td><td title="22.00%">22.00%</td><td title="58.40%">58.40%</td><td title="Real Madrid">Real Madrid</td><td title="0 - 2">0 - 2</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -436,28 +492,28 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Alavés</td><td>2.414</td><td>2.922</td><td>3.860</td><td>Getafe</td><td>0 - 2</td></tr>
-<tr><td>Athletic</td><td>1.656</td><td>4.040</td><td>6.090</td><td>Levante</td><td>4 - 2</td></tr>
-<tr><td>Atlético</td><td>1.535</td><td>4.875</td><td>6.300</td><td>Betis</td><td>0 - 1</td></tr>
-<tr><td>Valencia</td><td>5.740</td><td>4.670</td><td>1.595</td><td>Real Madrid</td><td>0 - 2</td></tr>
+<tr><td title="Alavés">Alavés</td><td title="2.414">2.414</td><td title="2.922">2.922</td><td title="3.860">3.860</td><td title="Getafe">Getafe</td><td title="0 - 2">0 - 2</td></tr>
+<tr><td title="Athletic">Athletic</td><td title="1.656">1.656</td><td title="4.040">4.040</td><td title="6.090">6.090</td><td title="Levante">Levante</td><td title="4 - 2">4 - 2</td></tr>
+<tr><td title="Atlético">Atlético</td><td title="1.535">1.535</td><td title="4.875">4.875</td><td title="6.300">6.300</td><td title="Betis">Betis</td><td title="0 - 1">0 - 1</td></tr>
+<tr><td title="Valencia">Valencia</td><td title="5.740">5.740</td><td title="4.670">4.670</td><td title="1.595">1.595</td><td title="Real Madrid">Real Madrid</td><td title="0 - 2">0 - 2</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" class="main-icon" alt=""><h2>Serie A</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
             <a class="dl-btn" href="#" download aria-label="Download">
-              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+              <img src="https://img.icons8.com/material-sharp/24/graph.png" alt="Graph" width="22" height="22" style="display:block;">
             </a>
           </div>
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Verona</td><td>45.0%</td><td>28.8%</td><td>26.1%</td><td>Pisa</td><td>0 - 0</td></tr>
-<tr><td>Genoa</td><td>24.2%</td><td>28.4%</td><td>47.4%</td><td>Napoli</td><td>2 - 3</td></tr>
-<tr><td>Fiorentina</td><td>51.6%</td><td>24.9%</td><td>23.4%</td><td>Torino</td><td>2 - 2</td></tr>
-<tr><td>Bologna</td><td>58.5%</td><td>22.2%</td><td>19.4%</td><td>Parma</td><td>0 - 1</td></tr>
-<tr><td>Lecce</td><td>33.2%</td><td>31.1%</td><td>35.7%</td><td>Udinese</td><td>2 - 1</td></tr>
-<tr><td>Sassuolo</td><td>17.8%</td><td>21.7%</td><td>60.5%</td><td>Inter</td><td>0 - 5</td></tr>
-<tr><td>Juventus</td><td>62.4%</td><td>21.6%</td><td>16.0%</td><td>Lazio</td><td>2 - 2</td></tr>
+<tr><td title="Verona">Verona</td><td title="45.0%">45.0%</td><td title="28.8%">28.8%</td><td title="26.1%">26.1%</td><td title="Pisa">Pisa</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Genoa">Genoa</td><td title="24.2%">24.2%</td><td title="28.4%">28.4%</td><td title="47.4%">47.4%</td><td title="Napoli">Napoli</td><td title="2 - 3">2 - 3</td></tr>
+<tr><td title="Fiorentina">Fiorentina</td><td title="51.6%">51.6%</td><td title="24.9%">24.9%</td><td title="23.4%">23.4%</td><td title="Torino">Torino</td><td title="2 - 2">2 - 2</td></tr>
+<tr><td title="Bologna">Bologna</td><td title="58.5%">58.5%</td><td title="22.2%">22.2%</td><td title="19.4%">19.4%</td><td title="Parma">Parma</td><td title="0 - 1">0 - 1</td></tr>
+<tr><td title="Lecce">Lecce</td><td title="33.2%">33.2%</td><td title="31.1%">31.1%</td><td title="35.7%">35.7%</td><td title="Udinese">Udinese</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Sassuolo">Sassuolo</td><td title="17.8%">17.8%</td><td title="21.7%">21.7%</td><td title="60.5%">60.5%</td><td title="Inter">Inter</td><td title="0 - 5">0 - 5</td></tr>
+<tr><td title="Juventus">Juventus</td><td title="62.4%">62.4%</td><td title="21.6%">21.6%</td><td title="16.0%">16.0%</td><td title="Lazio">Lazio</td><td title="2 - 2">2 - 2</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -471,26 +527,26 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Verona</td><td>2.272</td><td>3.070</td><td>4.010</td><td>Pisa</td><td>0 - 0</td></tr>
-<tr><td>Genoa</td><td>5.000</td><td>3.450</td><td>1.901</td><td>Napoli</td><td>2 - 3</td></tr>
-<tr><td>Fiorentina</td><td>1.943</td><td>3.660</td><td>4.395</td><td>Torino</td><td>2 - 2</td></tr>
-<tr><td>Bologna</td><td>1.668</td><td>4.145</td><td>5.730</td><td>Parma</td><td>0 - 1</td></tr>
-<tr><td>Lecce</td><td>3.170</td><td>3.035</td><td>2.699</td><td>Udinese</td><td>2 - 1</td></tr>
-<tr><td>Sassuolo</td><td>6.800</td><td>4.705</td><td>1.525</td><td>Inter</td><td>0 - 5</td></tr>
-<tr><td>Juventus</td><td>1.616</td><td>4.005</td><td>6.800</td><td>Lazio</td><td>2 - 2</td></tr>
+<tr><td title="Verona">Verona</td><td title="2.272">2.272</td><td title="3.070">3.070</td><td title="4.010">4.010</td><td title="Pisa">Pisa</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Genoa">Genoa</td><td title="5.000">5.000</td><td title="3.450">3.450</td><td title="1.901">1.901</td><td title="Napoli">Napoli</td><td title="2 - 3">2 - 3</td></tr>
+<tr><td title="Fiorentina">Fiorentina</td><td title="1.943">1.943</td><td title="3.660">3.660</td><td title="4.395">4.395</td><td title="Torino">Torino</td><td title="2 - 2">2 - 2</td></tr>
+<tr><td title="Bologna">Bologna</td><td title="1.668">1.668</td><td title="4.145">4.145</td><td title="5.730">5.730</td><td title="Parma">Parma</td><td title="0 - 1">0 - 1</td></tr>
+<tr><td title="Lecce">Lecce</td><td title="3.170">3.170</td><td title="3.035">3.035</td><td title="2.699">2.699</td><td title="Udinese">Udinese</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Sassuolo">Sassuolo</td><td title="6.800">6.800</td><td title="4.705">4.705</td><td title="1.525">1.525</td><td title="Inter">Inter</td><td title="0 - 5">0 - 5</td></tr>
+<tr><td title="Juventus">Juventus</td><td title="1.616">1.616</td><td title="4.005">4.005</td><td title="6.800">6.800</td><td title="Lazio">Lazio</td><td title="2 - 2">2 - 2</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" class="main-icon" alt=""><h2>Bundesliga</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
             <a class="dl-btn" href="#" download aria-label="Download">
-              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+              <img src="https://img.icons8.com/material-sharp/24/graph.png" alt="Graph" width="22" height="22" style="display:block;">
             </a>
           </div>
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Köln</td><td>31.5%</td><td>24.6%</td><td>43.8%</td><td>Leipzig</td><td>1 - 2</td></tr>
-<tr><td>Bayern München</td><td>71.0%</td><td>15.9%</td><td>13.2%</td><td>Hoffenheim</td><td>5 - 1</td></tr>
+<tr><td title="Köln">Köln</td><td title="31.5%">31.5%</td><td title="24.6%">24.6%</td><td title="43.8%">43.8%</td><td title="Leipzig">Leipzig</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Bayern München">Bayern München</td><td title="71.0%">71.0%</td><td title="15.9%">15.9%</td><td title="13.2%">13.2%</td><td title="Hoffenheim">Hoffenheim</td><td title="5 - 1">5 - 1</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -504,24 +560,24 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Köln</td><td>3.355</td><td>4.015</td><td>2.135</td><td>Leipzig</td><td>1 - 2</td></tr>
-<tr><td>Bayern München</td><td>1.300</td><td>7.060</td><td>9.550</td><td>Hoffenheim</td><td>5 - 1</td></tr>
+<tr><td title="Köln">Köln</td><td title="3.355">3.355</td><td title="4.015">4.015</td><td title="2.135">2.135</td><td title="Leipzig">Leipzig</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Bayern München">Bayern München</td><td title="1.300">1.300</td><td title="7.060">7.060</td><td title="9.550">9.550</td><td title="Hoffenheim">Hoffenheim</td><td title="5 - 1">5 - 1</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" class="main-icon" alt=""><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
             <a class="dl-btn" href="#" download aria-label="Download">
-              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+              <img src="https://img.icons8.com/material-sharp/24/graph.png" alt="Graph" width="22" height="22" style="display:block;">
             </a>
           </div>
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Nice</td><td>32.6%</td><td>24.9%</td><td>42.5%</td><td>Monaco</td><td>0 - 0</td></tr>
-<tr><td>Le Havre</td><td>27.4%</td><td>26.4%</td><td>46.2%</td><td>Strasbourg</td><td>2 - 1</td></tr>
-<tr><td>Auxerre</td><td>39.1%</td><td>28.4%</td><td>32.5%</td><td>Paris FC</td><td>0 - 0</td></tr>
-<tr><td>Angers</td><td>28.3%</td><td>29.0%</td><td>42.7%</td><td>Toulouse</td><td>1 - 0</td></tr>
-<tr><td>Paris SG</td><td>64.0%</td><td>18.9%</td><td>17.1%</td><td>Marseille</td><td>5 - 0</td></tr>
+<tr><td title="Nice">Nice</td><td title="32.6%">32.6%</td><td title="24.9%">24.9%</td><td title="42.5%">42.5%</td><td title="Monaco">Monaco</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Le Havre">Le Havre</td><td title="27.4%">27.4%</td><td title="26.4%">26.4%</td><td title="46.2%">46.2%</td><td title="Strasbourg">Strasbourg</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Auxerre">Auxerre</td><td title="39.1%">39.1%</td><td title="28.4%">28.4%</td><td title="32.5%">32.5%</td><td title="Paris FC">Paris FC</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Angers">Angers</td><td title="28.3%">28.3%</td><td title="29.0%">29.0%</td><td title="42.7%">42.7%</td><td title="Toulouse">Toulouse</td><td title="1 - 0">1 - 0</td></tr>
+<tr><td title="Paris SG">Paris SG</td><td title="64.0%">64.0%</td><td title="18.9%">18.9%</td><td title="17.1%">17.1%</td><td title="Marseille">Marseille</td><td title="5 - 0">5 - 0</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -535,27 +591,27 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Nice</td><td>3.250</td><td>3.800</td><td>2.247</td><td>Monaco</td><td>0 - 0</td></tr>
-<tr><td>Le Havre</td><td>3.900</td><td>3.615</td><td>2.073</td><td>Strasbourg</td><td>2 - 1</td></tr>
-<tr><td>Auxerre</td><td>2.609</td><td>3.265</td><td>3.065</td><td>Paris FC</td><td>0 - 0</td></tr>
-<tr><td>Angers</td><td>3.615</td><td>3.230</td><td>2.328</td><td>Toulouse</td><td>1 - 0</td></tr>
-<tr><td>Paris SG</td><td>1.514</td><td>5.030</td><td>6.400</td><td>Marseille</td><td>5 - 0</td></tr>
+<tr><td title="Nice">Nice</td><td title="3.250">3.250</td><td title="3.800">3.800</td><td title="2.247">2.247</td><td title="Monaco">Monaco</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Le Havre">Le Havre</td><td title="3.900">3.900</td><td title="3.615">3.615</td><td title="2.073">2.073</td><td title="Strasbourg">Strasbourg</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Auxerre">Auxerre</td><td title="2.609">2.609</td><td title="3.265">3.265</td><td title="3.065">3.065</td><td title="Paris FC">Paris FC</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Angers">Angers</td><td title="3.615">3.615</td><td title="3.230">3.230</td><td title="2.328">2.328</td><td title="Toulouse">Toulouse</td><td title="1 - 0">1 - 0</td></tr>
+<tr><td title="Paris SG">Paris SG</td><td title="1.514">1.514</td><td title="5.030">5.030</td><td title="6.400">6.400</td><td title="Marseille">Marseille</td><td title="5 - 0">5 - 0</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" class="main-icon" alt=""><h2>Championship</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
             <div class="sub-text">Predictions</div>
             <a class="dl-btn" href="#" download aria-label="Download">
-              <img src="icons8-graph-96.png" alt="Graph" width="22" height="22" style="display:block;">
+              <img src="https://img.icons8.com/material-sharp/24/graph.png" alt="Graph" width="22" height="22" style="display:block;">
             </a>
           </div>
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Swansea</td><td>65.8%</td><td>18.5%</td><td>15.6%</td><td>Sheff Wed</td><td>4 - 0</td></tr>
-<tr><td>Sheff Utd</td><td>40.8%</td><td>26.7%</td><td>32.5%</td><td>Middlesbrough</td><td></td></tr>
-<tr><td>Leicester</td><td>40.9%</td><td>26.7%</td><td>32.5%</td><td>Southampton</td><td></td></tr>
-<tr><td>Oxford</td><td>37.6%</td><td>26.4%</td><td>36.0%</td><td>Norwich</td><td></td></tr>
-<tr><td>Birmingham</td><td>54.3%</td><td>23.5%</td><td>22.2%</td><td>West Bromwich</td><td></td></tr>
+<tr><td title="Swansea">Swansea</td><td title="65.8%">65.8%</td><td title="18.5%">18.5%</td><td title="15.6%">15.6%</td><td title="Sheff Wed">Sheff Wed</td><td title="4 - 0">4 - 0</td></tr>
+<tr><td title="Sheff Utd">Sheff Utd</td><td title="40.8%">40.8%</td><td title="26.7%">26.7%</td><td title="32.5%">32.5%</td><td title="Middlesbrough">Middlesbrough</td><td></td></tr>
+<tr><td title="Leicester">Leicester</td><td title="40.9%">40.9%</td><td title="26.7%">26.7%</td><td title="32.5%">32.5%</td><td title="Southampton">Southampton</td><td></td></tr>
+<tr><td title="Oxford">Oxford</td><td title="37.6%">37.6%</td><td title="26.4%">26.4%</td><td title="36.0%">36.0%</td><td title="Norwich">Norwich</td><td></td></tr>
+<tr><td title="Birmingham">Birmingham</td><td title="54.3%">54.3%</td><td title="23.5%">23.5%</td><td title="22.2%">22.2%</td><td title="West Bromwich">West Bromwich</td><td></td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -569,18 +625,20 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td>Swansea</td><td>1.280</td><td>5.300</td><td>10.500</td><td>Sheff Wed</td><td>4 - 0</td></tr>
-<tr><td>Sheff Utd</td><td>2.260</td><td>3.380</td><td>3.045</td><td>Middlesbrough</td><td></td></tr>
-<tr><td>Leicester</td><td>2.886</td><td>3.340</td><td>2.370</td><td>Southampton</td><td></td></tr>
-<tr><td>Oxford</td><td>2.891</td><td>3.320</td><td>2.380</td><td>Norwich</td><td></td></tr>
-<tr><td>Birmingham</td><td>1.900</td><td>3.340</td><td>4.135</td><td>West Bromwich</td><td></td></tr>
+<tr><td title="Swansea">Swansea</td><td title="1.280">1.280</td><td title="5.300">5.300</td><td title="10.500">10.500</td><td title="Sheff Wed">Sheff Wed</td><td title="4 - 0">4 - 0</td></tr>
+<tr><td title="Sheff Utd">Sheff Utd</td><td title="2.260">2.260</td><td title="3.380">3.380</td><td title="3.045">3.045</td><td title="Middlesbrough">Middlesbrough</td><td></td></tr>
+<tr><td title="Leicester">Leicester</td><td title="2.886">2.886</td><td title="3.340">3.340</td><td title="2.370">2.370</td><td title="Southampton">Southampton</td><td></td></tr>
+<tr><td title="Oxford">Oxford</td><td title="2.891">2.891</td><td title="3.320">3.320</td><td title="2.380">2.380</td><td title="Norwich">Norwich</td><td></td></tr>
+<tr><td title="Birmingham">Birmingham</td><td title="1.900">1.900</td><td title="3.340">3.340</td><td title="4.135">4.135</td><td title="West Bromwich">West Bromwich</td><td></td></tr>
 </tbody>
 </table></div></div></div>
+
+
 <!-- NAV BOTTOM: order « ก่อนหน้า | หน้าแรก | ถัดไป with home in center -->
 <div class="navbar" style="margin-top:6px;">
-  <a class="navlink " href="https://a-odds.github.io/2-7.html">« ก่อนหน้า</a>
+  <a class="navlink " href="https://a-odds.github.io/program/2026-02-07.html">« ก่อนหน้า</a>
   <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
-  <a class="navlink " href="https://a-odds.github.io/2-14.html">ถัดไป »</a>
+  <a class="navlink " href="https://a-odds.github.io/program/2026-02-14.html">ถัดไป »</a>
 </div>
 
 <div class="footer">© 2026 www.A-Odds.com</div>
@@ -676,6 +734,9 @@ body{
 })();
 </script>
 </div>
+
+
+
 
 <button id="backToTop" title="Back To Top" aria-label="Back To Top">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -825,13 +886,46 @@ const menuToggle = document.getElementById("menuToggle");
   }catch(e){}
 
 
+
+  // Show side rails after user scrolls a bit (desktop only)
+  const railLeft = document.getElementById("railLeft");
+  const railRight = document.getElementById("railRight");
+  const isDesktop = () => window.matchMedia && window.matchMedia("(min-width: 1025px)").matches;
+
+  function positionRails(){
+    if (railLeft){
+      railLeft.style.top = "0px";
+      railLeft.style.bottom = "110px";
+      railLeft.style.height = "auto";
+    }
+    if (railRight){
+      railRight.style.top = "0px";
+      railRight.style.bottom = "110px";
+      railRight.style.height = "auto";
+    }
+  }
+
+  function toggleRails(){
+    const margin = (window.innerWidth - 980) / 2; // 980 = content width
+    const minW = 110; // must fit at least this width
+    const gap = 14;
+    const hasSpace = margin > (minW + gap + 8);
+    const show = isDesktop() && hasSpace && window.scrollY > 520;
+    if (railLeft) railLeft.style.display = show ? "block" : "none";
+    if (railRight) railRight.style.display = show ? "block" : "none";
+  }
+
   const btn = document.getElementById("backToTop");
   function toggleBtn(){
     if (window.scrollY > 250) btn.style.display = "inline-flex";
     else btn.style.display = "none";
   }
   window.addEventListener("scroll", toggleBtn, {passive:true});
+  window.addEventListener("scroll", toggleRails, {passive:true});
   toggleBtn();
+  positionRails();
+  toggleRails();
+  window.addEventListener("resize", ()=>{ positionRails(); toggleRails(); });
   btn.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
 })();
 </script>
