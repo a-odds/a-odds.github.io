@@ -168,30 +168,58 @@ body{
   text-overflow:ellipsis;
 }
 
-/* Breadcrumb + archives row */
+/* Breadcrumb + Sitelink + Archives (same row, 3 equal parts) */
 .breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:12px;
+}
+.breadcrumb,
+.sitelink-center,
+.archives-wrap{
+  flex:1 1 0;
+  min-width:0; /* allow ellipsis */
 }
 .breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .breadcrumb a{color:#2a3b8f;text-decoration:none;}
 .breadcrumb a:hover{text-decoration:underline;}
+
+.archives-wrap{ text-align:center; }
 .archives-link{
   font-size:18px;
   font-weight:700;
   color:#cc0000;
   text-decoration:underline;
+  white-space:nowrap;
 }
 .archives-link:hover{text-decoration:none;}
+
+/* sitelink center (same row with breadcrumb) */
+.sitelink-center{
+  text-align:right;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.sitelink-center-link{
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+}
+.sitelink-center-link:hover{
+  text-decoration:underline;
+}
 
 /* main title with icon */
 .main-title{
@@ -426,14 +454,77 @@ body{
 <div class="desc-box inline-desc">Champions League</div>
 <a class="navlink" href="#">ถัดไป »</a>
 </div>
-<!-- Breadcrumb + Archives (same row) -->
+<!-- Breadcrumb + Archives + Sitelink (same row) -->
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Champions League</div>
+<div class="archives-wrap">
 
+</div>
+<div class="sitelink-center"><a class="sitelink-center-link" href="https://a-odds.github.io/sitelink.html" rel="noopener nofollow noreferrer" target="_blank">Sitelinks</a></div>
 </div>
 <div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
 
-<div class="date-sep"><div class="desc-box">โปรแกรมฟุตบอล 28 มกราคม 2569</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png"/><h2>Champions League</h2></div><div class="subs"><div class="subcard">
+<div class="date-sep"><div class="desc-box">โปรแกรมฟุตบอล 18 กุมภาพันธ์ 2569</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png"/><h2>Champions League</h2></div><div class="subs"><div class="subcard">
+<div class="sub-head">
+<div class="sub-text">การคาดการณ์</div>
+<a aria-label="Download" class="dl-btn" download="" href="#">
+<img alt="Graph" height="22" src="https://img.icons8.com/material-sharp/24/graph.png" style="display:block;" width="22"/>
+</a>
+</div>
+<div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+<tr><td title="Qarabağ">Qarabağ</td><td title="15.8%">15.8%</td><td title="20.6%">20.6%</td><td title="63.6%">63.6%</td><td title="Newcastle">Newcastle</td><td></td></tr>
+<tr><td title="Olympiakos">Olympiakos</td><td title="39.5%">39.5%</td><td title="26.6%">26.6%</td><td title="33.8%">33.8%</td><td title="Leverkusen">Leverkusen</td><td></td></tr>
+<tr><td title="Club Brugge">Club Brugge</td><td title="27.9%">27.9%</td><td title="24.6%">24.6%</td><td title="47.5%">47.5%</td><td title="Atlético">Atlético</td><td></td></tr>
+<tr><td title="Bodø/Glimt">Bodø/Glimt</td><td title="23.8%">23.8%</td><td title="23.0%">23.0%</td><td title="53.2%">53.2%</td><td title="Inter">Inter</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+<div class="sub-head">
+<div class="sub-text">อัตราต่อรอง</div>
+<a aria-label="Download" class="dl-btn" download="" href="#">
+<svg aria-hidden="true" fill="none" height="22" viewbox="0 0 24 24" width="22">
+<text fill="currentColor" font-size="12" font-weight="700" x="3" y="16">1X2</text>
+</svg>
+</a>
+</div>
+<div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+<tr><td title="Qarabağ">Qarabağ</td><td title="7.500">7.500</td><td title="5.130">5.130</td><td title="1.454">1.454</td><td title="Newcastle">Newcastle</td><td></td></tr>
+<tr><td title="Olympiakos">Olympiakos</td><td title="2.582">2.582</td><td title="3.435">3.435</td><td title="2.968">2.968</td><td title="Leverkusen">Leverkusen</td><td></td></tr>
+<tr><td title="Club Brugge">Club Brugge</td><td title="7.500">7.500</td><td title="5.130">5.130</td><td title="1.454">1.454</td><td title="Atlético">Atlético</td><td></td></tr>
+<tr><td title="Bodø/Glimt">Bodø/Glimt</td><td title="4.825">4.825</td><td title="4.365">4.365</td><td title="1.727">1.727</td><td title="Inter">Inter</td><td></td></tr>
+</tbody>
+</table></div></div></div><div class="date-sep"><div class="desc-box">โปรแกรมฟุตบอล 17 กุมภาพันธ์ 2569</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png"/><h2>Champions League</h2></div><div class="subs"><div class="subcard">
+<div class="sub-head">
+<div class="sub-text">การคาดการณ์</div>
+<a aria-label="Download" class="dl-btn" download="" href="#">
+<img alt="Graph" height="22" src="https://img.icons8.com/material-sharp/24/graph.png" style="display:block;" width="22"/>
+</a>
+</div>
+<div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+<tr><td title="Galatasaray">Galatasaray</td><td title="29.9%">29.9%</td><td title="26.1%">26.1%</td><td title="44.0%">44.0%</td><td title="Juventus">Juventus</td><td></td></tr>
+<tr><td title="Monaco">Monaco</td><td title="20.7%">20.7%</td><td title="22.7%">22.7%</td><td title="56.5%">56.5%</td><td title="Paris SG">Paris SG</td><td></td></tr>
+<tr><td title="Benfica">Benfica</td><td title="28.7%">28.7%</td><td title="24.3%">24.3%</td><td title="47.0%">47.0%</td><td title="Real Madrid">Real Madrid</td><td></td></tr>
+<tr><td title="Dortmund">Dortmund</td><td title="47.5%">47.5%</td><td title="24.5%">24.5%</td><td title="27.9%">27.9%</td><td title="Atalanta">Atalanta</td><td></td></tr>
+</tbody>
+</table></div></div><div class="subcard">
+<div class="sub-head">
+<div class="sub-text">อัตราต่อรอง</div>
+<a aria-label="Download" class="dl-btn" download="" href="#">
+<svg aria-hidden="true" fill="none" height="22" viewbox="0 0 24 24" width="22">
+<text fill="currentColor" font-size="12" font-weight="700" x="3" y="16">1X2</text>
+</svg>
+</a>
+</div>
+<div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
+<tbody>
+<tr><td title="Galatasaray">Galatasaray</td><td title="3.650">3.650</td><td title="3.650">3.650</td><td title="2.140">2.140</td><td title="Juventus">Juventus</td><td></td></tr>
+<tr><td title="Monaco">Monaco</td><td title="5.630">5.630</td><td title="4.570">4.570</td><td title="1.615">1.615</td><td title="Paris SG">Paris SG</td><td></td></tr>
+<tr><td title="Benfica">Benfica</td><td title="3.905">3.905</td><td title="4.005">4.005</td><td title="1.962">1.962</td><td title="Real Madrid">Real Madrid</td><td></td></tr>
+<tr><td title="Dortmund">Dortmund</td><td title="2.074">2.074</td><td title="3.780">3.780</td><td title="3.720">3.720</td><td title="Atalanta">Atalanta</td><td></td></tr>
+</tbody>
+</table></div></div></div><div class="date-sep"><div class="desc-box">โปรแกรมฟุตบอล 28 มกราคม 2569</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177715/G/uefa-champions-league.png"/><h2>Champions League</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
 <div class="sub-text">Predictions</div>
 <a aria-label="Download" class="dl-btn" download="" href="#">
