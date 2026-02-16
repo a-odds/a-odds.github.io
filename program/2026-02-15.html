@@ -168,30 +168,58 @@ body{
   text-overflow:ellipsis;
 }
 
-/* Breadcrumb + archives row */
+/* Breadcrumb + Sitelink + Archives (same row, 3 equal parts) */
 .breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:12px;
+}
+.breadcrumb,
+.sitelink-center,
+.archives-wrap{
+  flex:1 1 0;
+  min-width:0; /* allow ellipsis */
 }
 .breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .breadcrumb a{color:#2a3b8f;text-decoration:none;}
 .breadcrumb a:hover{text-decoration:underline;}
+
+.archives-wrap{ text-align:center; }
 .archives-link{
   font-size:18px;
   font-weight:700;
   color:#cc0000;
   text-decoration:underline;
+  white-space:nowrap;
 }
 .archives-link:hover{text-decoration:none;}
+
+/* sitelink center (same row with breadcrumb) */
+.sitelink-center{
+  text-align:right;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.sitelink-center-link{
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+}
+.sitelink-center-link:hover{
+  text-decoration:underline;
+}
 
 /* main title with icon */
 .main-title{
@@ -426,15 +454,18 @@ body{
 <div class="nav-date-row">
   <a class="navlink " href="https://a-odds.github.io/program/2026-02-14.html">« ก่อนหน้า</a>
   <div class="desc-box inline-desc">โปรแกรมฟุตบอล 15 กุมภาพันธ์ 2569</div>
-  <a class="navlink " href="https://a-odds.github.io/program/2026-02-21.html">ถัดไป »</a>
+  <a class="navlink " href="https://a-odds.github.io/program/2026-02-17.html">ถัดไป »</a>
 </div>
 
-<!-- Breadcrumb + Archives (same row) -->
+<!-- Breadcrumb + Archives + Sitelink (same row) -->
 <div class="breadcrumb-row">
   <div class="breadcrumb">
     <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; โปรแกรมฟุตบอล 15 กุมภาพันธ์ 2569
   </div>
-  <a class="archives-link" href="https://a-odds.github.io/analysis/2026-02-15.html" target="_blank" rel="noopener nofollow noreferrer">ทีเด็ดบอลวันนี้</a>
+  <div class="archives-wrap">
+    <a class="archives-link" href="https://a-odds.github.io/analysis/2026-02-15.html" target="_blank" rel="noopener nofollow noreferrer">ทีเด็ดบอลวันนี้</a>
+  </div>
+  <div class="sitelink-center"><a class="sitelink-center-link" href="https://a-odds.github.io/sitelink.html" target="_blank" rel="noopener nofollow noreferrer">Sitelinks</a></div>
 </div>
 <div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" target="_blank" rel="noopener nofollow"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp" alt=""></a></div>
 <div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
@@ -483,10 +514,10 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="28.1%">28.1%</td><td title="24.2%">24.2%</td><td title="47.7%">47.7%</td><td title="Athletic (10)">Athletic (10)</td><td></td></tr>
-<tr><td title="Rayo (18)">Rayo (18)</td><td title="20.4%">20.4%</td><td title="21.2%">21.2%</td><td title="58.4%">58.4%</td><td title="Atlético (3)">Atlético (3)</td><td></td></tr>
-<tr><td title="Levante (19)">Levante (19)</td><td title="40.2%">40.2%</td><td title="26.6%">26.6%</td><td title="33.1%">33.1%</td><td title="Valencia (17)">Valencia (17)</td><td></td></tr>
-<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="30.2%">30.2%</td><td title="24.9%">24.9%</td><td title="44.9%">44.9%</td><td title="Betis (5)">Betis (5)</td><td></td></tr>
+<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="28.1%">28.1%</td><td title="24.2%">24.2%</td><td title="47.7%">47.7%</td><td title="Athletic (10)">Athletic (10)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Rayo (18)">Rayo (18)</td><td title="20.4%">20.4%</td><td title="21.2%">21.2%</td><td title="58.4%">58.4%</td><td title="Atlético (3)">Atlético (3)</td><td title="3 - 0">3 - 0</td></tr>
+<tr><td title="Levante (19)">Levante (19)</td><td title="40.2%">40.2%</td><td title="26.6%">26.6%</td><td title="33.1%">33.1%</td><td title="Valencia (17)">Valencia (17)</td><td title="0 - 2">0 - 2</td></tr>
+<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="30.2%">30.2%</td><td title="24.9%">24.9%</td><td title="44.9%">44.9%</td><td title="Betis (5)">Betis (5)</td><td title="1 - 2">1 - 2</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -500,10 +531,10 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="3.755">3.755</td><td title="3.230">3.230</td><td title="2.275">2.275</td><td title="Athletic (10)">Athletic (10)</td><td></td></tr>
-<tr><td title="Rayo (18)">Rayo (18)</td><td title="4.670">4.670</td><td title="3.840">3.840</td><td title="1.849">1.849</td><td title="Atlético (3)">Atlético (3)</td><td></td></tr>
-<tr><td title="Levante (19)">Levante (19)</td><td title="2.874">2.874</td><td title="3.555">3.555</td><td title="2.590">2.590</td><td title="Valencia (17)">Valencia (17)</td><td></td></tr>
-<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="3.150">3.150</td><td title="3.270">3.270</td><td title="2.550">2.550</td><td title="Betis (5)">Betis (5)</td><td></td></tr>
+<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="3.755">3.755</td><td title="3.230">3.230</td><td title="2.275">2.275</td><td title="Athletic (10)">Athletic (10)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Rayo (18)">Rayo (18)</td><td title="4.670">4.670</td><td title="3.840">3.840</td><td title="1.849">1.849</td><td title="Atlético (3)">Atlético (3)</td><td title="3 - 0">3 - 0</td></tr>
+<tr><td title="Levante (19)">Levante (19)</td><td title="2.874">2.874</td><td title="3.555">3.555</td><td title="2.590">2.590</td><td title="Valencia (17)">Valencia (17)</td><td title="0 - 2">0 - 2</td></tr>
+<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="3.150">3.150</td><td title="3.270">3.270</td><td title="2.550">2.550</td><td title="Betis (5)">Betis (5)</td><td title="1 - 2">1 - 2</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177712/G/serie-a.png" class="main-icon" alt=""><h2>Serie A</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
@@ -515,11 +546,11 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Udinese (9)">Udinese (9)</td><td title="46.6%">46.6%</td><td title="26.5%">26.5%</td><td title="26.9%">26.9%</td><td title="Sassuolo (11)">Sassuolo (11)</td><td></td></tr>
-<tr><td title="Cremonese (15)">Cremonese (15)</td><td title="42.0%">42.0%</td><td title="26.7%">26.7%</td><td title="31.3%">31.3%</td><td title="Genoa (16)">Genoa (16)</td><td></td></tr>
-<tr><td title="Parma (14)">Parma (14)</td><td title="54.9%">54.9%</td><td title="23.2%">23.2%</td><td title="21.9%">21.9%</td><td title="Verona (20)">Verona (20)</td><td></td></tr>
-<tr><td title="Torino (13)">Torino (13)</td><td title="38.2%">38.2%</td><td title="26.5%">26.5%</td><td title="35.4%">35.4%</td><td title="Bologna (10)">Bologna (10)</td><td></td></tr>
-<tr><td title="Napoli (3)">Napoli (3)</td><td title="47.7%">47.7%</td><td title="26.1%">26.1%</td><td title="26.2%">26.2%</td><td title="Roma (5)">Roma (5)</td><td></td></tr>
+<tr><td title="Udinese (9)">Udinese (9)</td><td title="46.6%">46.6%</td><td title="26.5%">26.5%</td><td title="26.9%">26.9%</td><td title="Sassuolo (11)">Sassuolo (11)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Cremonese (15)">Cremonese (15)</td><td title="42.0%">42.0%</td><td title="26.7%">26.7%</td><td title="31.3%">31.3%</td><td title="Genoa (16)">Genoa (16)</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Parma (14)">Parma (14)</td><td title="54.9%">54.9%</td><td title="23.2%">23.2%</td><td title="21.9%">21.9%</td><td title="Verona (20)">Verona (20)</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Torino (13)">Torino (13)</td><td title="38.2%">38.2%</td><td title="26.5%">26.5%</td><td title="35.4%">35.4%</td><td title="Bologna (10)">Bologna (10)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Napoli (3)">Napoli (3)</td><td title="47.7%">47.7%</td><td title="26.1%">26.1%</td><td title="26.2%">26.2%</td><td title="Roma (5)">Roma (5)</td><td title="2 - 2">2 - 2</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -533,11 +564,11 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Udinese (9)">Udinese (9)</td><td title="2.517">2.517</td><td title="2.967">2.967</td><td title="3.560">3.560</td><td title="Sassuolo (11)">Sassuolo (11)</td><td></td></tr>
-<tr><td title="Cremonese (15)">Cremonese (15)</td><td title="3.195">3.195</td><td title="3.105">3.105</td><td title="2.628">2.628</td><td title="Genoa (16)">Genoa (16)</td><td></td></tr>
-<tr><td title="Parma (14)">Parma (14)</td><td title="2.476">2.476</td><td title="2.916">2.916</td><td title="3.725">3.725</td><td title="Verona (20)">Verona (20)</td><td></td></tr>
-<tr><td title="Torino (13)">Torino (13)</td><td title="3.315">3.315</td><td title="3.395">3.395</td><td title="2.385">2.385</td><td title="Bologna (10)">Bologna (10)</td><td></td></tr>
-<tr><td title="Napoli (3)">Napoli (3)</td><td title="2.322">2.322</td><td title="3.210">3.210</td><td title="3.660">3.660</td><td title="Roma (5)">Roma (5)</td><td></td></tr>
+<tr><td title="Udinese (9)">Udinese (9)</td><td title="2.517">2.517</td><td title="2.967">2.967</td><td title="3.560">3.560</td><td title="Sassuolo (11)">Sassuolo (11)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Cremonese (15)">Cremonese (15)</td><td title="3.195">3.195</td><td title="3.105">3.105</td><td title="2.628">2.628</td><td title="Genoa (16)">Genoa (16)</td><td title="0 - 0">0 - 0</td></tr>
+<tr><td title="Parma (14)">Parma (14)</td><td title="2.476">2.476</td><td title="2.916">2.916</td><td title="3.725">3.725</td><td title="Verona (20)">Verona (20)</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Torino (13)">Torino (13)</td><td title="3.315">3.315</td><td title="3.395">3.395</td><td title="2.385">2.385</td><td title="Bologna (10)">Bologna (10)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Napoli (3)">Napoli (3)</td><td title="2.322">2.322</td><td title="3.210">3.210</td><td title="3.660">3.660</td><td title="Roma (5)">Roma (5)</td><td title="2 - 2">2 - 2</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/bundesliga.png" class="main-icon" alt=""><h2>Bundesliga</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
@@ -549,8 +580,8 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Augsburg (13)">Augsburg (13)</td><td title="57.1%">57.1%</td><td title="22.2%">22.2%</td><td title="20.6%">20.6%</td><td title="Heidenheim (18)">Heidenheim (18)</td><td></td></tr>
-<tr><td title="Leipzig (4)">Leipzig (4)</td><td title="64.8%">64.8%</td><td title="18.9%">18.9%</td><td title="16.3%">16.3%</td><td title="Wolfsburg (15)">Wolfsburg (15)</td><td></td></tr>
+<tr><td title="Augsburg (13)">Augsburg (13)</td><td title="57.1%">57.1%</td><td title="22.2%">22.2%</td><td title="20.6%">20.6%</td><td title="Heidenheim (18)">Heidenheim (18)</td><td title="1 - 0">1 - 0</td></tr>
+<tr><td title="Leipzig (4)">Leipzig (4)</td><td title="64.8%">64.8%</td><td title="18.9%">18.9%</td><td title="16.3%">16.3%</td><td title="Wolfsburg (15)">Wolfsburg (15)</td><td title="2 - 2">2 - 2</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -564,8 +595,8 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Augsburg (13)">Augsburg (13)</td><td title="1.918">1.918</td><td title="3.895">3.895</td><td title="4.210">4.210</td><td title="Heidenheim (18)">Heidenheim (18)</td><td></td></tr>
-<tr><td title="Leipzig (4)">Leipzig (4)</td><td title="1.504">1.504</td><td title="5.180">5.180</td><td title="6.350">6.350</td><td title="Wolfsburg (15)">Wolfsburg (15)</td><td></td></tr>
+<tr><td title="Augsburg (13)">Augsburg (13)</td><td title="1.918">1.918</td><td title="3.895">3.895</td><td title="4.210">4.210</td><td title="Heidenheim (18)">Heidenheim (18)</td><td title="1 - 0">1 - 0</td></tr>
+<tr><td title="Leipzig (4)">Leipzig (4)</td><td title="1.504">1.504</td><td title="5.180">5.180</td><td title="6.350">6.350</td><td title="Wolfsburg (15)">Wolfsburg (15)</td><td title="2 - 2">2 - 2</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177709/G/ligue-1.png" class="main-icon" alt=""><h2>Ligue 1</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
@@ -577,10 +608,10 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Le Havre (13)">Le Havre (13)</td><td title="32.9%">32.9%</td><td title="25.6%">25.6%</td><td title="41.5%">41.5%</td><td title="Toulouse (8)">Toulouse (8)</td><td></td></tr>
-<tr><td title="Metz (18)">Metz (18)</td><td title="38.3%">38.3%</td><td title="26.5%">26.5%</td><td title="35.3%">35.3%</td><td title="Auxerre (16)">Auxerre (16)</td><td></td></tr>
-<tr><td title="Lorient (11)">Lorient (11)</td><td title="48.4%">48.4%</td><td title="25.8%">25.8%</td><td title="25.8%">25.8%</td><td title="Angers (9)">Angers (9)</td><td></td></tr>
-<tr><td title="Lyon (3)">Lyon (3)</td><td title="69.6%">69.6%</td><td title="17.1%">17.1%</td><td title="13.3%">13.3%</td><td title="Nice (14)">Nice (14)</td><td></td></tr>
+<tr><td title="Le Havre (13)">Le Havre (13)</td><td title="32.9%">32.9%</td><td title="25.6%">25.6%</td><td title="41.5%">41.5%</td><td title="Toulouse (8)">Toulouse (8)</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Metz (18)">Metz (18)</td><td title="38.3%">38.3%</td><td title="26.5%">26.5%</td><td title="35.3%">35.3%</td><td title="Auxerre (16)">Auxerre (16)</td><td title="1 - 3">1 - 3</td></tr>
+<tr><td title="Lorient (11)">Lorient (11)</td><td title="48.4%">48.4%</td><td title="25.8%">25.8%</td><td title="25.8%">25.8%</td><td title="Angers (9)">Angers (9)</td><td title="2 - 0">2 - 0</td></tr>
+<tr><td title="Lyon (3)">Lyon (3)</td><td title="69.6%">69.6%</td><td title="17.1%">17.1%</td><td title="13.3%">13.3%</td><td title="Nice (14)">Nice (14)</td><td title="2 - 0">2 - 0</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
           <div class="sub-head">
@@ -594,10 +625,10 @@ body{
         <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
 
-<tr><td title="Le Havre (13)">Le Havre (13)</td><td title="3.605">3.605</td><td title="3.300">3.300</td><td title="2.297">2.297</td><td title="Toulouse (8)">Toulouse (8)</td><td></td></tr>
-<tr><td title="Metz (18)">Metz (18)</td><td title="3.010">3.010</td><td title="2.928">2.928</td><td title="2.928">2.928</td><td title="Auxerre (16)">Auxerre (16)</td><td></td></tr>
-<tr><td title="Lorient (11)">Lorient (11)</td><td title="2.064">2.064</td><td title="3.090">3.090</td><td title="4.825">4.825</td><td title="Angers (9)">Angers (9)</td><td></td></tr>
-<tr><td title="Lyon (3)">Lyon (3)</td><td title="1.617">1.617</td><td title="4.370">4.370</td><td title="5.940">5.940</td><td title="Nice (14)">Nice (14)</td><td></td></tr>
+<tr><td title="Le Havre (13)">Le Havre (13)</td><td title="3.605">3.605</td><td title="3.300">3.300</td><td title="2.297">2.297</td><td title="Toulouse (8)">Toulouse (8)</td><td title="2 - 1">2 - 1</td></tr>
+<tr><td title="Metz (18)">Metz (18)</td><td title="3.010">3.010</td><td title="2.928">2.928</td><td title="2.928">2.928</td><td title="Auxerre (16)">Auxerre (16)</td><td title="1 - 3">1 - 3</td></tr>
+<tr><td title="Lorient (11)">Lorient (11)</td><td title="2.064">2.064</td><td title="3.090">3.090</td><td title="4.825">4.825</td><td title="Angers (9)">Angers (9)</td><td title="2 - 0">2 - 0</td></tr>
+<tr><td title="Lyon (3)">Lyon (3)</td><td title="1.617">1.617</td><td title="4.370">4.370</td><td title="5.940">5.940</td><td title="Nice (14)">Nice (14)</td><td title="2 - 0">2 - 0</td></tr>
 </tbody>
 </table></div></div></div><div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769575454/G/championship.png" class="main-icon" alt=""><h2>Championship</h2></div><div class="subs"><div class="subcard">
           <div class="sub-head">
@@ -650,7 +681,7 @@ body{
 <div class="navbar" style="margin-top:6px;">
   <a class="navlink " href="https://a-odds.github.io/program/2026-02-14.html">« ก่อนหน้า</a>
   <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
-  <a class="navlink " href="https://a-odds.github.io/program/2026-02-21.html">ถัดไป »</a>
+  <a class="navlink " href="https://a-odds.github.io/program/2026-02-17.html">ถัดไป »</a>
 </div>
 
 <div class="footer">© 2026 www.A-Odds.com</div>
