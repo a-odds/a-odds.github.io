@@ -168,30 +168,58 @@ body{
   text-overflow:ellipsis;
 }
 
-/* Breadcrumb + archives row */
+/* Breadcrumb + Sitelink + Archives (same row, 3 equal parts) */
 .breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:12px;
+}
+.breadcrumb,
+.sitelink-center,
+.archives-wrap{
+  flex:1 1 0;
+  min-width:0; /* allow ellipsis */
 }
 .breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .breadcrumb a{color:#2a3b8f;text-decoration:none;}
 .breadcrumb a:hover{text-decoration:underline;}
+
+.archives-wrap{ text-align:center; }
 .archives-link{
   font-size:18px;
   font-weight:700;
   color:#cc0000;
   text-decoration:underline;
+  white-space:nowrap;
 }
 .archives-link:hover{text-decoration:none;}
+
+/* sitelink center (same row with breadcrumb) */
+.sitelink-center{
+  text-align:right;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.sitelink-center-link{
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+}
+.sitelink-center-link:hover{
+  text-decoration:underline;
+}
 
 /* main title with icon */
 .main-title{
@@ -429,12 +457,15 @@ body{
   <a class="navlink " href="https://a-odds.github.io/program/2026-01-28.html">ถัดไป »</a>
 </div>
 
-<!-- Breadcrumb + Archives (same row) -->
+<!-- Breadcrumb + Archives + Sitelink (same row) -->
 <div class="breadcrumb-row">
   <div class="breadcrumb">
     <a href="https://a-odds.github.io/">หน้าแรก</a> &gt; โปรแกรมฟุตบอล 25 มกราคม 2569
   </div>
-  
+  <div class="archives-wrap">
+    
+  </div>
+  <div class="sitelink-center" style="visibility:hidden">-</div>
 </div>
 
 <div class="main-title"><img src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177703/G/english-premier-league.png" class="main-icon" alt=""><h2>Premier League</h2></div><div class="subs"><div class="subcard">
@@ -657,8 +688,97 @@ body{
 
 <div class="footer">© 2026 www.A-Odds.com</div>
 
-<div class="statwrap"><script type="text/javascript" src="https://www.stat-counter.org/count/jbrf"></script><br>
- <a href='http://www.counter-zaehler.de'>besucherzähler kostenlos</a> <script type='text/javascript' src='https://whomania.com/ctr?id=5dce8affbaefea253f6010a832788b570f441f9c'></script></div>
+<div class="statwrap"><div id="stat-counter" style="
+  text-align:center;
+  font-size:14px;
+  color:#888;
+  margin:28px 0;
+">
+  <!-- TITLE -->
+  <div id="stat-title" style="
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+    color:#777;
+    margin-bottom:6px;
+  ">
+    <!-- Bar Chart Icon -->
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M6 17V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M12 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M18 17V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span id="stat-title-text">Visitors</span>
+  </div>
+
+  <!-- COUNTER : บรรทัดล่าง -->
+  <div id="stat-values">
+    วันนี้: <span id="stat-today">0</span> |
+    เมื่อวาน: <span id="stat-yesterday">0</span> |
+    ทั้งหมด: <span id="stat-total">0</span>
+  </div>
+</div>
+
+<style>
+@media (max-width:600px){
+  #stat-counter{ display:none; }
+}
+</style>
+
+<script>
+(function(){
+  /* =========================
+     CONFIG
+     ========================= */
+  const TITLE_TEXT  = "Visitors";               // เปลี่ยนได้
+  const START_TOTAL = 12500;                    // ตั้งต้นได้เฉพาะ "ทั้งหมด"
+
+  // ใส่ URL หลักที่ต้องการให้นับรวม (แก้ได้)
+  // ถ้าใช้โดเมนปัจจุบัน ปล่อยเป็น "" ได้
+  const BASE_URL = "https://a-odds.github.io";  // ← แก้ URL ตรงนี้ได้
+  /* ========================= */
+
+  try{
+    const base = (BASE_URL || (location.origin)).replace(/\/+$/,"");
+    const storageKey = "statCounter::" + base;
+
+    const storage = localStorage;
+    const todayKey = new Date().toISOString().slice(0,10);
+
+    let data = JSON.parse(storage.getItem(storageKey) || "{}");
+
+    // init ครั้งแรก
+    if(!data.date){
+      data = { date: todayKey, today: 0, yesterday: 0, total: START_TOTAL };
+    }
+
+    // เปลี่ยนวัน (วันนี้/เมื่อวานนับจริง)
+    if(data.date !== todayKey){
+      data.yesterday = data.today;
+      data.today = 0;
+      data.date = todayKey;
+    }
+
+    // นับรวมทุกหน้า (เพราะใช้ key เดียวกันทั้งโดเมน)
+    data.today += 1;
+    data.total += 1;
+
+    storage.setItem(storageKey, JSON.stringify(data));
+
+    const fmt = n => (Number(n)||0).toLocaleString("en-US");
+
+    document.getElementById("stat-title-text").textContent = TITLE_TEXT;
+    document.getElementById("stat-today").textContent = fmt(data.today);
+    document.getElementById("stat-yesterday").textContent = fmt(data.yesterday);
+    document.getElementById("stat-total").textContent = fmt(data.total);
+  }catch(e){
+    // ถ้า browser บล็อก localStorage ก็ไม่ให้หน้า error
+  }
+})();
+</script>
+</div>
 
 
 
