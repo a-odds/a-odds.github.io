@@ -168,30 +168,58 @@ body{
   text-overflow:ellipsis;
 }
 
-/* Breadcrumb + archives row */
+/* Breadcrumb + Sitelink + Archives (same row, 3 equal parts) */
 .breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:12px;
+}
+.breadcrumb,
+.sitelink-center,
+.archives-wrap{
+  flex:1 1 0;
+  min-width:0; /* allow ellipsis */
 }
 .breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .breadcrumb a{color:#2a3b8f;text-decoration:none;}
 .breadcrumb a:hover{text-decoration:underline;}
+
+.archives-wrap{ text-align:center; }
 .archives-link{
   font-size:18px;
   font-weight:700;
   color:#cc0000;
   text-decoration:underline;
+  white-space:nowrap;
 }
 .archives-link:hover{text-decoration:none;}
+
+/* sitelink center (same row with breadcrumb) */
+.sitelink-center{
+  text-align:right;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.sitelink-center-link{
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+}
+.sitelink-center-link:hover{
+  text-decoration:underline;
+}
 
 /* main title with icon */
 .main-title{
@@ -424,12 +452,15 @@ body{
 <div class="nav-date-row">
 <a class="navlink" href="#">« ก่อนหน้า</a>
 <div class="desc-box inline-desc">La Liga</div>
-<a class="navlink" href="#">ถัดไป »</a>
+<a class="navlink" href="https://a-odds.github.io/program/2026-02-17.html">ถัดไป »</a>
 </div>
-<!-- Breadcrumb + Archives (same row) -->
+<!-- Breadcrumb + Archives + Sitelink (same row) -->
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; La Liga</div>
+<div class="archives-wrap">
 
+</div>
+<div class="sitelink-center"><a class="sitelink-center-link" href="https://a-odds.github.io/sitelink.html" rel="noopener nofollow noreferrer" target="_blank">Sitelinks</a></div>
 </div>
 <div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
 
@@ -442,10 +473,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>% ทีมเหย้า</th><th>% เสมอ</th><th>% ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="28.1%">28.1%</td><td title="24.2%">24.2%</td><td title="47.7%">47.7%</td><td title="Athletic (10)">Athletic (10)</td><td></td></tr>
-<tr><td title="Rayo (18)">Rayo (18)</td><td title="20.4%">20.4%</td><td title="21.2%">21.2%</td><td title="58.4%">58.4%</td><td title="Atlético (3)">Atlético (3)</td><td></td></tr>
-<tr><td title="Levante (19)">Levante (19)</td><td title="40.2%">40.2%</td><td title="26.6%">26.6%</td><td title="33.1%">33.1%</td><td title="Valencia (17)">Valencia (17)</td><td></td></tr>
-<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="30.2%">30.2%</td><td title="24.9%">24.9%</td><td title="44.9%">44.9%</td><td title="Betis (5)">Betis (5)</td><td></td></tr>
+<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="28.1%">28.1%</td><td title="24.2%">24.2%</td><td title="47.7%">47.7%</td><td title="Athletic (10)">Athletic (10)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Rayo (18)">Rayo (18)</td><td title="20.4%">20.4%</td><td title="21.2%">21.2%</td><td title="58.4%">58.4%</td><td title="Atlético (3)">Atlético (3)</td><td title="3 - 0">3 - 0</td></tr>
+<tr><td title="Levante (19)">Levante (19)</td><td title="40.2%">40.2%</td><td title="26.6%">26.6%</td><td title="33.1%">33.1%</td><td title="Valencia (17)">Valencia (17)</td><td title="0 - 2">0 - 2</td></tr>
+<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="30.2%">30.2%</td><td title="24.9%">24.9%</td><td title="44.9%">44.9%</td><td title="Betis (5)">Betis (5)</td><td title="1 - 2">1 - 2</td></tr>
 </tbody>
 </table></div></div><div class="subcard">
 <div class="sub-head">
@@ -458,10 +489,10 @@ body{
 </div>
 <div class="sub-extra"><table><thead><tr><th>ทีมเหย้า</th><th>1 ทีมเหย้า</th><th>X เสมอ</th><th>2 ทีมเยือน</th><th>ทีมเยือน</th><th>ผล</th></tr></thead>
 <tbody>
-<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="3.755">3.755</td><td title="3.230">3.230</td><td title="2.275">2.275</td><td title="Athletic (10)">Athletic (10)</td><td></td></tr>
-<tr><td title="Rayo (18)">Rayo (18)</td><td title="4.670">4.670</td><td title="3.840">3.840</td><td title="1.849">1.849</td><td title="Atlético (3)">Atlético (3)</td><td></td></tr>
-<tr><td title="Levante (19)">Levante (19)</td><td title="2.874">2.874</td><td title="3.555">3.555</td><td title="2.590">2.590</td><td title="Valencia (17)">Valencia (17)</td><td></td></tr>
-<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="3.150">3.150</td><td title="3.270">3.270</td><td title="2.550">2.550</td><td title="Betis (5)">Betis (5)</td><td></td></tr>
+<tr><td title="Oviedo (20)">Oviedo (20)</td><td title="3.755">3.755</td><td title="3.230">3.230</td><td title="2.275">2.275</td><td title="Athletic (10)">Athletic (10)</td><td title="1 - 2">1 - 2</td></tr>
+<tr><td title="Rayo (18)">Rayo (18)</td><td title="4.670">4.670</td><td title="3.840">3.840</td><td title="1.849">1.849</td><td title="Atlético (3)">Atlético (3)</td><td title="3 - 0">3 - 0</td></tr>
+<tr><td title="Levante (19)">Levante (19)</td><td title="2.874">2.874</td><td title="3.555">3.555</td><td title="2.590">2.590</td><td title="Valencia (17)">Valencia (17)</td><td title="0 - 2">0 - 2</td></tr>
+<tr><td title="Mallorca (16)">Mallorca (16)</td><td title="3.150">3.150</td><td title="3.270">3.270</td><td title="2.550">2.550</td><td title="Betis (5)">Betis (5)</td><td title="1 - 2">1 - 2</td></tr>
 </tbody>
 </table></div></div></div><div class="date-sep"><div class="desc-box">โปรแกรมฟุตบอล 14 กุมภาพันธ์ 2569</div></div><div class="main-title"><img alt="" class="main-icon" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1769177707/G/la-liga.png"/><h2>La Liga</h2></div><div class="subs"><div class="subcard">
 <div class="sub-head">
@@ -776,7 +807,7 @@ body{
 <div class="navbar" style="margin-top:6px;">
 <a class="navlink" href="#">« ก่อนหน้า</a>
 <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
-<a class="navlink" href="#">ถัดไป »</a>
+<a class="navlink" href="https://a-odds.github.io/program/2026-02-17.html">ถัดไป »</a>
 </div>
 <div class="footer">© 2026 www.A-Odds.com</div>
 <div class="statwrap"><div id="stat-counter" style="

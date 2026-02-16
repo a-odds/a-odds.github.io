@@ -168,30 +168,58 @@ body{
   text-overflow:ellipsis;
 }
 
-/* Breadcrumb + archives row */
+/* Breadcrumb + Sitelink + Archives (same row, 3 equal parts) */
 .breadcrumb-row{
   max-width:980px;
   margin:8px auto 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:12px;
+}
+.breadcrumb,
+.sitelink-center,
+.archives-wrap{
+  flex:1 1 0;
+  min-width:0; /* allow ellipsis */
 }
 .breadcrumb{
   text-align:left;
   font-size:13px;
   color:#4b5563;
   font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .breadcrumb a{color:#2a3b8f;text-decoration:none;}
 .breadcrumb a:hover{text-decoration:underline;}
+
+.archives-wrap{ text-align:center; }
 .archives-link{
   font-size:18px;
   font-weight:700;
   color:#cc0000;
   text-decoration:underline;
+  white-space:nowrap;
 }
 .archives-link:hover{text-decoration:none;}
+
+/* sitelink center (same row with breadcrumb) */
+.sitelink-center{
+  text-align:right;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.sitelink-center-link{
+  color:#2a3b8f;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+}
+.sitelink-center-link:hover{
+  text-decoration:underline;
+}
 
 /* main title with icon */
 .main-title{
@@ -424,12 +452,15 @@ body{
 <div class="nav-date-row">
 <a class="navlink" href="#">« ก่อนหน้า</a>
 <div class="desc-box inline-desc">Championship</div>
-<a class="navlink" href="#">ถัดไป »</a>
+<a class="navlink" href="https://a-odds.github.io/program/2026-02-17.html">ถัดไป »</a>
 </div>
-<!-- Breadcrumb + Archives (same row) -->
+<!-- Breadcrumb + Archives + Sitelink (same row) -->
 <div class="breadcrumb-row">
 <div class="breadcrumb"><a href="https://a-odds.github.io/">หน้าแรก</a> &gt; Championship</div>
+<div class="archives-wrap">
 
+</div>
+<div class="sitelink-center"><a class="sitelink-center-link" href="https://a-odds.github.io/sitelink.html" rel="noopener nofollow noreferrer" target="_blank">Sitelinks</a></div>
 </div>
 <div class="slotwrap"><a class="slotlink" href="https://a-odds.github.io/go/1x33" rel="noopener nofollow" target="_blank"><img alt="" src="https://res.cloudinary.com/da5kjg3zh/image/upload/v1770704960/A/h1-ac.webp"/></a></div>
 
@@ -642,7 +673,7 @@ body{
 <div class="navbar" style="margin-top:6px;">
 <a class="navlink" href="#">« ก่อนหน้า</a>
 <a class="navlink" href="https://a-odds.github.io/">หน้าแรก</a>
-<a class="navlink" href="#">ถัดไป »</a>
+<a class="navlink" href="https://a-odds.github.io/program/2026-02-17.html">ถัดไป »</a>
 </div>
 <div class="footer">© 2026 www.A-Odds.com</div>
 <div class="statwrap"><div id="stat-counter" style="
