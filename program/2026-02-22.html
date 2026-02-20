@@ -447,6 +447,58 @@ body{
   transition:.2s;
 }
 #backToTop:hover{transform:translateY(-2px); background:#3f63ff;}
+
+
+/* =========================
+   MOBILE-ONLY NAV LAYOUT FIX (<=600px)
+   A) NAV TOP: move description to full-width row above buttons
+   B) NAV BOTTOM: move Home to full-width row above buttons
+   C) Hide breadcrumb & sitelink-center on mobile only
+   ========================= */
+@media (max-width:600px){
+  /* A. NAV TOP */
+  .nav-date-row{
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .nav-date-row .desc-box.inline-desc{
+    order:-1;               /* put desc on first row */
+    flex:0 0 100%;          /* full width */
+    white-space:normal;     /* allow wrap on mobile */
+    overflow:visible;
+    text-overflow:clip;
+  }
+  .nav-date-row .navlink{
+    flex:0 0 auto;
+    min-width:0;
+  }
+  .nav-date-row .navlink:last-child{
+    margin-left:auto;       /* push Next to the right */
+  }
+
+  /* C. hide breadcrumb + sitelink-center */
+  .breadcrumb-row .breadcrumb{display:none !important;}
+  .breadcrumb-row .sitelink-center{display:none !important;}
+
+  /* B. NAV BOTTOM */
+  .navbar{
+    max-width:980px;
+    margin:6px auto 0;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+  }
+  .navbar .navlink:nth-child(2){
+    order:-1;               /* Home to the first row */
+    flex:0 0 100%;          /* full width */
+    display:block;
+  }
+  .navbar .navlink:nth-child(3){
+    margin-left:auto;       /* push Next to the right */
+  }
+}
+
 </style>
 </head>
 <body>
