@@ -286,13 +286,37 @@ body{
 .dl-btn:hover{color:#5b7cfa; transform:translateY(-1px);}
 
 /* table */
-.sub-extra{width:100%;text-align:left;}
+.sub-extra{ width:100%; overflow:hidden; }  /* กันล้นในกรอบ */
 .sub-extra table{
   width:100%;
   margin:0 auto;
   border-collapse:collapse;
-  table-layout:fixed;
+  table-layout:fixed;     /* กลับมา fixed = ไม่ล้นขวา */
 }
+
+/* คุมความกว้างให้ A และ E กว้างขึ้น */
+.sub-extra th:nth-child(1), .sub-extra td:nth-child(1),
+.sub-extra th:nth-child(5), .sub-extra td:nth-child(5){
+  width:24%;
+}
+
+/* ลด B C D F ให้พอดีกับตัวเลข */
+.sub-extra th:nth-child(2), .sub-extra td:nth-child(2),
+.sub-extra th:nth-child(3), .sub-extra td:nth-child(3),
+.sub-extra th:nth-child(4), .sub-extra td:nth-child(4){
+  width:13%;
+}
+.sub-extra th:nth-child(6), .sub-extra td:nth-child(6){
+  width:13%;
+}
+
+/* กันข้อความดันตาราง + ให้ตัดแบบเนียน */
+.sub-extra th, .sub-extra td{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
 .sub-extra th,
 .sub-extra td{
   white-space:nowrap;
